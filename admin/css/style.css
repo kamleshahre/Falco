@@ -1,0 +1,320 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remove textarea resize at Safari */
+textarea { 
+	resize: none;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+body {margin:0;padding:0; background-color: #F2F2F2; }
+h1,h2,p,img {border:0;margin:0;padding:0;}
+ol, ul {list-style: none;}
+body {text-align: center;}
+.clear {clear: both;}
+
+.containerholder {
+	margin:0 auto;
+	width:985px; 
+	text-align: center;
+	position: relative;
+	
+	
+	}
+	
+.container {
+width:1010px;
+position: relative;
+height: 100%;
+}
+
+#mainNav {
+    background: url("../img/top-menu-bg.gif") no-repeat scroll left top transparent;
+    margin: 0 0 0;
+    padding: 0;
+    border:1px solid #D5D5D5;
+    margin-top:4px;
+
+}
+
+#mainNav img {
+margin-left:5px;
+}
+
+#mainNav li {
+	height: 37px;
+	text-align: left;
+
+}
+
+#mainNav li a {
+	display: block;
+	
+	height: 37px;
+	font-weight: bold;
+	line-height: 37px;
+	text-decoration: none;
+	color: #646464;
+	
+	background: url("img/top-menu-item-bg.gif") repeat-x scroll left top #F0F0F0;
+	width: 258px;
+}
+
+#mainNav li.logout {
+	float: right;
+	border-left: 1px solid #ddd;
+	border-right: none;
+}
+
+#mainNav li a:hover { background: #fdfcf6; }
+
+#mainNav li a.active, #mainNav li a.active {
+	background: #f0f0f0 url(img/top-menu-item-bg.gif) repeat-x left top;
+	color: #454545;
+}
+
+#icons {
+width:500px;
+position: relative;
+float: left;
+}
+
+#icons li {
+display: inline;
+}
+#icons img {
+display: inline;
+position: relative;
+border: 2px solid #EEEEEE;
+padding: 3px;
+}
+
+.homeicons {
+text-align: left !important;
+width: 900px;
+}
+
+.pages {
+    float: left;
+    position: relative;
+    text-align: left;
+    width: 690px;
+}
+
+.pagesbg {
+background-color: #F6F6F6;
+border-bottom:1px solid #DDDDDD;
+font-family: Trebuchet MS;
+font-size:18px;
+width: 690px;
+float: left;
+height: 60px;
+}
+
+.subpagesbg {
+background-color: #FBFBFB;
+border-bottom:1px solid #DDDDDD;
+font-family: Trebuchet MS;
+font-size:18px;
+width: 690px;
+float: left;
+height: 60px;
+}
+
+.newpage {
+    background: url("img/top-menu-item-bg.gif") repeat-x scroll left bottom #F0F0F0;
+    border: 1px solid #DDDDDD;
+    float: left;
+    font-family: Trebuchet MS;
+    font-size: 18px;
+    height: 32px;
+    padding-top: 6px;
+    text-align: center;
+    width: 688px;
+}
+
+.newpage a {
+ text-decoration: none;
+ color: #000000;
+ font-family: Trebuchet MS;
+ font-size: 18px; 
+ position: relative;
+ top:5px;
+ }
+
+#rightsidetop {
+border:1px solid #d5d5d5;
+border-top:0;
+position:relative;
+float:right;
+padding:4px;
+background-color:#FFFFFF;
+margin-bottom:4px;
+width: 690px
+}
+
+.infotop {
+width:690px;
+text-align:left;
+}
+
+.infotop h2 {
+color:#000000;
+font-family: Trebuchet MS;
+font-size:18px;
+margin:10px 0 0 10px;
+}
+
+.infotop p {
+margin:0px 0 0 10px;
+}
+
+#rightside {
+border:1px solid #d5d5d5;
+position:relative;
+float:right;
+padding:4px;
+background-color:#FFFFFF;
+
+}
+
+#leftside {
+position: relative;
+float: left;
+border: 1px solid #d5d5d5;
+width:260px;
+padding:4px;
+background-color:#FFFFFF;
+border-top:0px;
+padding-top:0;
+height: 100%;
+
+}
+
+.button { position: relative; float: left;margin-left:48px;margin-bottom:10px;}
+
+div.button #submiti {
+    background: url("../images/submit.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    float: right;
+    height: 29px;
+    padding: 0;
+    width: 96px;
+}
+
+.navi {
+float: left;
+left: 8px;
+position: relative;
+top: 23px;
+}
+
+.ics {
+position: relative;
+float: right;
+margin: 5px;
+}
+
+.open {
+position: relative;
+float: left;
+margin: 16px;
+}
+
+.greybg {background-color: #F6F6F6;}
+.greyfont {color: #646464;}
+
+.logo {
+display: block;
+background: url("img/admin-logo.jpg") no-repeat center #FFFFFF;
+width: 258px;
+height: 150px;
+border: 1px solid #D5D5D5;
+border-top:0;
+}
+
+.rightLinksTop {
+float: right;
+}
+
+
+.article {
+    border: 1px solid grey;
+    float: left;
+    height: 165px;
+    margin: 10px 19px;
+    position: relative;
+    width: 190px;
+    background-color:#FFFFF0;
+    overflow:hidden;
+}
+
+.article h1 {
+    border-bottom: 1px solid #D5D5D5;
+    margin-top: 3px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+}
+
+.rightLinksTop a:link, a:visited {
+color:#5F95EF;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~e-mail page~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+div.toggler       { border:1px solid #ccc; background:url(gmail2.jpg) 10px 12px #eee no-repeat; cursor:pointer; padding:10px 32px; }
+div.toggler .subject  { font-weight:bold; }
+div.read          { color:#666; }
+div.toggler .from, div.toggler .date { font-style:italic; font-size:11px; }
+div.body          { padding:10px 20px; }
+#content-left { width: 690px; text-align: left;}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~blog~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.blogTXT {
+    height: 97px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+}
