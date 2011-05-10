@@ -20,8 +20,8 @@ if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login to access the secret files!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Sistemi Administrues Falco</title>
 <link rel="stylesheet" type="text/css" href="css/default.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
@@ -32,17 +32,17 @@ if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
 	<form method="post" action="">
     	<h2>Login <small>enter your credentials</small></h2>
         <p>
-        	<label for="name">Username: </label>
+        	<label for="name">Pseudonimi: </label>
             <input type="text" name="username" />
         </p>
         
         <p>
-        	<label for="pwd">Password: </label>
-            <input type="password" name="pwd" />
+        	<label for="pwd">Fjalëkalimi: </label>
+            <input type="password" name="pwd" class="PassMar" />
         </p>
         
         <p>
-        	<input type="submit" id="submit" value="Login" name="submit" />
+        	<input type="submit" id="submit" value="Hyrja në sistem" name="submit" />
         </p>
     </form>
     <?php if(isset($response)) echo "<h4 class='alert'>" . $response . "</h4>"; ?>

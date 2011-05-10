@@ -13,7 +13,7 @@ position: absolute;
 left: 50%;
 margin-left: -352px;
 top: 50%;
-margin-top: -165px;
+margin-top: -265px;
 -moz-border-radius-bottomright: 30px;
 -webkit-border-bottom-right-radius: 30px;
 _height: 100%; /* IE FIX */
@@ -94,4 +94,8 @@ line-height: 14px;
 	cursor: pointer;
 border-left: 1px dotted white;
 border-bottom: 1px dotted white;
+}
+
+.PassMar {
+margin-left:12px;
 }

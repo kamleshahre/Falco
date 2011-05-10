@@ -11,7 +11,7 @@ class Membership {
 		if($ensure_credentials) {
 			$_SESSION['status'] = 'authorized';
 			header("location: index.php");
-		} else return "Please enter a correct username and password";
+		} else return "Ju lutem shënoni Pseudonim dhe fjalëkalim të saktë!";
 		
 	} 
 	

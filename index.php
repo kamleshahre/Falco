@@ -10,8 +10,7 @@ $membership->confirm_Member();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <link rel="stylesheet" href="css/default.css" />
 
 <!--[if lt IE 7]>
@@ -29,9 +28,9 @@ $membership->confirm_Member();
 
 <div id="container">
 	<p>
-    	You've reached the page that stores all of the secret 	launch codes!
+    	Këtu vijon sistemi!
     </p>
-    <a href="login.php?status=loggedout">Log Out</a>
+    <a href="login.php?status=loggedout">Çlajmërohu</a>
 </div><!--end container-->
 
 </body>
