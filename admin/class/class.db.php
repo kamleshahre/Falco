@@ -63,7 +63,7 @@ class MySQL
       $this->db_con = @mysql_pconnect($db_host, $db_user, $db_pass);
     else
       $this->db_con = @mysql_connect($db_host, $db_user, $db_pass);
-		mysql_set_charset('utf8',$this->db_con); //TODO I made this so the connection will be utf8 to show german characters
+//		mysql_set_charset('utf8',$this->db_con); //TODO I made this so the connection will be utf8 to show german characters
     # So did we connect? o-O
     if(!$this->db_con)
       return false;
