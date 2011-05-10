@@ -18,7 +18,7 @@ $membership->confirm_Member();
 <![endif]-->
 
 
-<title>Untitled Document</title>
+<title><?php echo WEB_NAME;?> | Paneli administrues</title>
 
 
 
