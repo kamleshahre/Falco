@@ -12,6 +12,8 @@ return '
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/calendar.css">
+<script language="JavaScript" src="js/calendar_us.js"></script>
 <title>'.WEB_NAME.' | Paneli administrues</title>
 </head>
 <body>
@@ -36,7 +38,7 @@ return '
 <div id="leftside">
 	<a  class="menu_links" href="index.php?menu=rezervimet"><p class="menus">Rezervimet</p></a>
 	<a class="menu_links" href="index.php?menu=agjentet"><p class="menus">Agjentët</p></a>
-	<a class="menu_links" href="#"><p class="menus">Destinacionet</p></a>
+	<a class="menu_links" href="index.php?menu=destinacionet"><p class="menus">Destinacionet</p></a>
 </div><!-- endof leftside -->
 ';
 	

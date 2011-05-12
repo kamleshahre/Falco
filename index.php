@@ -12,6 +12,7 @@ require_once 'classes/controller.php';
 $control = new controller();
 
 $page = $_GET['menu'];
+$subpage = $_GET['submenu'];
 
 echo $design->header();
 echo $design->LeftSide();
