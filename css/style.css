@@ -1,0 +1,100 @@
+html, body {
+font-family: helvetica, arial, sans-serif;
+margin: 0;
+padding: 0;
+background:url("images/header_bg.jpg") repeat-x;
+}
+
+#wrapper {
+width: 1010px;
+height: 500px;
+margin:0;
+padding:0;
+float: left;
+}
+
+#header {
+height: 198px;
+width: 100%;
+}
+
+.shutdown {
+float: left;
+border: 0;
+margin-right: 10px;
+margin-top: 10px;
+}
+
+.Welcome {
+float: left;
+border: 0;
+margin-right: 10px;
+margin-top: 16px;
+font-family: Arial, serif, inherit;
+font-size: 14px;
+color: #929090;
+}
+
+.logoWrapper {
+width:300px;
+float:left;
+}
+
+
+.logo {
+margin:20px 0 0 30px;
+float: left;
+}
+.slogan {
+font-size:16px;
+color: #929090;
+float: left;
+margin-left: 33px;
+margin-top: 0;
+}
+
+.RightSettingsWrapper {
+float: right;
+min-width: 156px;
+}
+
+
+#leftside {
+width: 200px;
+height: 100%;
+background-color: #f5f5f5;
+float:left;
+}
+
+.menu_header {
+width: 199px;
+height: 42px;
+color:#000000;
+border-bottom:1px solid #CECECE;
+float:left;
+}
+
+.menus {
+margin-left:10px;
+margin-top:0;
+margin-top:10px;
+}
+.menu_links {
+width: 199px;
+height: 42px;
+color:#000000;
+border-bottom:1px solid #CECECE;
+float:left;
+text-decoration: none;
+}
+a.menu_links:hover {background-color: #FFFFFF; text-decoration: none;}
+a.menu_links:link, visited {background-color: #f5f5f5; text-decoration: none;}
+a.menu_links:active {background-color: #f5f5f5; text-decoration: none;}
+
+
+
+#rightside {
+border:1px dotted;
+float:left;
+width: 808px;
+}

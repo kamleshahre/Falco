@@ -10,6 +10,7 @@ class Membership {
 		
 		if($ensure_credentials) {
 			$_SESSION['status'] = 'authorized';
+			$_SESSION['username'] = $un;
 			header("location: index.php");
 		} else return "Ju lutem shënoni Pseudonim dhe fjalëkalim të saktë!";
 		
