@@ -13,6 +13,7 @@ $control = new controller();
 
 $page = $_GET['menu'];
 $subpage = $_GET['submenu'];
+$act = $_GET['action'];
 
 echo $design->header();
 echo $design->LeftSide();

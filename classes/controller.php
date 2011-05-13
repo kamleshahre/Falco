@@ -46,15 +46,18 @@ global $subpage;
 class Modelet {
 
 function rezervo() {
-return '
-<form action="" method="post">
+if (isset($_POST['rezervo'])) {
+	return $_POST['Prej'];
+} else {
+	return '
+<form action="index.php?menu=rezervimet&submenu=rezervo" method="post">
 <table width="605" cellspacing="5" cellpadding="0" border="0">
 <tr>
 	<td width="100">
 		Prej:
 	</td>
 	<td>
-		<select class="selectDest">
+		<select class="selectDest" name="Prej">
 			<option>Tetovo</option>
 			<option>Gostivar</option>
 		</select>
@@ -171,7 +174,7 @@ return '
 	</td>
 	
 	<td>
-	<input style="float:right;" type="submit" value="rezervo" />
+	<input style="float:right;" type="submit" value="rezervo" name="rezervo" />
 	</td>
 </tr>
 </table>
@@ -179,7 +182,8 @@ return '
 
 
 </form><!-- end of the reservation form-->
-';	
+';
+} 	
 	
 }	
 	
