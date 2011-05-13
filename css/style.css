@@ -94,11 +94,14 @@ a.menu_links:active {background-color: #f5f5f5; text-decoration: none;}
 
 
 #rightside {
-border:1px dotted;
 float:left;
 width: 808px;
 }
 
 .selectDest {
 width: 150px;
+}
+
+#Formulari {
+margin:10px;
 }

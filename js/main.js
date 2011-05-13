@@ -6,3 +6,5 @@ $(function() {
 		$(this).parent('h4.alert').fadeOut('slow');						   
 	});
 });
+
+

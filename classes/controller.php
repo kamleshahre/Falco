@@ -27,7 +27,7 @@ function rezervimet_switcher() {
 global $subpage;
 	switch ($subpage) {
 		case 'rezervo':
-		return Modelet::rezervo();
+		return '<div id="Formulari">'.Modelet::rezervo().'</div>';
 		break;
 		
 		case 'lista':
@@ -48,106 +48,136 @@ class Modelet {
 function rezervo() {
 return '
 <form action="" method="post">
-<table width="100%" cellspacing="0" cellpadding="0" border="0">
-<tr>
-	<td width="40">
-		Prej:
-	</td>
-	<td>
-		<select class="selectDest">
-			<option>Tetovo</option>
-			<option>Gostivar</option>
-		</select>
-	</td>
-</tr>
-
-<tr>
-	<td width="40">
-		Deri:
-	</td>
-	<td>
-		<select class="selectDest">
-			<option>Stuttgart</option>
-			<option>Berlin</option>
-		</select>
-	</td>
-</tr>
-
-<tr>
-	<td width="40">
-		Prej:
-	</td>
-	<td>
-		<select class="selectDest">
-			<option>Tetovo</option>
-			<option>Gostivar</option>
-		</select>
-	</td>
-</tr>
-
-<tr>
-	<td width="40">
-		Deri:
-	</td>
-	<td>
-		<select class="selectDest">
-			<option>Stuttgart</option>
-			<option>Berlin</option>
-		</select>
-	</td>
-</tr>
-</table>
-<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<table width="605" cellspacing="5" cellpadding="0" border="0">
 <tr>
 	<td width="100">
-		<input type="radio" id="1drejtim">
+		Prej:
+	</td>
+	<td>
+		<select class="selectDest">
+			<option>Tetovo</option>
+			<option>Gostivar</option>
+		</select>
+	</td>
+	
+	<td width="100">
+		Prej:
+	</td>
+	<td>
+		<select class="selectDest">
+			<option>Stuttgart</option>
+			<option>Berlin</option>
+		</select>
+	</td>
+</tr>
+
+<tr>
+	<td width="80">
+		Deri:
+	</td>
+	<td>
+		<select class="selectDest">
+			<option>Stuttgart</option>
+			<option>Berlin</option>
+		</select>
+	</td>
+
+	<td width="40">
+		Deri:
+	</td>
+	<td>
+		<select class="selectDest">
+			<option>Tetovo</option>
+			<option>Gostivar</option>
+		</select>
+	</td>
+</tr>
+
+<tr>
+
+	<td>
+			<form name="Data1Drejtim">
+			<label for="data1drejtim">Data e nisjes:</label>
+	</td>
+		<td>
+			
+			<input type="text" id="data1drejtim" name="data1drejtim">
+				<script language="JavaScript">
+
+				
+	// whole calendar template can be redefined per individual calendar
+	var A_CALTPL = {
+		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
+		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
+		\'yearscroll\': true,
+		\'weekstart\': 0,
+		\'centyear\'  : 70,
+		\'imgpath\' : \'images/\'
+	}
+	
+	new tcal ({
+		// if referenced by ID then form name is not required
+		\'controlname\': \'data1drejtim\'
+	}, A_CALTPL);
+	</script>
+				
+			</form>
+	</td>
+		
+	<!--      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~            -->
+	
+	<td>
+		<form name="DataKthyese">
+		<label for="dataKthyese">Data kthyese:</label>
+	</td>		
+	<td>
+					
+			<input type="text" id="dataKthyese" name="dataKthyese">
+				<script language="JavaScript">
+
+				
+	// whole calendar template can be redefined per individual calendar
+	var A_CALTPL = {
+		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
+		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
+		\'yearscroll\': true,
+		\'weekstart\': 0,
+		\'centyear\'  : 70,
+		\'imgpath\' : \'images/\'
+	}
+	
+	new tcal ({
+		// if referenced by ID then form name is not required
+		\'controlname\': \'dataKthyese\'
+	}, A_CALTPL);
+	</script>
+			</form>
+		</td>
+		
+	</tr>
+</table>
+
+
+<table width="585" cellspacing="0" cellpadding="3" border="0">
+<tr>
+	<td width="100">
+		<input type="radio" id="1drejtim" name="drejtimi" checked value="1drejtim">
 		<label for="1drejtim">Nje drejtim</label>
 	</td>
 
 	<td >
-		<input type="radio" id="kthyese">
+		<input type="radio" id="kthyese" name="drejtimi" value="kthyese">
 		<label for="1drejtim">Kthyese</label>
 	</td>
-</tr>
-
-</table>
-
-<table width="100%" cellspacing="0" cellpadding="0" border="0">
-	<tr>
-		<td>
-			<form name="Data1Drejtim">
-			<label for="data1drejtim">Data e nisjes:</label>
-			<input type="text" id="data1drejtim" name="data1drejtim">
-				<script language="JavaScript">
-				new tcal ({
-				// form name
-				\'formname\': \'Data1Drejtim\',
-				// input name
-				\'controlname\': \'data1drejtim\'
-					});
-				</script>
-			</form>
-		</td>
-	</tr>
 	
-	<tr>
-		<td>
-			<form name="DataKthyese">
-			<label for="dataKthyese">Data kthyese:</label>		
-			<input type="text" id="dataPrej" name="dataPrej">
-				<script language="JavaScript">
-				new tcal ({
-				// form name
-				\'formname\': \'DataKthyese\',
-				// input name
-				\'controlname\': \'dataPrej\'
-					});
-				</script>
-			</form>
-		</td>
-	</tr>
+	<td>
+	<input style="float:right;" type="submit" value="rezervo" />
+	</td>
+</tr>
 </table>
-<input style="margin-left:200px;margin-top:10px;" type="submit" value="rezervo" />
+
+
+
 </form><!-- end of the reservation form-->
 ';	
 	
