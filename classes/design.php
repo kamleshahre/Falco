@@ -13,7 +13,12 @@ return '
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/calendar.css">
-<script language="JavaScript" src="js/calendar_us.js"></script>
+<script language="JavaScript" src="js/calendar_db.js"></script>
+<script language="javascript">
+function toggleVisibility(id,visible) {
+    document.getElementById(id).style.visibility=(visible)?"visible":"hidden";
+}
+</script>
 <title>'.WEB_NAME.' | Paneli administrues</title>
 </head>
 <body>

@@ -47,11 +47,25 @@ class Modelet {
 
 function rezervo() {
 if (isset($_POST['rezervo'])) {
-	return $_POST['Prej'];
+
+// Variables that come from the Reservations form
+$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
+$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
+$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
+$drejtimi =	$_POST['drejtimi'];
+
+echo $prej.'<br />';
+echo $deri.'<br />';
+echo $data.'<br />';
+echo $drejtimi.'<br /><br />';
+
+
+
+	
 } else {
 	return '
 <form action="index.php?menu=rezervimet&submenu=rezervo" method="post">
-<table width="605" cellspacing="5" cellpadding="0" border="0">
+<table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;">
 <tr>
 	<td width="100">
 		Prej:
@@ -63,41 +77,19 @@ if (isset($_POST['rezervo'])) {
 		</select>
 	</td>
 	
-	<td width="100">
-		Prej:
-	</td>
-	<td>
-		<select class="selectDest">
-			<option>Stuttgart</option>
-			<option>Berlin</option>
-		</select>
-	</td>
 </tr>
-
 <tr>
 	<td width="80">
 		Deri:
 	</td>
 	<td>
-		<select class="selectDest">
+		<select class="selectDest" name="Deri">
 			<option>Stuttgart</option>
 			<option>Berlin</option>
 		</select>
 	</td>
-
-	<td width="40">
-		Deri:
-	</td>
-	<td>
-		<select class="selectDest">
-			<option>Tetovo</option>
-			<option>Gostivar</option>
-		</select>
-	</td>
 </tr>
-
 <tr>
-
 	<td>
 			<form name="Data1Drejtim">
 			<label for="data1drejtim">Data e nisjes:</label>
@@ -127,14 +119,41 @@ if (isset($_POST['rezervo'])) {
 			</form>
 	</td>
 		
-	<!--      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~            -->
-	
+	</tr>
+</table>
+
+<!-- ___________________Return table_____________________________________ -->
+<table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;" id="hideThis" >
+<tr>
+	<td width="100">
+		Prej:
+	</td>
+	<td>
+		<select class="selectDest" name="KthyesePrej" >
+			<option>Stuttgart</option>
+			<option>Berlin</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td width="40">
+		Deri:
+	</td>
+	<td>
+		<select class="selectDest" name="KthyeseDeri" id="hideThis2">
+			<option>Tetovo</option>
+			<option>Gostivar</option>
+		</select>
+	</td>
+
+<tr>
 	<td>
 		<form name="DataKthyese">
 		<label for="dataKthyese">Data kthyese:</label>
 	</td>		
+
 	<td>
-					
+			
 			<input type="text" id="dataKthyese" name="dataKthyese">
 				<script language="JavaScript">
 
@@ -156,20 +175,19 @@ if (isset($_POST['rezervo'])) {
 	</script>
 			</form>
 		</td>
-		
-	</tr>
+
+</tr>
 </table>
 
-
-<table width="585" cellspacing="0" cellpadding="3" border="0">
+<table width="585" cellspacing="0" cellpadding="3" border="0 " style="float:left;">
 <tr>
 	<td width="100">
-		<input type="radio" id="1drejtim" name="drejtimi" checked value="1drejtim">
-		<label for="1drejtim">Nje drejtim</label>
+		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
+		<label for="1drejtim">Një drejtim</label>
 	</td>
 
 	<td >
-		<input type="radio" id="kthyese" name="drejtimi" value="kthyese">
+		<input type="radio" id="kthyese" name="drejtimi" checked="checked" value="kthyese"  onclick="toggleVisibility(\'hideThis\',1)">
 		<label for="1drejtim">Kthyese</label>
 	</td>
 	
@@ -178,6 +196,8 @@ if (isset($_POST['rezervo'])) {
 	</td>
 </tr>
 </table>
+
+
 
 
 
