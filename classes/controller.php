@@ -55,6 +55,7 @@ function directions($direction) {
 }
 
 function rezervo() {
+	global $db;
 if (isset($_POST['rezervo'])) {
 
 // Variables that come from the Reservations form
@@ -62,17 +63,14 @@ $prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
 $deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
 $data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
 $drejtimi =	$_POST['drejtimi'];
+$db->query("INSERT INTO orders (prej,deri,date,cost) VALUES ('$prej','$deri','$data','100')") or die(mysql_error());
 
-echo '<form action="GeneratePDF.php" method="post">';
 echo 'A jeni të sigurtë që të dhënat e plotësuara janë të sakta?<br />';
 echo 'Prej: '.$prej.'<br />';
 echo 'Deri: '.$deri.'<br />';
 echo 'Data: '.$data.'<br />';
 echo 'Drejtimi: '.$drejtimi.'<br /><br />';
-echo '<a href="index.php?menu=rezervimet&submenu=rezervo"></a>
-<input style="float:right;" type="submit" value="PO" name="PO" />
-</form>
-';	
+
 }else {
 	return '
 	

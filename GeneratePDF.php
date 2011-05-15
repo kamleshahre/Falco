@@ -7,7 +7,7 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Shpetim Islami');
+$pdf->SetAuthor('Falco System');
 $pdf->SetTitle('Llogaria');
 $pdf->SetSubject('Llogaria');
 
