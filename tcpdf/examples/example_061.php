@@ -93,6 +93,7 @@ $image = $pdf->Image("../images/logo.png", 15, 10, 60, 20, 'PNG', '', '', true, 
 $html = <<<EOF
 <!-- EXAMPLE OF CSS STYLE -->
 <style>
+
 	h1 {
 		color: navy;
 		font-family: times;
@@ -124,7 +125,7 @@ $html = <<<EOF
 		background-color: #FFFFFF;
 	}
 	td {
-	border: 3px solid grey;	
+	border: 1px solid #BFBFBF;	
 	background-color: #FFFFFF;
 	}
 	div.test {
@@ -138,13 +139,23 @@ $html = <<<EOF
 		text-align: center;
 	}
 	td.Addressa {
-		border:3px solid #FFFFFF;
+		border:1px solid #FFFFFF;
 		text-align:right;
 	}
 	td.logo {
-		border:3px solid #FFFFFF;
+		border:1px solid #FFFFFF;
 	}
-	
+	.bolder {
+		font-weight:bold;
+	}
+	.hide {
+	border-left:3px solid #FFFFFF;
+	border-bottom:3px solid #FFFFFF;
+	}
+	.kuq {
+	background-color: red;
+	color:#FFFFFF;
+	}
 </style>
 
 <br/><br/>
@@ -153,8 +164,10 @@ $html = <<<EOF
 	<td height="50" class="logo">$image</td>
 	<td class="Addressa">
 		Falco system<br/>
-		Tetove<br/>
-		000 - 000 000
+		123 Rruga<br/>
+		Tetove, MKD<br/>
+		000 - 000 000<br/>
+		email@firma.com
 	</td>
 </tr>
 </table>
@@ -163,10 +176,10 @@ $html = <<<EOF
 <br />
 
 <table class="first" cellpadding="4" cellspacing="0">
-<tr>
-	<td>Pasagjeri</td>
-	<td>Prej</td>
-	<td>Deri</td>
+<tr class="bolder">
+	<td class="kuq">Pasagjeri</td>
+	<td class="kuq">Prej</td>
+	<td class="kuq">Deri</td>
 </tr>
 <tr>
 	<td>Shpetim Islami</td>
@@ -174,15 +187,27 @@ $html = <<<EOF
 	<td>Berlin</td>
 </tr>
 </table>
+<table cellpadding="4" cellspacing="0" >
+
+<tr>
+	<td class="hide" width="345"></td>
+	<td class="bolder" width="80">&Ccedil;mimi</td>
+	<td >$ 100.00</td>
+</tr>
+</table>
 
 <p id="second">
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tellus quam, consequat et rutrum a, 
-varius sed dui. Proin posuere arcu et est consequat eget ultricies erat dictum. Proin interdum posuere purus,<br /> 
-- nec lacinia dolor accumsan nec. Donec posuere, eros at dignissim feugiat, enim enim adipiscing nulla, quis lacinia nulla
-sem sit amet neque. Cras faucibus imperdiet lectus sagittis viverra. Praesent diam magna, ultricies at bibendum in,<br />
-- tincidunt eget ipsum. Nam accumsan mauris a risus malesuada euismod nec congue felis. Maecenas egestas ipsum a mi fermentum at
-tempor massa sagittis. Phasellus non dolor lacinia est laoreet porttitor. Duis nec eleifend neque. Duis non quam ac erat
-ultricies bibendum. Morbi imperdiet eros sed turpis auctor tempus.</p>
+	Ju falemenderojme qe keni zgjedhur te udhetoni me agjensionin tonde, ju deshirojme nje rruge te mbare!
+</p>
+
+<p id="second">
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porta nisl at dui semper ut semper lectus volutpat. 
+Integer sollicitudin cursus mi et fermentum. Pellentesque in sem id felis commodo auctor. Nulla fringilla dui ac odio
+ iaculis vel posuere eros dignissim. Donec nulla odio, pretium vitae consectetur sit amet, hendrerit interdum mauris.<br/> 
+- Proin tincidunt consectetur nisi vel pellentesque. Ut ac felis quis lorem porttitor convallis at in diam. Sed molestie, 
+ sem at molestie posuere, nibh justo auctor nunc, eu posuere sem purus eget ipsum. In auctor gravida vulputate. Aenean in<br/> 
+- sapien purus, non ornare tortor. Cras nec risus lacus. Integer dictum sodales bibendum. 
+</p>
 
 EOF;
 
