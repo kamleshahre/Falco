@@ -54,13 +54,13 @@ $deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
 $data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
 $drejtimi =	$_POST['drejtimi'];
 
-echo $prej.'<br />';
-echo $deri.'<br />';
-echo $data.'<br />';
-echo $drejtimi.'<br /><br />';
-
-
-
+echo 'A jeni të sigurtë që të dhënat e plotësuara janë të sakta?<br />';
+echo 'Prej: '.$prej.'<br />';
+echo 'Deri: '.$deri.'<br />';
+echo 'Data: '.$data.'<br />';
+echo 'Drejtimi: '.$drejtimi.'<br /><br />';
+	;
+	
 	
 } else {
 	return '
@@ -192,22 +192,15 @@ echo $drejtimi.'<br /><br />';
 	</td>
 	
 	<td>
-	<input style="float:right;" type="submit" value="rezervo" name="rezervo" />
+	<input style="float:right;" type="submit" value="Rezervo" name="rezervo" />
 	</td>
 </tr>
 </table>
-
-
-
-
-
 </form><!-- end of the reservation form-->
 ';
-} 	
+	} 	
 	
 }	
-	
-	
 	
 }//endof Modelet
 
