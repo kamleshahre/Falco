@@ -5,7 +5,7 @@ require 'Mysql.php';
 class Membership {
 	
 	function validate_user($un, $pwd) {
-		$mysql = New Mysql();
+		$mysql = New Mysql2();
 		$ensure_credentials = $mysql->verify_Username_and_Pass($un, md5($pwd));
 		
 		if($ensure_credentials) {

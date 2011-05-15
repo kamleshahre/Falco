@@ -11,6 +11,9 @@ $design = new HTML();
 require_once 'classes/controller.php';
 $control = new controller();
 
+require_once 'classes/class.db.php';
+$db = new MySQL(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, false);
+
 $page = $_GET['menu'];
 $subpage = $_GET['submenu'];
 $act = $_GET['action'];

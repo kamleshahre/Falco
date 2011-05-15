@@ -2,7 +2,7 @@
  
  require_once 'includes/constants.php';
  
- class Mysql {
+ class Mysql2 {
  	private $conn;
  	
  	function __construct() {
@@ -28,4 +28,7 @@
  		}
  		
  	}
+ 	
+ 	
+ 	
  }

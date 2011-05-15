@@ -1,6 +1,6 @@
 <?php
 class controller {
-
+	
 function menu_switcher() {
 global $page;	
 	switch ($page) {
@@ -44,6 +44,15 @@ global $subpage;
 }//endof controller
 
 class Modelet {
+	
+function directions($direction) {
+	global $db;
+	$query = $db->query("SELECT * FROM destinations WHERE direction = $direction");
+	while($row = mysql_fetch_array($query)){
+	$city .= '<option>'.$row['name'].'</option>';
+	}
+	return $city;
+}
 
 function rezervo() {
 if (isset($_POST['rezervo'])) {
@@ -54,16 +63,20 @@ $deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
 $data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
 $drejtimi =	$_POST['drejtimi'];
 
+echo '<form action="GeneratePDF.php" method="post">';
 echo 'A jeni të sigurtë që të dhënat e plotësuara janë të sakta?<br />';
 echo 'Prej: '.$prej.'<br />';
 echo 'Deri: '.$deri.'<br />';
 echo 'Data: '.$data.'<br />';
 echo 'Drejtimi: '.$drejtimi.'<br /><br />';
-	;
-	
-	
-} else {
+echo '<a href="index.php?menu=rezervimet&submenu=rezervo"></a>
+<input style="float:right;" type="submit" value="PO" name="PO" />
+</form>
+';	
+}else {
 	return '
+	
+	
 <form action="index.php?menu=rezervimet&submenu=rezervo" method="post">
 <table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;">
 <tr>
@@ -72,8 +85,7 @@ echo 'Drejtimi: '.$drejtimi.'<br /><br />';
 	</td>
 	<td>
 		<select class="selectDest" name="Prej">
-			<option>Tetovo</option>
-			<option>Gostivar</option>
+			'.Modelet::directions(1).'
 		</select>
 	</td>
 	
@@ -84,8 +96,7 @@ echo 'Drejtimi: '.$drejtimi.'<br /><br />';
 	</td>
 	<td>
 		<select class="selectDest" name="Deri">
-			<option>Stuttgart</option>
-			<option>Berlin</option>
+			'.Modelet::directions(2).'
 		</select>
 	</td>
 </tr>
@@ -130,8 +141,7 @@ echo 'Drejtimi: '.$drejtimi.'<br /><br />';
 	</td>
 	<td>
 		<select class="selectDest" name="KthyesePrej" >
-			<option>Stuttgart</option>
-			<option>Berlin</option>
+				'.Modelet::directions(2).'
 		</select>
 	</td>
 </tr>
@@ -141,8 +151,7 @@ echo 'Drejtimi: '.$drejtimi.'<br /><br />';
 	</td>
 	<td>
 		<select class="selectDest" name="KthyeseDeri" id="hideThis2">
-			<option>Tetovo</option>
-			<option>Gostivar</option>
+			'.Modelet::directions(1).'
 		</select>
 	</td>
 

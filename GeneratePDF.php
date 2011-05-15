@@ -1,34 +1,6 @@
 <?php
-//============================================================+
-// File name   : example_061.php
-// Begin       : 2010-05-24
-// Last Update : 2010-08-08
-//
-// Description : Example 061 for TCPDF class
-//               XHTML + CSS
-//
-// Author: Shpetim Islami
-//
-// (c) Copyright:
-//               Shpetim Islami
-//               Tecnick.com s.r.l.
-//               Via Della Pace, 11
-//               09044 Quartucciu (CA)
-//               ITALY
-//               www.tecnick.com
-//               info@tecnick.com
-//============================================================+
-
-/**
- * Creates an example PDF TEST document using TCPDF
- * @package com.tecnick.tcpdf
- * @abstract TCPDF - Example: XHTML + CSS
- * @author Shpetim Islami
- * @since 2010-05-25
- */
-
-require_once('../config/lang/eng.php');
-require_once('../tcpdf.php');
+require_once('tcpdf/config/lang/eng.php');
+require_once('tcpdf/tcpdf.php');
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -83,13 +55,12 @@ $pdf->AddPage();
  * *********************************************************
  */
 
-// define some HTML content with style
-
 //set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 //set some language-dependent strings
 $pdf->setLanguageArray($l);
-$image = $pdf->Image("../images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
+$image = $pdf->Image("tcpdf/images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
+
 $html = <<<EOF
 <!-- EXAMPLE OF CSS STYLE -->
 <style>
@@ -111,10 +82,17 @@ $html = <<<EOF
 	}
 	p#second {
 		color:#000;
+		font-family: helvetica;
+		font-size: 8pt;
+		text-align: justify;
+	}
+	p#falemenderim {
+		color:#000;
 		font-family: times;
 		font-size: 12pt;
 		text-align: justify;
 	}
+	
 	p#second > span {
 		background-color: #FFFFAA;
 	}
@@ -196,7 +174,7 @@ $html = <<<EOF
 </tr>
 </table>
 
-<p id="second">
+<p id="falemenderim">
 	Ju falemenderojme qe keni zgjedhur te udhetoni me agjensionin tone, ju deshirojme nje rruge te mbare!
 </p>
 
@@ -210,6 +188,7 @@ Integer sollicitudin cursus mi et fermentum. Pellentesque in sem id felis commod
 </p>
 
 EOF;
+$mysqli->destionations();
 
 // output the HTML content
 $pdf->writeHTML($html, true, false, true, false, '');
@@ -277,7 +256,7 @@ $pdf->lastPage();
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('example_061.pdf', 'I');
+$pdf->Output('tiketa.pdf', 'I');
 
 //============================================================+
 // END OF FILE                                                
