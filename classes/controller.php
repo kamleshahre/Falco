@@ -64,21 +64,30 @@ $prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
 $deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
 $data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
 $drejtimi =	$_POST['drejtimi'];
+
 //Here we get the last cost for the reserved destination
 $result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
 $cost = mysql_fetch_array($result);
 $cmimi = $cost['cost'];
+$cmimiKthyes = $cmimi * 2;
+
 //Here we put all informations into database
+if($drejtimi = 'kthyese') {
+$db->query("INSERT INTO orders 
+				   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,cost) 
+			VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$cmimiKthyes')") or die(mysql_error());
+} else {
 $db->query("INSERT INTO orders 
 				   (name,surname,prej,deri,date,cost) 
-			VALUES ('$emri','$mbiemri','$prej','$deri','$data','$cmimi')") or die(mysql_error());
+			VALUES ('$emri','$mbiemri','$prej','$deri','$data','$cmimi')") or die(mysql_error());	
+}
 
 echo 'Ju keni rezervuar nje udhetim me keto te dhena:<br />';
 echo 'Drejtimi: '.$drejtimi.'<br />';
 echo 'Prej: '.$prej.'<br />';
 echo 'Deri: '.$deri.'<br />';
 echo 'Data: '.$data.'<br />';
-echo '&Ccedil;mimi: '.$cmimi;
+echo '&Ccedil;mimi: '.$cmimi.'<br />';
 echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
 }else {
 	return '
@@ -128,13 +137,13 @@ echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
 </tr>
 <tr>
 	<td>
+	
 			<form name="Data1Drejtim">
 			<label for="data1drejtim">Data e nisjes:</label>
 	</td>
 		<td>
-			
 			<input type="text" id="data1drejtim" name="data1drejtim">
-				<script language="JavaScript">
+			<script language="JavaScript">
 
 				
 	// whole calendar template can be redefined per individual calendar
@@ -176,14 +185,14 @@ echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
 		Deri:
 	</td>
 	<td>
-		<select class="selectDest" name="KthyeseDeri" id="hideThis2">
+		<select class="selectDest" name="KthyeseDeri">
 			'.Modelet::directions(1).'
 		</select>
 	</td>
 
 <tr>
 	<td>
-		<form name="DataKthyese">
+		<form name="dataKthyese">
 		<label for="dataKthyese">Data kthyese:</label>
 	</td>		
 

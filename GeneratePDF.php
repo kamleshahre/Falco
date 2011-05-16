@@ -1,6 +1,10 @@
 <?php
 require_once('tcpdf/config/lang/eng.php');
 require_once('tcpdf/tcpdf.php');
+require_once ('classes/class.db.php');
+require_once 'includes/constants.php';
+$db = new MySQL(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, false);
+
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -48,11 +52,12 @@ $pdf->AddPage();
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 //set some language-dependent strings
 $pdf->setLanguageArray($l);
-//$image = $pdf->Image("tcpdf/images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
-global $db;
-$result = $db->query("SELECT * FROM orders ORDER BY date DESC limit 1");
+$image = $pdf->Image("tcpdf/images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
+$result = $db->query("SELECT * FROM orders ORDER BY order_id DESC LIMIT 1;");
 $row = mysql_fetch_array($result);
-$emri = $row['name'];
+$emri = $row['name'];			$mbiemri = $row['surname'];
+$prej = $row['prej'];			$deri 	 = $row['deri'];
+$data = $row['date'];			$cmimi   = $row['cost'];
 $html = <<<EOF
 <!-- EXAMPLE OF CSS STYLE -->
 <style>
@@ -152,9 +157,9 @@ $html = <<<EOF
 	<td class="kuq">Deri</td>
 </tr>
 <tr>
-	<td>$emri Islami</td>
-	<td>Tetove</td>
-	<td>Berlin</td>
+	<td>$emri $mbiemri</td>
+	<td>$prej</td>
+	<td>$deri</td>
 </tr>
 </table>
 <table cellpadding="4" cellspacing="0" >
@@ -162,7 +167,7 @@ $html = <<<EOF
 <tr>
 	<td class="hide" width="345"></td>
 	<td class="bolder" width="80">&Ccedil;mimi</td>
-	<td >$ 100.00</td>
+	<td >$ $cmimi</td>
 </tr>
 </table>
 
@@ -187,7 +192,6 @@ $pdf->lastPage();
 
 //Close and output PDF document
 $pdf->Output('tiketa.pdf', 'I');
-require_once ('classes/class.db.php');
-$db = new MySQL(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, false);
+
 
 ?>

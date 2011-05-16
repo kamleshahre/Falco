@@ -89,7 +89,7 @@ $pdf->AddPage();
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 //set some language-dependent strings
 $pdf->setLanguageArray($l);
-$image = $pdf->Image("../images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
+$image = $pdf->Image("tcpdf/images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
 $html = <<<EOF
 <!-- EXAMPLE OF CSS STYLE -->
 <style>
