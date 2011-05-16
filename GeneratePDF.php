@@ -58,6 +58,17 @@ $row = mysql_fetch_array($result);
 $emri = $row['name'];			$mbiemri = $row['surname'];
 $prej = $row['prej'];			$deri 	 = $row['deri'];
 $data = $row['date'];			$cmimi   = $row['cost'];
+
+if (!empty($row['KthyesePrej']) && !empty($row['KthyeseDeri'])) {
+	$returned = '
+<tr>
+	<td><strong>Kthyese</strong></td>
+	<td>'.$row['KthyesePrej'].'</td>
+	<td>'.$row['KthyeseDeri'].'</td>
+</tr>';
+
+}
+
 $html = <<<EOF
 <!-- EXAMPLE OF CSS STYLE -->
 <style>
@@ -161,6 +172,9 @@ $html = <<<EOF
 	<td>$prej</td>
 	<td>$deri</td>
 </tr>
+
+$returned
+
 </table>
 <table cellpadding="4" cellspacing="0" >
 

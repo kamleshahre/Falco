@@ -72,24 +72,36 @@ $cmimi = $cost['cost'];
 $cmimiKthyes = $cmimi * 2;
 
 //Here we put all informations into database
-if($drejtimi = 'kthyese') {
-$db->query("INSERT INTO orders 
-				   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,cost) 
-			VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$cmimiKthyes')") or die(mysql_error());
-} else {
-$db->query("INSERT INTO orders 
-				   (name,surname,prej,deri,date,cost) 
-			VALUES ('$emri','$mbiemri','$prej','$deri','$data','$cmimi')") or die(mysql_error());	
+if($drejtimi == 'kthyese') {
+	$db->query("INSERT INTO orders 
+					   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,cost) 
+				VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$cmimiKthyes')") or die(mysql_error());
+	echo 'Ju keni rezervuar nje udhetim me keto te dhena:<br />';
+	echo 'Drejtimi: '.$drejtimi.'<br />';
+	echo 'Prej: '.$prej.'<br />';
+	echo 'Deri: '.$deri.'<br />';
+	echo 'Data: '.$data.'<br />';
+	echo 'Kthimi prej: '.$KthyesePrej.'<br />';
+	echo 'Kthimi deri: '.$KthyeseDeri.'<br />';
+	echo 'Data kthyese:'.$dataKthyese.'<br />';
+	echo '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
+	echo '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
+
+} elseif($drejtimi == 'një drejtim') {
+
+	$db->query("INSERT INTO orders 
+					   (name,surname,prej,deri,date,cost) 
+				VALUES ('$emri','$mbiemri','$prej','$deri','$data','$cmimi')") or die(mysql_error());	
+	echo 'Ju keni rezervuar nje udhetim me keto te dhena:<br />';
+	echo 'Drejtimi: '.$drejtimi.'<br />';
+	echo 'Prej: '.$prej.'<br />';
+	echo 'Deri: '.$deri.'<br />';
+	echo 'Data: '.$data.'<br />';
+	echo '&Ccedil;mimi: '.$cmimi.'<br />';
+	echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
 }
 
-echo 'Ju keni rezervuar nje udhetim me keto te dhena:<br />';
-echo 'Drejtimi: '.$drejtimi.'<br />';
-echo 'Prej: '.$prej.'<br />';
-echo 'Deri: '.$deri.'<br />';
-echo 'Data: '.$data.'<br />';
-echo 'Data kthyese:'.$dataKthyese.'<br />';
-echo '&Ccedil;mimi: '.$cmimi.'<br />';
-echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
+
 }else {
 	return '
 	
