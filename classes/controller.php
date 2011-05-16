@@ -63,14 +63,21 @@ $prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
 $deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
 $data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
 $drejtimi =	$_POST['drejtimi'];
-$db->query("INSERT INTO orders (prej,deri,date,cost) VALUES ('$prej','$deri','$data','100')") or die(mysql_error());
+//Here we get the last cost for the reserved destination
+$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
+$cost = mysql_fetch_array($result);
+$cmimi = $cost['cost'];
+//Here we put all informations into database
+$db->query("INSERT INTO orders 
+				   (prej,deri,date,cost) 
+			VALUES ('$prej','$deri','$data','$cmimi')") or die(mysql_error());
 
-echo 'A jeni të sigurtë që të dhënat e plotësuara janë të sakta?<br />';
+echo 'Ju keni rezervuar nje udhetim me keto te dhena:<br />';
+echo 'Drejtimi: '.$drejtimi.'<br />';
 echo 'Prej: '.$prej.'<br />';
 echo 'Deri: '.$deri.'<br />';
 echo 'Data: '.$data.'<br />';
-echo 'Drejtimi: '.$drejtimi.'<br /><br />';
-
+echo 'Cmimi: '.$cmimi;
 }else {
 	return '
 	
