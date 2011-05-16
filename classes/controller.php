@@ -87,6 +87,7 @@ echo 'Drejtimi: '.$drejtimi.'<br />';
 echo 'Prej: '.$prej.'<br />';
 echo 'Deri: '.$deri.'<br />';
 echo 'Data: '.$data.'<br />';
+echo 'Data kthyese:'.$dataKthyese.'<br />';
 echo '&Ccedil;mimi: '.$cmimi.'<br />';
 echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
 }else {
@@ -162,7 +163,6 @@ echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
 	}, A_CALTPL);
 	</script>
 				
-			</form>
 	</td>
 		
 	</tr>
@@ -192,7 +192,6 @@ echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
 
 <tr>
 	<td>
-		<form name="dataKthyese">
 		<label for="dataKthyese">Data kthyese:</label>
 	</td>		
 
