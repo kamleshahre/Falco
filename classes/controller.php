@@ -59,6 +59,7 @@ function rezervo() {
 if (isset($_POST['rezervo'])) {
 
 // Variables that come from the Reservations form
+$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
 $prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
 $deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
 $data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
@@ -69,20 +70,40 @@ $cost = mysql_fetch_array($result);
 $cmimi = $cost['cost'];
 //Here we put all informations into database
 $db->query("INSERT INTO orders 
-				   (prej,deri,date,cost) 
-			VALUES ('$prej','$deri','$data','$cmimi')") or die(mysql_error());
+				   (name,surname,prej,deri,date,cost) 
+			VALUES ('$emri','$mbiemri','$prej','$deri','$data','$cmimi')") or die(mysql_error());
 
 echo 'Ju keni rezervuar nje udhetim me keto te dhena:<br />';
 echo 'Drejtimi: '.$drejtimi.'<br />';
 echo 'Prej: '.$prej.'<br />';
 echo 'Deri: '.$deri.'<br />';
 echo 'Data: '.$data.'<br />';
-echo 'Cmimi: '.$cmimi;
+echo '&Ccedil;mimi: '.$cmimi;
+echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
 }else {
 	return '
 	
 	
 <form action="index.php?menu=rezervimet&submenu=rezervo" method="post">
+
+<table  cellspacing="5" cellpadding="0" border="0" >
+<tr>
+	<td width="100">
+		Emri:
+	</td>
+	<td width="190">
+		<input type="text" id="emri" name="emri">
+	</td>
+
+	<td width="100">
+		Mbiemri:
+	</td>
+	<td width="190">
+		<input type="text" id="mbiemri" name="mbiemri">
+	</td>
+</tr>
+</table>
+
 <table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;">
 <tr>
 	<td width="100">
