@@ -36,8 +36,9 @@ color: #929090;
 }
 
 .logoWrapper {
-width:300px;
-float:left;
+	width:300px;
+	float:left;
+	height: 173px;
 }
 
 
@@ -76,7 +77,7 @@ float:left;
 
 .menus {
 margin-left:10px;
-margin-top:0;
+margin-top:;
 margin-top:10px;
 }
 .menu_links {
@@ -84,12 +85,14 @@ width: 199px;
 height: 42px;
 color:#000000;
 border-bottom:1px solid #CECECE;
+border-right:1px solid #cecece;
 float:left;
 text-decoration: none;
+background-color:#f9f9f9;
 }
-a.menu_links:hover {background-color: #FFFFFF; text-decoration: none;}
-a.menu_links:link, visited {background-color: #f5f5f5; text-decoration: none;}
-a.menu_links:active {background-color: #f5f5f5; text-decoration: none;}
+a.menu_links:hover {background-color: white; text-decoration: none; border-right:0px}
+a.menu_links:active {background-color: white; text-decoration: none;}
+a.menu_links:link {background-color: white; text-decoration: none;}
 
 
 
@@ -99,9 +102,26 @@ width: 808px;
 }
 
 .selectDest {
+
 width: 150px;
 }
 
 #Formulari {
 margin:10px;
 }
+.topNavigation {
+	clear:both;
+	margin-left: 200px;
+
+}
+.topNavigation a{
+	padding:5px 20px 2px;
+	text-decoration:none;
+	background-image:url(../images/ts.png);
+	font-size: 20px;
+	
+}
+.topNavigation a:hover {
+	background-color: white;
+}
+.topNavigationLinksA{background-color: #FFF;}
