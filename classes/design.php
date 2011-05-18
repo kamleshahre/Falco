@@ -3,10 +3,23 @@
 
 class HTML{
 
-	
+public function TopMenu() {
+//$current = 'topNavigationCurrent';
+$topNavigation = array('Rezervo','Lista','Test');
+
+	foreach ($topNavigation as $row) {
+		if(in_array(ucfirst($_GET['submenu']), $topNavigation) && $row == ucfirst($_GET['submenu']))
+		$css = 'topNavigationCurrent';
+	else 	
+		$css = 'topNavigationLinks'; 
+		
+		$topnavi.= '<a  class="'.$css.'" href="index.php?menu=rezervimet&submenu='.strtolower($row).'">'.$row.'</a>';
+	}	
+	return $topnavi;
+}	
 	
 public function header() {
-return '
+	return '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,18 +27,9 @@ return '
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/calendar.css">
 <script language="JavaScript" src="js/calendar_db.js"></script>
-<script language="javascript">
+<script language="JavaScript">
 function toggleVisibility(id,visible) {
-    //document.getElementById(id).style.color=(white)?"white":"#c1c1c1";
-}
-window.onload = setActive;
-	function setActive() {
-  aObj = document.getElementById("topNavigation").getElementsByTagName("a");
-  for(i=0;i<aObj.length;i++) {
-    if(document.location.href.indexOf(aObj[i].href)>=0) {
-      aObj[i].className="topNavigationLinksA";
-    }
-  }
+	document.getElementById(id).style.visibility=(visible)?"visible":"hidden";
 }
 </script>
 <title>'.WEB_NAME.' | Paneli administrues</title>
@@ -42,14 +46,14 @@ window.onload = setActive;
 			<a class="shutdown" href="login.php?status=loggedout"><img style="border:0;" src="css/images/shutdown.png" /></a>
 		</div>
 		<div class="topNavigation">
-			<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=rezervo">Rezervo</a>
-			<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=rezervo">test</a>
-			<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=rezervo">test11</a>
+		'.$this->TopMenu().'
+		<!--	<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=rezervo">Rezervo</a>
+			<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=lista">Lista</a>
+			<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=test">Test</a> -->
 		</div>
 	</div>
 	
 ';
-//ktu duhet te vije navigacioni nalt qe oshte 	s
 }
 
 public function LeftSide() {
@@ -60,7 +64,6 @@ return '
 	<a class="menu_links" href="index.php?menu=destinacionet"><p class="menus">Destinacionet</p></a>
 </div><!-- endof leftside -->
 ';
-//ktu eshte navigacioni ne te majt 	
 }
 
 public function RightSide() {

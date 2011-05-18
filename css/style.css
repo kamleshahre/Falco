@@ -38,7 +38,7 @@ color: #929090;
 .logoWrapper {
 	width:300px;
 	float:left;
-	height: 173px;
+	height: 160px;
 }
 
 
@@ -102,7 +102,6 @@ width: 808px;
 }
 
 .selectDest {
-
 width: 150px;
 }
 
@@ -115,13 +114,25 @@ margin:10px;
 
 }
 .topNavigation a{
-	padding:5px 20px 2px;
-	text-decoration:none;
-	background-image:url(../images/ts.png);
-	font-size: 20px;
-	
+    background-image: url("../images/ts.png");
+    color: #000000;
+    display: inline-block;
+    font-size: 20px;
+    height: 31px;
+    text-align: center;
+    text-decoration: none;
+    width: 124px;
+    padding-top:7px;
+	margin-right:5px;
 }
-.topNavigation a:hover {
+.topNavigation a:hover, .topNavigation a:active{
 	background-color: white;
 }
+
+.topNavigationCurrent {
+	background-color: white;
+}
+
+
+
 .topNavigationLinksA{background-color: #FFF;}
