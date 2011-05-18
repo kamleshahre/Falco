@@ -94,8 +94,6 @@ a.menu_links:hover {background-color: white; text-decoration: none; border-right
 a.menu_links:active {background-color: white; text-decoration: none;}
 a.menu_links:link {background-color: white; text-decoration: none;}
 
-
-
 #rightside {
 float:left;
 width: 808px;
@@ -106,8 +104,22 @@ width: 150px;
 }
 
 #Formulari {
-margin:10px;
+    background: none repeat scroll 0 0 #F5FFFA;
+    border: 2px solid #CECECE;
+    float: left;
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+    padding:10px 0 10px 0;
 }
+
+.WraperForForm {
+	float: left;
+	text-align: left;
+	margin-left:10%;
+	
+}
+
 .topNavigation {
 	clear:both;
 	margin-left: 200px;
@@ -117,13 +129,14 @@ margin:10px;
     background-image: url("../images/ts.png");
     color: #000000;
     display: inline-block;
-    font-size: 20px;
+    font-size: 16px;
     height: 31px;
     text-align: center;
     text-decoration: none;
     width: 124px;
     padding-top:7px;
 	margin-right:5px;
+	font-family: Trebuchet MS;
 }
 .topNavigation a:hover, .topNavigation a:active{
 	background-color: white;
@@ -131,6 +144,7 @@ margin:10px;
 
 .topNavigationCurrent {
 	background-color: white;
+	font-weight: bold;
 }
 
 

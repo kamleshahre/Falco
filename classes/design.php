@@ -3,22 +3,9 @@
 
 class HTML{
 
-public function TopMenu() {
-//$current = 'topNavigationCurrent';
-$topNavigation = array('Rezervo','Lista','Test');
-
-	foreach ($topNavigation as $row) {
-		if(in_array(ucfirst($_GET['submenu']), $topNavigation) && $row == ucfirst($_GET['submenu']))
-		$css = 'topNavigationCurrent';
-	else 	
-		$css = 'topNavigationLinks'; 
-		
-		$topnavi.= '<a  class="'.$css.'" href="index.php?menu=rezervimet&submenu='.strtolower($row).'">'.$row.'</a>';
-	}	
-	return $topnavi;
-}	
 	
 public function header() {
+global $control;
 	return '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,10 +33,7 @@ function toggleVisibility(id,visible) {
 			<a class="shutdown" href="login.php?status=loggedout"><img style="border:0;" src="css/images/shutdown.png" /></a>
 		</div>
 		<div class="topNavigation">
-		'.$this->TopMenu().'
-		<!--	<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=rezervo">Rezervo</a>
-			<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=lista">Lista</a>
-			<a  class="topNavigationLinks" href="index.php?menu=rezervimet&submenu=test">Test</a> -->
+		'.$control->TopMenu().'
 		</div>
 	</div>
 	
@@ -59,9 +43,9 @@ function toggleVisibility(id,visible) {
 public function LeftSide() {
 return '
 <div id="leftside">
-	<a  class="menu_links" href="index.php?menu=rezervimet"><p class="menus">Rezervimet</p></a>
-	<a class="menu_links" href="index.php?menu=agjentet"><p class="menus">Agjentët</p></a>
-	<a class="menu_links" href="index.php?menu=destinacionet"><p class="menus">Destinacionet</p></a>
+	<a  class="menu_links" href="index.php?menu=rezervimet&submenu=rezervo"><p class="menus">Rezervimet</p></a>
+	<a  class="menu_links" href="index.php?menu=agjentet"><p class="menus">Agjentët</p></a>
+	<a  class="menu_links" href="index.php?menu=destinacionet"><p class="menus">Destinacionet</p></a>
 </div><!-- endof leftside -->
 ';
 }

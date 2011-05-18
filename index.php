@@ -1,5 +1,12 @@
 <?php
 
+$page = $_GET['menu'];
+$subpage = $_GET['submenu'];
+$act = $_GET['action']; 
+
+if(empty($page) && empty($subpage))
+	$page = 'rezervimet' && $subpage = 'rezervo';
+	
 require_once 'classes/Membership.php';
 $membership = New Membership();
 $membership->confirm_Member();
@@ -14,9 +21,7 @@ $control = new controller();
 require_once 'classes/class.db.php';
 $db = new MySQL(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, false);
 
-$page = $_GET['menu'];
-$subpage = $_GET['submenu'];
-$act = $_GET['action'];
+
 
 echo $design->header();
 echo $design->LeftSide();

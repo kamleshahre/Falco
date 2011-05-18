@@ -1,6 +1,21 @@
 <?php
 class controller {
 	
+public function TopMenu() {
+	global $page, $subpage;
+$topNavigation = array('Rezervo','Lista','Test');
+
+	foreach ($topNavigation as $row) {
+		if($row == ucfirst($_GET['submenu']))
+			$css = 'topNavigationCurrent';
+		else 	
+			$css = 'topNavigationLinks'; 
+			
+		$topnavi.= '<a  class="'.$css.'" href="index.php?menu=rezervimet&submenu='.strtolower($row).'">'.$row.'</a>';
+	}	
+	return $topnavi;
+}		
+	
 function menu_switcher() {
 global $page;	
 	switch ($page) {
@@ -35,7 +50,7 @@ global $subpage;
 		break;
 		
 		default:
-			return 'rezervo';;
+			return '<div id="Formulari">'.Modelet::rezervo().'</div>';
 		break;
 	}
 	
@@ -57,59 +72,71 @@ function directions($direction) {
 function rezervo() {
 	global $db;
 if (isset($_POST['rezervo'])) {
-
-// Variables that come from the Reservations form
-$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
-$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
-$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
-$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
-$drejtimi =	$_POST['drejtimi'];
-
-//Here we get the last cost for the reserved destination
-$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
-$cost = mysql_fetch_array($result);
-$cmimi = $cost['cost'];
-$cmimiKthyes = $cmimi * 2;
-
-//Here we put all informations into database
-if($drejtimi == 'kthyese') {
-	if ($data >= $dataKthyese){
-		echo '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
-		exit();
-	}else {
-		$db->query("INSERT INTO orders 
-						   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,cost) 
-					VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$cmimiKthyes')") or die(mysql_error());
-		echo 'Ju keni rezervuar nje udhetim me keto te dhena:<br />';
-		echo 'Drejtimi: '.$drejtimi.'<br />';
-		echo 'Prej: '.$prej.'<br />';
-		echo 'Deri: '.$deri.'<br />';
-		echo 'Data: '.$data.'<br />';
-		echo 'Kthimi prej: '.$KthyesePrej.'<br />';
-		echo 'Kthimi deri: '.$KthyeseDeri.'<br />';
-		echo 'Data kthyese:'.$dataKthyese.'<br />';
-		echo '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
-		echo '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
-	}
 	
-} elseif($drejtimi == 'një drejtim') {
-	$db->query("INSERT INTO orders 
-					   (name,surname,prej,deri,date,cost) 
-				VALUES ('$emri','$mbiemri','$prej','$deri','$data','$cmimi')") or die(mysql_error());	
-	echo 'Ju keni rezervuar nje udhetim me keto te dhena:<br />';
-	echo 'Drejtimi: '.$drejtimi.'<br />';
-	echo 'Prej: '.$prej.'<br />';
-	echo 'Deri: '.$deri.'<br />';
-	echo 'Data: '.$data.'<br />';
-	echo '&Ccedil;mimi: '.$cmimi.'<br />';
-	echo '<a href="GeneratePDF.php">Gjenero tiket</a>';
-}
-
+	// Variables that come from the Reservations form
+	$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
+	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
+	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
+	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
+	$drejtimi =	$_POST['drejtimi'];
+	
+	//Here we get the last cost for the reserved destination
+	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
+	$cost = mysql_fetch_array($result);
+	$cmimi = $cost['cost'];
+	$cmimiKthyes = $cmimi * 2;
+	
+	//Here we put all informations into database
+	if($drejtimi == 'kthyese') {
+		if (empty($data) && !empty($dataKthyese)){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes!';
+			exit();
+		} elseif(empty($dataKthyese) && !empty($data)) {
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes kthyese!';
+			exit();
+		}elseif(empty($data) && empty($dataKthyese)){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni datat e nisjeve!';
+			exit();
+		}elseif($data >= $dataKthyese){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
+			exit(); 
+		}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
+			exit(); 			
+		} else {
+			$db->query("INSERT INTO orders 
+							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,cost) 
+						VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$cmimiKthyes')") or die(mysql_error());
+			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
+			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
+			$infos .=  'Prej: '.$prej.'<br />';
+			$infos .=  'Deri: '.$deri.'<br />';
+			$infos .=  'Data: '.$data.'<br />';
+			$infos .=  'Kthimi prej: '.$KthyesePrej.'<br />';
+			$infos .=  'Kthimi deri: '.$KthyeseDeri.'<br />';
+			$infos .=  'Data kthyese:'.$dataKthyese.'<br />';
+			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
+			$infos .=  '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
+		}
+	return $infos;
+		
+	} elseif($drejtimi == 'një drejtim') {
+		$db->query("INSERT INTO orders 
+						   (name,surname,prej,deri,date,cost) 
+					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$cmimi')") or die(mysql_error());	
+		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
+		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
+		$infos .= 'Prej: '.$prej.'<br />';
+		$infos .= 'Deri: '.$deri.'<br />';
+		$infos .= 'Data: '.$data.'<br />';
+		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
+		$infos .= '<a href="GeneratePDF.php">Gjenero tiket</a>';
+	return $infos;	
+	}
 
 }else {
 	return '
-	
-	
+<div class="WraperForForm">	
 <form action="index.php?menu=rezervimet&submenu=rezervo" method="post">
 
 <table  cellspacing="5" cellpadding="0" border="0" >
@@ -256,6 +283,7 @@ if($drejtimi == 'kthyese') {
 </tr>
 </table>
 </form><!-- end of the reservation form-->
+</div>
 ';
 	} 	
 	
