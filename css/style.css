@@ -146,7 +146,18 @@ width: 150px;
 	background-color: white;
 	font-weight: bold;
 }
+.topNavigationLinksA{
+	background-color: #FFF;
+}
+table.extra {
+    background-color: #BCA48E;
+    position: relative;
+}
 
+.bgC1 {
+    background-color: #E8FBFF;
+}
 
-
-.topNavigationLinksA{background-color: #FFF;}
+.bgC2 {
+    background-color: #FFFFFF;
+}

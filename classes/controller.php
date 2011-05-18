@@ -46,7 +46,7 @@ global $subpage;
 		break;
 		
 		case 'lista':
-		return 'lista';
+		return Modelet::lista();
 		break;
 		
 		default:
@@ -288,6 +288,41 @@ if (isset($_POST['rezervo'])) {
 	} 	
 	
 }	
+
+function lista() {
+	global $db;
+	
+$i = 1; 
+$query = $db->query("SELECT * FROM orders");
+while ($row = mysql_fetch_array($query)) {
+
+if ($i % 2 != "0") # An odd row
+  $rowColor = "bgC1";
+else # An even row
+  $rowColor = "bgC2";	
+	
+	
+	$lista .= 
+	'<tr class="'.$rowColor.'" id="'.$i.'">
+	<td>'.$row['name'].'</td>
+	<td>'.$row['surname'].'</td>
+	<td>'.$row['prej'].'</td>
+	<td>'.$row['deri'].'</td>
+	</tr>
+	';
+	  $i++; 
+}
+return '<table width="100%" style="margin:10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+	   <tr>
+	   		<td>Emri</td>
+	   		<td>Mbiemri</td>
+	   		<td>prej</td>
+	   		<td>Deri</td>
+	   </tr>
+	   '.$lista.'
+	   </table>';
+	
+}
 	
 }//endof Modelet
 
