@@ -150,14 +150,17 @@ width: 150px;
 	background-color: #FFF;
 }
 table.extra {
-    background-color: #BCA48E;
+    background-color: #CECECE;
     position: relative;
 }
 
 .bgC1 {
-    background-color: #E8FBFF;
+    background-color: #F5F5F5;
 }
-
 .bgC2 {
     background-color: #FFFFFF;
+}
+.bgC3 {
+	background-color: #EF0E0E;
+	color:#FFFFFF;
 }

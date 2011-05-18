@@ -293,31 +293,42 @@ function lista() {
 	global $db;
 	
 $i = 1; 
+$cost = 0;
 $query = $db->query("SELECT * FROM orders");
 while ($row = mysql_fetch_array($query)) {
-
+ $cost += $row['cost'];
+	
 if ($i % 2 != "0") # An odd row
   $rowColor = "bgC1";
 else # An even row
   $rowColor = "bgC2";	
-	
-	
+  	
 	$lista .= 
 	'<tr class="'.$rowColor.'" id="'.$i.'">
 	<td>'.$row['name'].'</td>
 	<td>'.$row['surname'].'</td>
 	<td>'.$row['prej'].'</td>
 	<td>'.$row['deri'].'</td>
+	<td>'.$row['cost'].' &euro;</td>
 	</tr>
 	';
 	  $i++; 
 }
-return '<table width="100%" style="margin:10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
-	   <tr>
-	   		<td>Emri</td>
-	   		<td>Mbiemri</td>
-	   		<td>prej</td>
-	   		<td>Deri</td>
+return '
+	<table style="margin:10px 0 0 10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+		<tr class="bgC2">
+			<td><strong>Total:</strong></td>
+			<td>'.$cost.' &euro;</td>
+		</tr>
+	</table>
+	
+		<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+	   <tr class="bgC3">
+	   		<td><strong>Emri</strong></td>
+	   		<td><strong>Mbiemri</strong></td>
+	   		<td><strong>Prej</strong></td>
+	   		<td><strong>Deri</strong></td>
+	   		<td><strong>&Ccedil;mimi</strong></td>
 	   </tr>
 	   '.$lista.'
 	   </table>';
