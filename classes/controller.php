@@ -69,6 +69,12 @@ function directions($direction) {
 	return $city;
 }
 
+function formato_daten($data) {
+	
+	$data = explode('-', $data);
+	return $data[2].'.'.$data[1].'.'.$data[0];
+}
+
 function rezervo() {
 	global $db;
 if (isset($_POST['rezervo'])) {
@@ -297,6 +303,7 @@ $cost = 0;
 $query = $db->query("SELECT * FROM orders");
 while ($row = mysql_fetch_array($query)) {
  $cost += $row['cost'];
+ $data = explode('-', $row['date']);
 	
 if ($i % 2 != "0") # An odd row
   $rowColor = "bgC1";
@@ -304,34 +311,40 @@ else # An even row
   $rowColor = "bgC2";	
   	
 	$lista .= 
-	'<tr class="'.$rowColor.'" id="'.$i.'">
+	'<tr class="'.$rowColor.'"">
+	<td style="text-align:center;"><strong>'.$i.'</strong></td>
 	<td>'.$row['name'].'</td>
 	<td>'.$row['surname'].'</td>
-	<td>'.$row['prej'].'</td>
-	<td>'.$row['deri'].'</td>
+	<td>'.$row['prej'].' ->	 '.$row['deri'].'</td>
 	<td>'.$row['cost'].' &euro;</td>
 	</tr>
 	';
 	  $i++; 
 }
 return '
-	<table style="margin:10px 0 0 10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+		<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+	   <tr class="bgC3">
+	   		<td width="20" ><strong></strong></td>
+	   		<td><strong>Emri</strong></td>
+	   		<td><strong>Mbiemri</strong></td>
+	   		<td><strong>Destinacioni</strong></td>
+	   		<td width="50"><strong>&Ccedil;mimi</strong></td>
+	   </tr>
+	   '.$lista.'
+	   </table>
+	   
+	   	<table style="margin:10px -10px 0 10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 		<tr class="bgC2">
 			<td><strong>Total:</strong></td>
 			<td>'.$cost.' &euro;</td>
 		</tr>
+		<tr class="bgC2">
+			<td><strong>Data:</strong></td>
+			<td>'.$data[2].'.'.$data[1].'.'.$data[0].'</td>
+		</tr>
 	</table>
-	
-		<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
-	   <tr class="bgC3">
-	   		<td><strong>Emri</strong></td>
-	   		<td><strong>Mbiemri</strong></td>
-	   		<td><strong>Prej</strong></td>
-	   		<td><strong>Deri</strong></td>
-	   		<td><strong>&Ccedil;mimi</strong></td>
-	   </tr>
-	   '.$lista.'
-	   </table>';
+	   
+	   ';
 	
 }
 	
