@@ -298,7 +298,7 @@ if (isset($_POST['rezervo'])) {
 function lista() {
 	global $db;
 	
-$dataZgjedhur = $_POST['dataZgjedhur'];	
+$dataZgjedhur = $_POST['dataZgjedhur'];	//selected date
 	
 $i = 1; 
 $cost = 0;
@@ -312,17 +312,17 @@ while ($row = mysql_fetch_array($query)) {
  $cost += $row['cost'];
  $data = Modelet::formato_daten($row['date']);
 	
-if ($i % 2 != "0") # An odd row
-  $rowColor = "bgC1";
-else # An even row
-  $rowColor = "bgC2";	
+		if ($i % 2 != "0") # An odd row
+		  $rowColor = "bgC1";
+		else # An even row
+  		  $rowColor = "bgC2";	
   	
 	$lista .= 
 	'<tr class="'.$rowColor.'"">
 	<td style="text-align:center;"><strong>'.$i.'</strong></td>
 	<td>'.$row['name'].'</td>
 	<td>'.$row['surname'].'</td>
-	<td>'.$row['prej'].' ->	 '.$row['deri'].'</td>
+	<td>'.$row['prej'].' - '.$row['deri'].'</td>
 	<td>'.$row['cost'].' &euro;</td>
 	</tr>
 	';
@@ -353,7 +353,7 @@ return '
 	}, A_CALTPL);
 	</script>
 	</td>
-	<td><input type="submit" value="Zgjidh"></td>
+	<td><input type="submit" value="Shfaqe listen"></td>
 	
 </tr>
 </table>
