@@ -298,12 +298,19 @@ if (isset($_POST['rezervo'])) {
 function lista() {
 	global $db;
 	
+$dataZgjedhur = $_POST['dataZgjedhur'];	
+	
 $i = 1; 
 $cost = 0;
-$query = $db->query("SELECT * FROM orders");
+
+if(isset($dataZgjedhur))
+	$query = $db->query("SELECT * FROM orders WHERE date = '$dataZgjedhur'");
+else 
+	$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
+	
 while ($row = mysql_fetch_array($query)) {
  $cost += $row['cost'];
- $data = explode('-', $row['date']);
+ $data = Modelet::formato_daten($row['date']);
 	
 if ($i % 2 != "0") # An odd row
   $rowColor = "bgC1";
@@ -322,6 +329,37 @@ else # An even row
 	  $i++; 
 }
 return '
+<form action="" method="post">
+<table  style="margin:10px 10px 0 10px;" cellspacing="1" cellpadding="5" border="0" >
+<tr>
+	<td>	
+<input type="text" id="dataZgjedhur" name="dataZgjedhur">
+				<script language="JavaScript">
+
+				
+	// whole calendar template can be redefined per individual calendar
+	var A_CALTPL = {
+		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
+		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
+		\'yearscroll\': true,
+		\'weekstart\': 0,
+		\'centyear\'  : 70,
+		\'imgpath\' : \'images/\'
+	}
+	
+	new tcal ({
+		// if referenced by ID then form name is not required
+		\'controlname\': \'dataZgjedhur\'
+	}, A_CALTPL);
+	</script>
+	</td>
+	<td><input type="submit" value="Zgjidh"></td>
+	
+</tr>
+</table>
+</form>
+	
+
 		<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 	   <tr class="bgC3">
 	   		<td width="20" ><strong></strong></td>
@@ -340,7 +378,7 @@ return '
 		</tr>
 		<tr class="bgC2">
 			<td><strong>Data:</strong></td>
-			<td>'.$data[2].'.'.$data[1].'.'.$data[0].'</td>
+			<td>'.$data.'</td>
 		</tr>
 	</table>
 	   
