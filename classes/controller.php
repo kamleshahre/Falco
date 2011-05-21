@@ -273,6 +273,14 @@ if (isset($_POST['rezervo'])) {
 
 <table width="585" cellspacing="0" cellpadding="3" border="0 " style="float:left;">
 <tr>
+	<td >Persona:</td>
+	<td><input type="text" size="3"></td>
+</tr>
+<tr>
+	<td width="30" >Femij:</td>
+	<td><input type="text" size="3"></td>
+</tr>
+<tr>
 	<td width="100">
 		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
 		<label for="1drejtim">Një drejtim</label>
@@ -296,19 +304,24 @@ if (isset($_POST['rezervo'])) {
 }	
 
 function lista() {
-	global $db;
+	global $db,$act;
 	
 $dataZgjedhur = $_POST['dataZgjedhur'];	//selected date
-	
+$delete = $_POST['delete'];	
 $i = 1; 
 $cost = 0;
 
-if(isset($dataZgjedhur))
+if(isset($dataZgjedhur)) {
 	$query = $db->query("SELECT * FROM orders WHERE date = '$dataZgjedhur'");
-else 
+}else { 
 	$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
+}
+
+//if(isset($delete))
+//	$db->query("DELETE FROM orders WHERE order_id = $delete;");
 	
 while ($row = mysql_fetch_array($query)) {
+	
  $cost += $row['cost'];
  $data = Modelet::formato_daten($row['date']);
 	
@@ -320,11 +333,20 @@ while ($row = mysql_fetch_array($query)) {
 	$lista .= 
 	'<tr class="'.$rowColor.'"">
 	<td style="text-align:center;"><strong>'.$i.'</strong></td>
-	<td>'.$row['name'].'</td>
-	<td>'.$row['surname'].'</td>
+	<td>'.$row['name'].' '.$row['surname'].'</td>
 	<td>'.$row['prej'].' - '.$row['deri'].'</td>
+		<td width="160" style="text-align:center;">
+			<form>
+<select name="function" onchange="showUser(this.value)">
+<option value=""></option>
+<option value="'.$row['order_id'].'">Anulo</option>
+<option value="2">Edito</option>
+</select>
+			</form>
+		</td>
 	<td>'.$row['cost'].' &euro;</td>
 	</tr>
+	<div id="txtHint"><b>Here goes the info</b></div>
 	';
 	  $i++; 
 }
@@ -363,9 +385,9 @@ return '
 		<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 	   <tr class="bgC3">
 	   		<td width="20" ><strong></strong></td>
-	   		<td><strong>Emri</strong></td>
-	   		<td><strong>Mbiemri</strong></td>
+	   		<td><strong>Emri Mbiemri</strong></td>
 	   		<td><strong>Destinacioni</strong></td>
+	   		<td><strong>Opsionet</strong></td>
 	   		<td width="50"><strong>&Ccedil;mimi</strong></td>
 	   </tr>
 	   '.$lista.'
