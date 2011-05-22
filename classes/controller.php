@@ -307,24 +307,28 @@ function lista() {
 	global $db,$act;
 	
 $dataZgjedhur = $_POST['dataZgjedhur'];	//selected date
-$delete = $_POST['delete'];	
+$delete = $_POST['Anulo'];
+$PostedID = $_POST['id'];	
 $i = 1; 
 $cost = 0;
 
-if(isset($dataZgjedhur)) {
+if(isset($PostedID)){
+	$query = $db->query("DELETE FROM orders WHERE order_id = $PostedID;") or die(mysql_error());
+	echo 'Rezervimi u anulua';
+	exit();
+}elseif(isset($dataZgjedhur)) {
 	$query = $db->query("SELECT * FROM orders WHERE date = '$dataZgjedhur'");
 }else { 
 	$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
 }
 
-//if(isset($delete))
-//	$db->query("DELETE FROM orders WHERE order_id = $delete;");
+
 	
 while ($row = mysql_fetch_array($query)) {
-	
+		
  $cost += $row['cost'];
  $data = Modelet::formato_daten($row['date']);
-	
+ $id = $row['order_id'];	
 		if ($i % 2 != "0") # An odd row
 		  $rowColor = "bgC1";
 		else # An even row
@@ -336,17 +340,13 @@ while ($row = mysql_fetch_array($query)) {
 	<td>'.$row['name'].' '.$row['surname'].'</td>
 	<td>'.$row['prej'].' - '.$row['deri'].'</td>
 		<td width="160" style="text-align:center;">
-			<form>
-<select name="function" onchange="showUser(this.value)">
-<option value=""></option>
-<option value="'.$row['order_id'].'">Anulo</option>
-<option value="2">Edito</option>
-</select>
+			<form action="" method="POST">
+<input type="hidden" name="id" value="'.$id.'">
+<input type="submit" value="Anulo" >
 			</form>
 		</td>
 	<td>'.$row['cost'].' &euro;</td>
 	</tr>
-	<div id="txtHint"><b>Here goes the info</b></div>
 	';
 	  $i++; 
 }
