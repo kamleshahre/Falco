@@ -164,3 +164,14 @@ table.extra {
 	background-color: #EF0E0E;
 	color:#FFFFFF;
 }
+
+.ErrorWrapper {
+    background: none repeat scroll 0 0 #F5FFFA;
+    border: 2px solid #CECECE;
+    float: left;
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+    padding:10px 0 10px 0;
+	font-weight: bold;
+}

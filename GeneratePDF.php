@@ -53,7 +53,11 @@ $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 //set some language-dependent strings
 $pdf->setLanguageArray($l);
 $image = $pdf->Image("tcpdf/images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
-$result = $db->query("SELECT * FROM orders ORDER BY order_id DESC LIMIT 1;");
+$id = $_GET['id'];
+if(isset($id)) 
+	$result = $db->query("SELECT * FROM orders WHERE order_id=$id;");
+else
+	$result = $db->query("SELECT * FROM orders ORDER BY order_id DESC LIMIT 1;");
 $row = mysql_fetch_array($result);
 $emri = $row['name'];			$mbiemri = $row['surname'];
 $prej = $row['prej'];			$deri 	 = $row['deri'];
@@ -176,6 +180,7 @@ $html = <<<EOF
 $returned
 
 </table>
+
 <table cellpadding="4" cellspacing="0" >
 
 <tr>

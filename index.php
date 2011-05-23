@@ -14,7 +14,7 @@ $membership->confirm_Member();
 
 require_once 'classes/design.php';
 $design = new HTML();
-
+require_once 'classes/functions.php';
 require_once 'classes/controller.php';
 $control = new controller();
 

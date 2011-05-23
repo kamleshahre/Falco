@@ -60,21 +60,6 @@ global $subpage;
 
 class Modelet {
 	
-function directions($direction) {
-	global $db;
-	$query = $db->query("SELECT * FROM destinations WHERE direction = $direction");
-	while($row = mysql_fetch_array($query)){
-	$city .= '<option>'.$row['name'].'</option>';
-	}
-	return $city;
-}
-
-function formato_daten($data) {
-	
-	$data = explode('-', $data);
-	return $data[2].'.'.$data[1].'.'.$data[0];
-}
-
 function rezervo() {
 	global $db;
 if (isset($_POST['rezervo'])) {
@@ -170,7 +155,7 @@ if (isset($_POST['rezervo'])) {
 	</td>
 	<td>
 		<select class="selectDest" name="Prej">
-			'.Modelet::directions(1).'
+			'.funksionet::directions(1).'
 		</select>
 	</td>
 	
@@ -181,7 +166,7 @@ if (isset($_POST['rezervo'])) {
 	</td>
 	<td>
 		<select class="selectDest" name="Deri">
-			'.Modelet::directions(2).'
+			'.funksionet::directions(2).'
 		</select>
 	</td>
 </tr>
@@ -225,7 +210,7 @@ if (isset($_POST['rezervo'])) {
 	</td>
 	<td>
 		<select class="selectDest" name="KthyesePrej" >
-				'.Modelet::directions(2).'
+				'.funksionet::directions(2).'
 		</select>
 	</td>
 </tr>
@@ -235,7 +220,7 @@ if (isset($_POST['rezervo'])) {
 	</td>
 	<td>
 		<select class="selectDest" name="KthyeseDeri">
-			'.Modelet::directions(1).'
+			'.funksionet::directions(1).'
 		</select>
 	</td>
 
@@ -308,26 +293,35 @@ function lista() {
 	
 $dataZgjedhur = $_POST['dataZgjedhur'];	//selected date
 $delete = $_POST['Anulo'];
-$PostedID = $_POST['id'];	
+$PostedID = $_POST['id'];
+$action = $_POST['action'];	
 $i = 1; 
 $cost = 0;
 
-if(isset($PostedID)){
-	$query = $db->query("DELETE FROM orders WHERE order_id = $PostedID;") or die(mysql_error());
-	echo 'Rezervimi u anulua';
-	exit();
-}elseif(isset($dataZgjedhur)) {
-	$query = $db->query("SELECT * FROM orders WHERE date = '$dataZgjedhur'");
-}else { 
-	$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
-}
+	if(isset($PostedID) && $action == 'delete'){
+		$query = $db->query("DELETE FROM orders WHERE order_id = $PostedID;") or die(mysql_error());
+		return funksionet::show_error('Rezervimi u anulua!');
+		exit();
+	}elseif(isset($PostedID) && $action == 'printo') {
+		echo '<script type="text/javascript">
+<!--
+window.location = "GeneratePDF.php?id='.$PostedID.'"
+//-->
+</script>
+		';
+		exit();
+	}elseif(isset($dataZgjedhur)) {
+		$query = $db->query("SELECT * FROM orders WHERE date = '$dataZgjedhur'");
+	}else { 
+		$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
+	}
 
 
 	
 while ($row = mysql_fetch_array($query)) {
 		
  $cost += $row['cost'];
- $data = Modelet::formato_daten($row['date']);
+ $data = funksionet::formato_daten($row['date']);
  $id = $row['order_id'];	
 		if ($i % 2 != "0") # An odd row
 		  $rowColor = "bgC1";
@@ -342,7 +336,14 @@ while ($row = mysql_fetch_array($query)) {
 		<td width="160" style="text-align:center;">
 			<form action="" method="POST">
 <input type="hidden" name="id" value="'.$id.'">
+<input type="hidden" name="action" value="delete">
 <input type="submit" value="Anulo" >
+			</form>
+			
+			<form action="" method="POST">
+<input type="hidden" name="id" value="'.$id.'">
+<input type="hidden" name="action" value="printo">
+<input type="submit" value="Printo" >
 			</form>
 		</td>
 	<td>'.$row['cost'].' &euro;</td>
