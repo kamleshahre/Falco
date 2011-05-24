@@ -294,20 +294,22 @@ function lista() {
 $dataZgjedhur = $_POST['dataZgjedhur'];	//selected date
 $delete = $_POST['Anulo'];
 $PostedID = $_POST['id'];
-$action = $_POST['action'];	
+$PostedDATE = $_POST['date'];
+$action = $_POST['action'];
+	
 $i = 1; 
 $cost = 0;
 
 	if(isset($PostedID) && $action == 'delete'){
-		$query = $db->query("DELETE FROM orders WHERE order_id = $PostedID;") or die(mysql_error());
-		return funksionet::show_error('Rezervimi u anulua!');
-		exit();
+		$db->query("DELETE FROM orders WHERE order_id = $PostedID;");
+		$query = $db->query("SELECT * FROM orders WHERE date = '$PostedDATE'") or die(mysql_error());
+		//return funksionet::show_error('Rezervimi u anulua!');
 	}elseif(isset($PostedID) && $action == 'printo') {
 		echo '<script type="text/javascript">
-<!--
-window.location = "GeneratePDF.php?id='.$PostedID.'"
-//-->
-</script>
+				<!--
+				window.location = "GeneratePDF.php?id='.$PostedID.'"
+				//-->
+				</script>
 		';
 		exit();
 	}elseif(isset($dataZgjedhur)) {
@@ -333,18 +335,11 @@ while ($row = mysql_fetch_array($query)) {
 	<td style="text-align:center;"><strong>'.$i.'</strong></td>
 	<td>'.$row['name'].' '.$row['surname'].'</td>
 	<td>'.$row['prej'].' - '.$row['deri'].'</td>
-		<td width="160" style="text-align:center;">
-			<form action="" method="POST">
-<input type="hidden" name="id" value="'.$id.'">
-<input type="hidden" name="action" value="delete">
-<input type="submit" value="Anulo" >
-			</form>
-			
-			<form action="" method="POST">
-<input type="hidden" name="id" value="'.$id.'">
-<input type="hidden" name="action" value="printo">
-<input type="submit" value="Printo" >
-			</form>
+		<td width="172" style="text-align:center;">
+			'.funksionet::list_actions($id,'delete','Anulo', $row['date']).
+			  funksionet::list_actions($id,'printo','Printo').
+			  funksionet::list_actions($id,'edito','Edito').
+			'
 		</td>
 	<td>'.$row['cost'].' &euro;</td>
 	</tr>
