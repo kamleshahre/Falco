@@ -52,6 +52,7 @@ class Modelet {
 	
 function rezervo() {
 	global $db;
+	
 if (isset($_POST['rezervo'])) {
 	
 	// Variables that come from the Reservations form
@@ -311,6 +312,8 @@ $cost = 0;
 				</script>
 		';
 		exit();
+	}elseif(isset($PostedID) && $action == 'edito'){
+		return '<div id="Formulari">'.Modelet::edito($PostedID).'</div>';
 	}elseif(isset($dataZgjedhur)) {
 		$query = $db->query("SELECT * FROM orders WHERE date = '$dataZgjedhur'");
 	}else { 
@@ -404,6 +407,250 @@ return '
 	</table>
 	   
 	   ';
+	
+}
+
+function edito($IDtoEdit) {
+	
+	global $db;
+	
+if (isset($_POST['edito'])) {
+	
+	// Variables that come from the Reservations form
+	$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
+	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
+	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
+	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
+	$persona  = $_POST['persona'];
+	$femij 	  = $_POST['femij'];		
+	$drejtimi =	$_POST['drejtimi'];
+	
+	//Here we get the last cost for the reserved destination
+	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
+	$cost = mysql_fetch_array($result);
+	$cmimi = $cost['cost'];
+	$cmimiKthyes = $cmimi * 2;
+	
+	//Here we put all informations into database
+	if($drejtimi == 'kthyese') {
+		if (empty($data) && !empty($dataKthyese)){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes!';
+			exit();
+		} elseif(empty($dataKthyese) && !empty($data)) {
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes kthyese!';
+			exit();
+		}elseif(empty($data) && empty($dataKthyese)){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni datat e nisjeve!';
+			exit();
+		}elseif($data >= $dataKthyese){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
+			exit(); 
+		}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
+			exit(); 			
+		} else {
+			$db->query("UPDATE orders 
+						name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',KthyesePrej='$KthyesePrej',
+						KthyeseDeri='$KthyeseDeri',date='$data',data_kthyese='$dataKthyese',persona='$persona',
+						femij='$femij',cost='$cmimiKthyes' WHERE order_id='$IDtoEdit'");
+			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
+			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
+			$infos .=  'Prej: '.$prej.'<br />';
+			$infos .=  'Deri: '.$deri.'<br />';
+			$infos .=  'Data: '.$data.'<br />';
+			$infos .=  'Kthimi prej: '.$KthyesePrej.'<br />';
+			$infos .=  'Kthimi deri: '.$KthyeseDeri.'<br />';
+			$infos .=  'Data kthyese:'.$dataKthyese.'<br />';
+			$infos .= 'Persona: '.$persona.'<br />';
+			(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
+			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
+			$infos .=  '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
+		}
+	return $infos;
+		
+	} elseif($drejtimi == 'një drejtim') {
+		$db->query("UPDATE orders 
+					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
+					date='$data',persona='$persona',femij='$femij',cost='$cmimi' 
+					WHERE order_id = '$IDtoEdit'");	
+		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
+		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
+		$infos .= 'Prej: '.$prej.'<br />';
+		$infos .= 'Deri: '.$deri.'<br />';
+		$infos .= 'Data: '.$data.'<br />';
+		(empty($persona)) ? $infos .= 'Persona: 1 <br />' : $infos .= 'Persona: '.$persona.'<br />';
+		(!empty($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
+		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
+		$infos .= '<a href="GeneratePDF.php">Gjenero tiket</a>';
+	return $infos;	
+	}
+
+}else {
+	$values = mysql_fetch_array($db->query("SELECT * FROM orders WHERE order_id = '$IDtoEdit';"));
+
+// Variables that come from the database
+	$emri 	  = $values['name'];					$mbiemri     = $values['surname'];
+	
+	return '
+<div class="WraperForForm">	
+<form action="index.php?menu=rezervimet&submenu=listat" method="post">
+
+<table  cellspacing="5" cellpadding="0" border="0" >
+<tr>
+	<td width="100">
+		Emri:
+	</td>
+	<td width="190">
+		<input type="text" id="emri" name="emri" value="'.$emri.'">
+	</td>
+
+	<td width="100">
+		Mbiemri:
+	</td>
+	<td width="190">
+		<input type="text" id="mbiemri" name="mbiemri" value="'.$mbiemri.'">
+	</td>
+</tr>
+</table>
+
+<table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;">
+<tr>
+	<td width="100">
+		Prej:
+	</td>
+	<td>
+		<select class="selectDest" name="Prej">
+			'.funksionet::directions(1).'
+		</select>
+	</td>
+	
+</tr>
+<tr>
+	<td width="80">
+		Deri:
+	</td>
+	<td>
+		<select class="selectDest" name="Deri">
+			'.funksionet::directions(2).'
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>
+	
+			<form name="Data1Drejtim">
+			<label for="data1drejtim">Data e nisjes:</label>
+	</td>
+		<td>
+			<input type="text" id="data1drejtim" name="data1drejtim">
+			<script language="JavaScript">
+
+				
+	// whole calendar template can be redefined per individual calendar
+	var A_CALTPL = {
+		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
+		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
+		\'yearscroll\': true,
+		\'weekstart\': 0,
+		\'centyear\'  : 70,
+		\'imgpath\' : \'images/\'
+	}
+	
+	new tcal ({
+		// if referenced by ID then form name is not required
+		\'controlname\': \'data1drejtim\'
+	}, A_CALTPL);
+	</script>
+				
+	</td>
+		
+	</tr>
+</table>
+
+<!-- ___________________Return table_____________________________________ -->
+<table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;" id="hideThis" >
+<tr>
+	<td width="100">
+		Prej:
+	</td>
+	<td>
+		<select class="selectDest" name="KthyesePrej" >
+				'.funksionet::directions(2).'
+		</select>
+	</td>
+</tr>
+<tr>
+	<td width="40">
+		Deri:
+	</td>
+	<td>
+		<select class="selectDest" name="KthyeseDeri">
+			'.funksionet::directions(1).'
+		</select>
+	</td>
+
+<tr>
+	<td>
+		<label for="dataKthyese">Data kthyese:</label>
+	</td>		
+
+	<td>
+			
+			<input type="text" id="dataKthyese" name="dataKthyese">
+				<script language="JavaScript">
+
+				
+	// whole calendar template can be redefined per individual calendar
+	var A_CALTPL = {
+		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
+		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
+		\'yearscroll\': true,
+		\'weekstart\': 0,
+		\'centyear\'  : 70,
+		\'imgpath\' : \'images/\'
+	}
+	
+	new tcal ({
+		// if referenced by ID then form name is not required
+		\'controlname\': \'dataKthyese\'
+	}, A_CALTPL);
+	</script>
+			</form>
+		</td>
+
+</tr>
+</table>
+
+<table width="585" cellspacing="0" cellpadding="3" border="0 " style="float:left;">
+<tr>
+	<td >Persona:</td>
+	<td><input type="text" size="3" name="persona"></td>
+</tr>
+<tr>
+	<td width="30" >Fëmij:</td>
+	<td><input type="text" size="3" name="femij"></td>
+</tr>
+<tr>
+	<td width="100">
+		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
+		<label for="1drejtim">Një drejtim</label>
+	</td>
+
+	<td >
+		<input type="radio" id="kthyese" name="drejtimi" checked="checked" value="kthyese"  onclick="toggleVisibility(\'hideThis\',1)">
+		<label for="1drejtim">Kthyese</label>
+	</td>
+	
+	<td>
+	<input style="float:right;" type="submit" value="Ruaj te dhënat" name="edito" />
+	</td>
+</tr>
+</table>
+</form><!-- end of the reservation form-->
+</div>
+';
+	} 	
+	
 	
 }
 	
