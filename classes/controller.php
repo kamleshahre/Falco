@@ -1,20 +1,6 @@
 <?php
 class controller {
 	
-public function TopMenu() {
-	global $page, $subpage;
-$topNavigation = array('Rezervo','Lista','Test');
-
-	foreach ($topNavigation as $row) {
-		if($row == ucfirst($_GET['submenu']))
-			$css = 'topNavigationCurrent';
-		else 	
-			$css = 'topNavigationLinks'; 
-			
-		$topnavi.= '<a  class="'.$css.'" href="index.php?menu=rezervimet&submenu='.strtolower($row).'">'.$row.'</a>';
-	}	
-	return $topnavi;
-}		
 	
 function menu_switcher() {
 global $page;	
@@ -45,8 +31,12 @@ global $subpage;
 		return '<div id="Formulari">'.Modelet::rezervo().'</div>';
 		break;
 		
-		case 'lista':
+		case 'listat':
 		return Modelet::lista();
+		break;
+		
+		case 'ndihme':
+		return 'Qendra per ndihm shkon ktu';
 		break;
 		
 		default:
@@ -69,6 +59,8 @@ if (isset($_POST['rezervo'])) {
 	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
 	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
 	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
+	$persona  = $_POST['persona'];
+	$femij 	  = $_POST['femij'];		
 	$drejtimi =	$_POST['drejtimi'];
 	
 	//Here we get the last cost for the reserved destination
@@ -96,8 +88,8 @@ if (isset($_POST['rezervo'])) {
 			exit(); 			
 		} else {
 			$db->query("INSERT INTO orders 
-							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,cost) 
-						VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$cmimiKthyes')") or die(mysql_error());
+							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,femij,cost) 
+						VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$persona','$femij','$cmimiKthyes')") or die(mysql_error());
 			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
 			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
 			$infos .=  'Prej: '.$prej.'<br />';
@@ -106,6 +98,8 @@ if (isset($_POST['rezervo'])) {
 			$infos .=  'Kthimi prej: '.$KthyesePrej.'<br />';
 			$infos .=  'Kthimi deri: '.$KthyeseDeri.'<br />';
 			$infos .=  'Data kthyese:'.$dataKthyese.'<br />';
+			$infos .= 'Persona: '.$persona.'<br />';
+			(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
 			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
 			$infos .=  '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
 		}
@@ -113,13 +107,15 @@ if (isset($_POST['rezervo'])) {
 		
 	} elseif($drejtimi == 'një drejtim') {
 		$db->query("INSERT INTO orders 
-						   (name,surname,prej,deri,date,cost) 
-					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$cmimi')") or die(mysql_error());	
+						   (name,surname,prej,deri,date,persona,femij,cost) 
+					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$femij','$cmimi')") or die(mysql_error());	
 		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
 		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
 		$infos .= 'Prej: '.$prej.'<br />';
 		$infos .= 'Deri: '.$deri.'<br />';
 		$infos .= 'Data: '.$data.'<br />';
+		(empty($persona)) ? $infos .= 'Persona: 1 <br />' : $infos .= 'Persona: '.$persona.'<br />';
+		(!empty($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
 		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
 		$infos .= '<a href="GeneratePDF.php">Gjenero tiket</a>';
 	return $infos;	
@@ -259,11 +255,11 @@ if (isset($_POST['rezervo'])) {
 <table width="585" cellspacing="0" cellpadding="3" border="0 " style="float:left;">
 <tr>
 	<td >Persona:</td>
-	<td><input type="text" size="3"></td>
+	<td><input type="text" size="3" name="persona"></td>
 </tr>
 <tr>
-	<td width="30" >Femij:</td>
-	<td><input type="text" size="3"></td>
+	<td width="30" >Fëmij:</td>
+	<td><input type="text" size="3" name="femij"></td>
 </tr>
 <tr>
 	<td width="100">
@@ -287,6 +283,9 @@ if (isset($_POST['rezervo'])) {
 	} 	
 	
 }	
+
+
+
 
 function lista() {
 	global $db,$act;
@@ -335,7 +334,9 @@ while ($row = mysql_fetch_array($query)) {
 	<td style="text-align:center;"><strong>'.$i.'</strong></td>
 	<td>'.$row['name'].' '.$row['surname'].'</td>
 	<td>'.$row['prej'].' - '.$row['deri'].'</td>
-		<td width="172" style="text-align:center;">
+	<td  style="text-align:center;">'.$row['persona'].'</td>
+	<td  style="text-align:center;"> '.$row['femij'].'</td>
+		<td width="172"  style="text-align:center;">
 			'.funksionet::list_actions($id,'delete','Anulo', $row['date']).
 			  funksionet::list_actions($id,'printo','Printo').
 			  funksionet::list_actions($id,'edito','Edito').
@@ -379,12 +380,14 @@ return '
 	
 
 		<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
-	   <tr class="bgC3">
-	   		<td width="20" ><strong></strong></td>
-	   		<td><strong>Emri Mbiemri</strong></td>
-	   		<td><strong>Destinacioni</strong></td>
-	   		<td><strong>Opsionet</strong></td>
-	   		<td width="50"><strong>&Ccedil;mimi</strong></td>
+	   <tr class="bgC3" style="font-weight:bold;">
+	   		<td width="20" > </td>
+	   		<td> Emri Mbiemri </td>
+	   		<td> Destinacioni </td>
+	   		<td width="20">Persona</td>
+	   		<td width="20">Fëmij</td>
+	   		<td> Opsionet </td>
+	   		<td width="50"> &Ccedil;mimi </td>
 	   </tr>
 	   '.$lista.'
 	   </table>

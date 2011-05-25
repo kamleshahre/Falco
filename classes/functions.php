@@ -1,6 +1,21 @@
 <?php
 class funksionet {
 
+public function TopMenu() {
+	global $page, $subpage;
+$topNavigation = array('Rezervo','Listat','Ndihmë');
+
+	foreach ($topNavigation as $row) {
+		if(funksionet::SpecialcharsCleaner($row) == ucfirst($_GET['submenu']))
+			$css = 'topNavigationCurrent';
+		else 	
+			$css = 'topNavigationLinks'; 
+			
+		$topnavi.= '<a  class="'.$css.'" href="index.php?menu=rezervimet&submenu='.funksionet::SpecialcharsCleaner(strtolower($row)).'">'.$row.'</a>';
+	}	
+	return $topnavi;
+}			
+	
 //here we select the direction accoring to the numbers 1 (this is for the cities from here) or 2 (this is for the cities abroad)
 function directions($direction) {
 	global $db;
@@ -41,6 +56,18 @@ return '
 <input type="hidden" name="action" value="'.$value.'">
 <input type="submit" value="'.$name.'" style="float:left;" >
 	</form>';
+}
+
+//here is the function that filters special characters
+function SpecialcharsCleaner($string) {
+
+$patterns = array();				$replacements = array();
+$patterns[0] = '/ë/';				$replacements[2] = 'e';
+$patterns[1] = '/ç/';				$replacements[1] = 'c';
+$patterns[2] = '/fox/';				$replacements[0] = 'slow';
+
+return preg_replace($patterns, $replacements, $string);
+ 
 }
 
 

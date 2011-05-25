@@ -32,7 +32,7 @@ function toggleVisibility(id,visible) {
 			<a class="shutdown" href="login.php?status=loggedout"><img style="border:0;" src="css/images/shutdown.png" /></a>
 		</div>
 		<div class="topNavigation">
-		'.$control->TopMenu().'
+		'.funksionet::TopMenu().'
 		</div>
 	</div>
 	
