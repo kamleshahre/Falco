@@ -9,8 +9,8 @@ global $page;
 			return $this->rezervimet_switcher();
 			break;
 			
-			case 'agjentet':
-			return $this->agjentet_switcher();
+			case 'perdoruesit':
+			return $this->perdoruesit_switcher();
 			break;
 			
 			case 'destinacionet':
@@ -46,7 +46,7 @@ global $subpage;
 	
 }
 
-function agjentet_switcher() {
+function perdoruesit_switcher() {
 global $subpage;	
 	switch ($subpage) {
 		case 'agjentet':
@@ -662,9 +662,62 @@ global $db;
 
 
 function users($roli) {
+	
 	global $db;
 	$i = 1;	
-	
+	$delete = $_POST['delete'];
+	$edit = $_POST['edit'];
+
+	if(isset($delete)) {
+		$id = $_POST['id'];
+		$db->query("DELETE FROM users WHERE user_id = '$id'");
+		return funksionet::show_error("Përdoruesi që keni zgjedhur është fshir nga sistemi me sukses!");
+	}elseif(isset($edit)) {
+		$id = $_POST['id'];
+		$row = mysql_fetch_array($db->query("SELECT * FROM users WHERE user_id='$id'"));
+		return '
+		<div id="Formulari">
+		<form action="" method="post">
+		<table cellpading="4" cellspacing="5">
+		<tr>
+			<td>Pseudonimi:</td>
+			<td><input type="text" name="pseudonimi" value="'.$row['username'].'"></td>
+		</tr>
+		<tr>
+			<td>Fjalkalimi:</td>
+			<td><input type="password" name="fjalkalimi" value=""></td>
+		</tr>
+		<tr>
+			<td>Emri:</td>
+			<td><input type="text" name="emri" value="'.$row['firstname'].'"></td>
+		</tr>
+		<tr>
+			<td>Mbiemri:</td>
+			<td><input type="text" name="mbiemri" value="'.$row['lastname'].'"></td>
+		</tr>
+		<tr>
+			<td>Adresa:</td>
+			<td><input type="text" name="adresa"  value="'.$row['address'].'"></td>
+		</tr>
+		<tr>
+			<td>Roli:</td>
+			<td>
+				<select style="width:150px;">
+					<option value="">Zgjidhe rolin:</option>
+					<option value="admin">Administrator</option>
+					<option value="agent">Agent</option>
+				</select>
+			</td>
+		</tr>
+		</table>
+		<input type="submit" value="Ruaj ndryshimet" name="user_edited" style="float:right;margin-right:10px;">
+		</form>
+		</div>
+		';
+	}
+
+
+
   		 $query = $db->query("SELECT * FROM users WHERE status = '$roli'");
 	
 		while($row = mysql_fetch_array($query)) { 
@@ -679,11 +732,21 @@ function users($roli) {
 		$status    = $row['status'];
 	
 		$users .= '<tr class="'.$rowColor.'">
-				<td><strong>'.$i.'</strong></td>
+				<td style="text-align:center;"><strong>'.$i.'</strong></td>
 				<td>'.$firstname.'</td>
 				<td>'.$lastname.'</td>
 				<td>'.$username.'</td>
 				<td>'.$address.'</td>
+				<td width="118">
+					<form action="" method="post" style="float:left;">
+					<input type="hidden" name="id" value="'.$row['user_id'].'">
+					<input type="submit" name="delete" value="Fshije">
+					</form>
+					<form action="" method="post" style="float:left;">
+					<input type="hidden" name="id" value="'.$row['user_id'].'">
+					<input type="submit" name="edit" value="Edito">
+					</form>
+				</td>
 			</tr>		
 	     	';
 		$i++;
@@ -697,6 +760,7 @@ function users($roli) {
 				<td>Mbiemri</td>
 				<td>Pseudonimi</td>
 				<td>Adresa</td>
+				<td>Opsionet</td>
 				'.$users.'
 			</tr>
 			</table>';

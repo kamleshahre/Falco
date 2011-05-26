@@ -10,7 +10,7 @@ switch ($page) {
 		$topNavigation = array('Rezervo','Listat','Ndihmë');
 	break;
 
-	case 'agjentet':
+	case 'perdoruesit':
 		$topNavigation = array('Agjentët','Administratorët','Ndihmë');
 	break;	
 
