@@ -102,7 +102,7 @@ if (isset($_POST['rezervo'])) {
 			$infos .= 'Persona: '.$persona.'<br />';
 			(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
 			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
-			$infos .=  '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
+			$infos .=  '<a target="_blank" href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
 		}
 	return $infos;
 		
@@ -118,7 +118,7 @@ if (isset($_POST['rezervo'])) {
 		(empty($persona)) ? $infos .= 'Persona: 1 <br />' : $infos .= 'Persona: '.$persona.'<br />';
 		(!empty($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
 		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
-		$infos .= '<a href="GeneratePDF.php">Gjenero tiket</a>';
+		$infos .= '<a target="_blank" href="GeneratePDF.php">Gjenero tiket</a>';
 	return $infos;	
 	}
 
@@ -449,22 +449,12 @@ global $db;
 			return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
 			exit(); 			
 		} else {
-			$db->query("UPDATE orders 
+			$db->query("UPDATE orders SET
 						name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',KthyesePrej='$KthyesePrej',
 						KthyeseDeri='$KthyeseDeri',date='$data',data_kthyese='$dataKthyese',persona='$persona',
 						femij='$femij',cost='$cmimiKthyes' WHERE order_id='$id'");
-			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
-			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
-			$infos .=  'Prej: '.$prej.'<br />';
-			$infos .=  'Deri: '.$deri.'<br />';
-			$infos .=  'Data: '.$data.'<br />';
-			$infos .=  'Kthimi prej: '.$KthyesePrej.'<br />';
-			$infos .=  'Kthimi deri: '.$KthyeseDeri.'<br />';
-			$infos .=  'Data kthyese:'.$dataKthyese.'<br />';
-			$infos .= 'Persona: '.$persona.'<br />';
-			(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
-			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
-			$infos .=  '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
+			$infos = '<strong>Ndryshimet e juaja janë ruajtur me sukses!</strong><br />';
+			$infos .=  '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
 		}
 	return $infos;
 		
@@ -473,15 +463,8 @@ global $db;
 					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
 					date='$data',persona='$persona',femij='$femij',cost='$cmimi' 
 					WHERE order_id = '$id'") or die(mysql_error());	
-		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
-		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
-		$infos .= 'Prej: '.$prej.'<br />';
-		$infos .= 'Deri: '.$deri.'<br />';
-		$infos .= 'Data: '.$data.'<br />';
-		(empty($persona)) ? $infos .= 'Persona: 1 <br />' : $infos .= 'Persona: '.$persona.'<br />';
-		(!empty($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
-		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
-		$infos .= '<a href="GeneratePDF.php">Gjenero tiket</a>';
+		$infos = '<strong>Ndryshimet e juaja janë ruajtur me sukses!</strong><br />';
+		$infos .= '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
 	return $infos;	
 	}
 
