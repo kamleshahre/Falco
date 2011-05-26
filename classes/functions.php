@@ -1,7 +1,7 @@
 <?php
 class funksionet {
 
-	
+//here goes the navigation in the top	
 public function menu_for_reservations() {
 	global $page, $subpage;
 	
@@ -23,7 +23,6 @@ switch ($page) {
 	break;
 }
 	
-//$topNavigation = array('Rezervo','Listat','Ndihmë');
 
 	foreach ($topNavigation as $row) {
 		if(funksionet::SpecialcharsCleaner($row) == ucfirst($_GET['submenu']))
@@ -34,7 +33,33 @@ switch ($page) {
 		$topnavi.= '<a  class="'.$css.'" href="index.php?menu='.$page.'&submenu='.funksionet::SpecialcharsCleaner(strtolower($row)).'">'.$row.'</a>';
 	}	
 	return $topnavi;
-}			
+}		
+
+
+//here goes the navigation in the left side
+function left_menu() {
+$page = $_GET['menu'];
+	$leftNavigation = array('Rezervimet','Përdoruesit','Destinacionet');
+	
+	foreach($leftNavigation as $row){
+		
+		
+		
+		if(funksionet::SpecialcharsCleaner($row) == ucfirst($_GET['menu']))
+			$css = 'topNavigationCurrent';
+		else 	
+			$css = 'topNavigationLinks'; 
+		
+		$navi .= '<a  class="menu_links '.$css.'" href="index.php?menu='.funksionet::SpecialcharsCleaner(strtolower($row)).'"><p class="menus">'.$row.'</p></a>';	
+	}
+		
+		return '<div id="leftside">
+				'.$navi.'	
+				</div><!-- endof leftside -->
+				';
+
+
+}
 	
 //here we select the direction accoring to the numbers 1 (this is for the cities from here) or 2 (this is for the cities abroad)
 function directions($direction) {

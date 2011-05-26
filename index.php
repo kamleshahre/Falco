@@ -5,7 +5,14 @@ $subpage = $_GET['submenu'];
 $act = $_GET['action']; 
 
 if(empty($page) && empty($subpage))
-	$page = 'rezervimet' && $subpage = 'rezervo';
+	header("Location: index.php?menu=rezervimet&submenu=rezervo");
+elseif($page == 'perdoruesit' && empty($subpage))
+	header("Location: index.php?menu=perdoruesit&submenu=agjentet");
+elseif($page == 'rezervimet' && empty($subpage))
+	header("Location: index.php?menu=rezervimet&submenu=rezervo");
+
+
+//$page = 'rezervimet' && $subpage = 'rezervo';
 	
 require_once 'classes/Membership.php';
 $membership = New Membership();

@@ -50,19 +50,19 @@ function perdoruesit_switcher() {
 global $subpage;	
 	switch ($subpage) {
 		case 'agjentet':
-		return Modelet::users('agent');
+			return Modelet::users('agent');
 		break;
 		
 		case 'administratoret':
-		return Modelet::users('admin');
+			return Modelet::users('admin');
 		break;
 		
 		case 'ndihme':
-		return 'Qendra per ndihm shkon ktu';
+			return 'Qendra per ndihm shkon ktu';
 		break;
 		
 		default:
-			return '<div id="Formulari">'.Modelet::rezervo().'</div>';
+			return Modelet::users('agent');
 		break;
 	}
 }
@@ -675,7 +675,7 @@ function users($roli) {
 		$adresa		=	$_POST['adresa'];			$roli		=	$_POST['roli'];
 		$id 		=	$_POST['id'];
 		$db->query("UPDATE users 
-					SET firstname='$emri', lastname='$mbiemri', username='$pseudonimi', password='$fjalkalmi', status='$roli' WHERE user_id='$id' ");
+					SET firstname='$emri', lastname='$mbiemri', username='$pseudonimi', password='$fjalkalmi', address='$adresa', status='$roli' WHERE user_id='$id' ") or die(mysql_error());
 	
 	}elseif(isset($delete)) {
 		$id = $_POST['id'];

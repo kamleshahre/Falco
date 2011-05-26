@@ -40,13 +40,7 @@ function toggleVisibility(id,visible) {
 }
 
 public function LeftSide() {
-return '
-<div id="leftside">
-	<a  class="menu_links" href="index.php?menu=rezervimet&submenu=rezervo"><p class="menus">Rezervimet</p></a>
-	<a  class="menu_links" href="index.php?menu=perdoruesit"><p class="menus">Përdoruesit</p></a>
-	<a  class="menu_links" href="index.php?menu=destinacionet"><p class="menus">Destinacionet</p></a>
-</div><!-- endof leftside -->
-';
+return funksionet::left_menu();
 }
 
 public function RightSide() {
