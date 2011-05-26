@@ -668,11 +668,22 @@ function users($roli) {
 	$delete = $_POST['delete'];
 	$edit = $_POST['edit'];
 
-	if(isset($delete)) {
+	if(isset($_POST['user_edited'])) {
+		//variables coming from the form
+		$emri		=	$_POST['emri'];				$mbiemri	=	$_POST['mbiemri'];
+		$pseudonimi	=	$_POST['pseudonimi'];		$fjalkalmi	=	md5($_POST['fjalkalimi']);
+		$adresa		=	$_POST['adresa'];			$roli		=	$_POST['roli'];
+		$id 		=	$_POST['id'];
+		$db->query("UPDATE users 
+					SET firstname='$emri', lastname='$mbiemri', username='$pseudonimi', password='$fjalkalmi', status='$roli' WHERE user_id='$id' ");
+	
+	}elseif(isset($delete)) {
 		$id = $_POST['id'];
 		$db->query("DELETE FROM users WHERE user_id = '$id'");
 		return funksionet::show_error("Përdoruesi që keni zgjedhur është fshir nga sistemi me sukses!");
 	}elseif(isset($edit)) {
+	
+		
 		$id = $_POST['id'];
 		$row = mysql_fetch_array($db->query("SELECT * FROM users WHERE user_id='$id'"));
 		return '
@@ -702,7 +713,7 @@ function users($roli) {
 		<tr>
 			<td>Roli:</td>
 			<td>
-				<select style="width:150px;">
+				<select style="width:150px;" name="roli">
 					<option value="">Zgjidhe rolin:</option>
 					<option value="admin">Administrator</option>
 					<option value="agent">Agent</option>
@@ -710,6 +721,7 @@ function users($roli) {
 			</td>
 		</tr>
 		</table>
+		<input type="hidden" name="id" value="'.$row['user_id'].'">
 		<input type="submit" value="Ruaj ndryshimet" name="user_edited" style="float:right;margin-right:10px;">
 		</form>
 		</div>
