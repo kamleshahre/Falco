@@ -314,6 +314,76 @@ $cost = 0;
 		exit();
 	}elseif(isset($PostedID) && $action == 'edito'){
 		return '<div id="Formulari">'.Modelet::edito($PostedID).'</div>';
+	}elseif(isset($_POST['editoket'])){
+	
+		// Variables that come from the Reservations form
+		$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
+		$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
+		$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
+		$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
+		$persona  = $_POST['persona'];
+		$femij 	  = $_POST['femij'];		
+		$drejtimi =	$_POST['drejtimi'];
+		
+		//Here we get the last cost for the reserved destination
+		$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
+		$cost = mysql_fetch_array($result);
+		$cmimi = $cost['cost'];
+		$cmimiKthyes = $cmimi * 2;
+		
+		//Here we put all informations into database
+		if($drejtimi == 'kthyese') {
+			if (empty($data) && !empty($dataKthyese)){
+				return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes!';
+				exit();
+			} elseif(empty($dataKthyese) && !empty($data)) {
+				return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes kthyese!';
+				exit();
+			}elseif(empty($data) && empty($dataKthyese)){
+				return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni datat e nisjeve!';
+				exit();
+			}elseif($data >= $dataKthyese){
+				return '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
+				exit(); 
+			}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
+				return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
+				exit(); 			
+			} else {
+				$db->query("UPDATE orders 
+							name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',KthyesePrej='$KthyesePrej',
+							KthyeseDeri='$KthyeseDeri',date='$data',data_kthyese='$dataKthyese',persona='$persona',
+							femij='$femij',cost='$cmimiKthyes' WHERE order_id='$IDtoEdit'");
+				$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
+				$infos .=  'Drejtimi: '.$drejtimi.'<br />';
+				$infos .=  'Prej: '.$prej.'<br />';
+				$infos .=  'Deri: '.$deri.'<br />';
+				$infos .=  'Data: '.$data.'<br />';
+				$infos .=  'Kthimi prej: '.$KthyesePrej.'<br />';
+				$infos .=  'Kthimi deri: '.$KthyeseDeri.'<br />';
+				$infos .=  'Data kthyese:'.$dataKthyese.'<br />';
+				$infos .= 'Persona: '.$persona.'<br />';
+				(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
+				$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
+				$infos .=  '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
+			}
+		return $infos;
+		
+	} elseif($drejtimi == 'një drejtim') {
+		$db->query("UPDATE orders 
+					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
+					date='$data',persona='$persona',femij='$femij',cost='$cmimi' 
+					WHERE order_id = '$IDtoEdit'");	
+		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
+		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
+		$infos .= 'Prej: '.$prej.'<br />';
+		$infos .= 'Deri: '.$deri.'<br />';
+		$infos .= 'Data: '.$data.'<br />';
+		(empty($persona)) ? $infos .= 'Persona: 1 <br />' : $infos .= 'Persona: '.$persona.'<br />';
+		(!empty($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
+		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
+		$infos .= '<a href="GeneratePDF.php">Gjenero tiket</a>';
+	return $infos;	
+	}
 	}elseif(isset($dataZgjedhur)) {
 		$query = $db->query("SELECT * FROM orders WHERE date = '$dataZgjedhur'");
 	}else { 
@@ -413,79 +483,7 @@ return '
 function edito($IDtoEdit) {
 	
 	global $db;
-	
-if (isset($_POST['edito'])) {
-	
-	// Variables that come from the Reservations form
-	$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
-	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
-	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
-	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
-	$persona  = $_POST['persona'];
-	$femij 	  = $_POST['femij'];		
-	$drejtimi =	$_POST['drejtimi'];
-	
-	//Here we get the last cost for the reserved destination
-	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
-	$cost = mysql_fetch_array($result);
-	$cmimi = $cost['cost'];
-	$cmimiKthyes = $cmimi * 2;
-	
-	//Here we put all informations into database
-	if($drejtimi == 'kthyese') {
-		if (empty($data) && !empty($dataKthyese)){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes!';
-			exit();
-		} elseif(empty($dataKthyese) && !empty($data)) {
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes kthyese!';
-			exit();
-		}elseif(empty($data) && empty($dataKthyese)){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni datat e nisjeve!';
-			exit();
-		}elseif($data >= $dataKthyese){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
-			exit(); 
-		}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
-			exit(); 			
-		} else {
-			$db->query("UPDATE orders 
-						name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',KthyesePrej='$KthyesePrej',
-						KthyeseDeri='$KthyeseDeri',date='$data',data_kthyese='$dataKthyese',persona='$persona',
-						femij='$femij',cost='$cmimiKthyes' WHERE order_id='$IDtoEdit'");
-			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
-			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
-			$infos .=  'Prej: '.$prej.'<br />';
-			$infos .=  'Deri: '.$deri.'<br />';
-			$infos .=  'Data: '.$data.'<br />';
-			$infos .=  'Kthimi prej: '.$KthyesePrej.'<br />';
-			$infos .=  'Kthimi deri: '.$KthyeseDeri.'<br />';
-			$infos .=  'Data kthyese:'.$dataKthyese.'<br />';
-			$infos .= 'Persona: '.$persona.'<br />';
-			(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
-			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
-			$infos .=  '<a href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
-		}
-	return $infos;
-		
-	} elseif($drejtimi == 'një drejtim') {
-		$db->query("UPDATE orders 
-					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
-					date='$data',persona='$persona',femij='$femij',cost='$cmimi' 
-					WHERE order_id = '$IDtoEdit'");	
-		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
-		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
-		$infos .= 'Prej: '.$prej.'<br />';
-		$infos .= 'Deri: '.$deri.'<br />';
-		$infos .= 'Data: '.$data.'<br />';
-		(empty($persona)) ? $infos .= 'Persona: 1 <br />' : $infos .= 'Persona: '.$persona.'<br />';
-		(!empty($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
-		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
-		$infos .= '<a href="GeneratePDF.php">Gjenero tiket</a>';
-	return $infos;	
-	}
 
-}else {
 	$values = mysql_fetch_array($db->query("SELECT * FROM orders WHERE order_id = '$IDtoEdit';"));
 
 // Variables that come from the database
@@ -642,7 +640,7 @@ if (isset($_POST['edito'])) {
 	</td>
 	
 	<td>
-	<input style="float:right;" type="submit" value="Ruaj te dhënat" name="edito" />
+	<input style="float:right;" type="submit" value="Ruaj te dhënat" name="editoket" />
 	</td>
 </tr>
 </table>
@@ -652,7 +650,6 @@ if (isset($_POST['edito'])) {
 	} 	
 	
 	
-}
 	
 }//endof Modelet
 
