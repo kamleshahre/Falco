@@ -49,12 +49,12 @@ global $subpage;
 function agjentet_switcher() {
 global $subpage;	
 	switch ($subpage) {
-		case 'rezervo':
-		return '<div id="Formulari">'.Modelet::rezervo().'</div>';
+		case 'agjentet':
+		return Modelet::users('agent');
 		break;
 		
-		case 'listat':
-		return Modelet::lista();
+		case 'administratoret':
+		return Modelet::users('admin');
 		break;
 		
 		case 'ndihme':
@@ -659,6 +659,50 @@ global $db;
 	} 	
 	
 }	
+
+
+function users($roli) {
+	global $db;
+	$i = 1;	
+	
+  		 $query = $db->query("SELECT * FROM users WHERE status = '$roli'");
+	
+		while($row = mysql_fetch_array($query)) { 
+		if ($i % 2 != "0") # An odd row
+		  $rowColor = "bgC1";
+		else # An even row
+  		  $rowColor = "bgC2";
+			
+		//variables that come from the database
+		$firstname = $row['firstname'];			$lastname = $row['lastname'];
+		$address   = $row['address'];			$username = $row['username'];
+		$status    = $row['status'];
+	
+		$users .= '<tr class="'.$rowColor.'">
+				<td><strong>'.$i.'</strong></td>
+				<td>'.$firstname.'</td>
+				<td>'.$lastname.'</td>
+				<td>'.$username.'</td>
+				<td>'.$address.'</td>
+			</tr>		
+	     	';
+		$i++;
+		} 
+	
+ 		
+	return '<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+			<tr class="bgC3" style="font-weight:bold;">
+				<td></td>
+				<td>Emri</td>
+				<td>Mbiemri</td>
+				<td>Pseudonimi</td>
+				<td>Adresa</td>
+				'.$users.'
+			</tr>
+			</table>';
+			
+	
+}
 	
 }//endof Modelet
 

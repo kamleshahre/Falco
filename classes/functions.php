@@ -11,7 +11,7 @@ switch ($page) {
 	break;
 
 	case 'agjentet':
-		$topNavigation = array('Agjentet','Test','Ndihmë');
+		$topNavigation = array('Agjentët','Administratorët','Ndihmë');
 	break;	
 
 	case 'destinacionet':
@@ -31,7 +31,7 @@ switch ($page) {
 		else 	
 			$css = 'topNavigationLinks'; 
 			
-		$topnavi.= '<a  class="'.$css.'" href="index.php?menu=rezervimet&submenu='.funksionet::SpecialcharsCleaner(strtolower($row)).'">'.$row.'</a>';
+		$topnavi.= '<a  class="'.$css.'" href="index.php?menu='.$page.'&submenu='.funksionet::SpecialcharsCleaner(strtolower($row)).'">'.$row.'</a>';
 	}	
 	return $topnavi;
 }			
