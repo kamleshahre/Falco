@@ -10,7 +10,7 @@ global $page;
 			break;
 			
 			case 'agjentet':
-			return 'agjentet';
+			return $this->agjentet_switcher();
 			break;
 			
 			case 'destinacionet':
@@ -44,6 +44,27 @@ global $subpage;
 		break;
 	}
 	
+}
+
+function agjentet_switcher() {
+global $subpage;	
+	switch ($subpage) {
+		case 'rezervo':
+		return '<div id="Formulari">'.Modelet::rezervo().'</div>';
+		break;
+		
+		case 'listat':
+		return Modelet::lista();
+		break;
+		
+		case 'ndihme':
+		return 'Qendra per ndihm shkon ktu';
+		break;
+		
+		default:
+			return '<div id="Formulari">'.Modelet::rezervo().'</div>';
+		break;
+	}
 }
 	
 }//endof controller

@@ -1,9 +1,29 @@
 <?php
 class funksionet {
 
-public function TopMenu() {
+	
+public function menu_for_reservations() {
 	global $page, $subpage;
-$topNavigation = array('Rezervo','Listat','Ndihmë');
+	
+switch ($page) {
+	case 'rezervimet':
+		$topNavigation = array('Rezervo','Listat','Ndihmë');
+	break;
+
+	case 'agjentet':
+		$topNavigation = array('Agjentet','Test','Ndihmë');
+	break;	
+
+	case 'destinacionet':
+		$topNavigation = array('Destinacionet','Cmimet','Ndihmë');
+	break;	
+	
+	default:
+		;
+	break;
+}
+	
+//$topNavigation = array('Rezervo','Listat','Ndihmë');
 
 	foreach ($topNavigation as $row) {
 		if(funksionet::SpecialcharsCleaner($row) == ucfirst($_GET['submenu']))
