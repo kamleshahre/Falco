@@ -3,6 +3,7 @@
 $page = $_GET['menu'];
 $subpage = $_GET['submenu'];
 $act = $_GET['action']; 
+$perdorues = $_SESSION['username'];
 
 if(empty($page) && empty($subpage))
 	header("Location: index.php?menu=rezervimet&submenu=rezervo");

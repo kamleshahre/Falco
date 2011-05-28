@@ -30,7 +30,7 @@ switch ($page) {
 		else 	
 			$css = 'topNavigationLinks'; 
 			
-		$topnavi.= '<a  class="'.$css.'" href="index.php?menu='.$page.'&submenu='.funksionet::SpecialcharsCleaner(strtolower($row)).'">'.$row.'</a>';
+		$topnavi.= '<a  class="menu_top  '.$css.'" href="index.php?menu='.$page.'&submenu='.funksionet::SpecialcharsCleaner(strtolower($row)).'">'.$row.'</a>';
 	}	
 	return $topnavi;
 }		
@@ -46,11 +46,13 @@ $page = $_GET['menu'];
 		
 		
 		if(funksionet::SpecialcharsCleaner($row) == ucfirst($_GET['menu']))
-			$css = 'topNavigationCurrent';
+			$css = 'leftNavigationCurrent';
 		else 	
 			$css = 'topNavigationLinks'; 
 		
-		$navi .= '<a  class="menu_links '.$css.'" href="index.php?menu='.funksionet::SpecialcharsCleaner(strtolower($row)).'"><p class="menus">'.$row.'</p></a>';	
+		$navi .= '<a  class="menu_links '.$css.'" href="index.php?menu='.funksionet::SpecialcharsCleaner(strtolower($row)).'"><p class="menus">
+					<img src="images/'.funksionet::SpecialcharsCleaner(strtolower($row)).'.png" class="left_menu_icon" >
+					'.$row.'</p></a>';	
 	}
 		
 		return '<div id="leftside">

@@ -90,6 +90,11 @@ float:left;
 text-decoration: none;
 background-color:#f9f9f9;
 }
+
+.menu_top {
+color:#000000;
+text-decoration: none;
+}
 a.menu_links:hover {background-color: white; text-decoration: none; border-right:0px}
 a.menu_links:active {background-color: white; text-decoration: none;}
 a.menu_links:link {background-color: white; text-decoration: none;}
@@ -127,7 +132,6 @@ width: 150px;
 }
 .topNavigation a{
     background-image: url("../images/ts.png");
-    color: #000000;
     display: inline-block;
     font-size: 16px;
     height: 31px;
@@ -140,12 +144,26 @@ width: 150px;
 }
 .topNavigation a:hover, .topNavigation a:active{
 	background-color: white;
+	color: #EB3A3A;
 }
 
 .topNavigationCurrent {
 	background-color: white;
 	font-weight: bold;
+	color:red;
 }
+.leftNavigationCurrent {
+	background-color: white;
+	font-weight: bold;
+	color: black;	
+}
+.left_menu_icon {
+	float:left;
+	position:relative;
+	margin-right: 5px;
+	border:0;
+}
+
 .topNavigationLinksA{
 	background-color: #FFF;
 }

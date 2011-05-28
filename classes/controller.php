@@ -73,7 +73,8 @@ class Modelet {
 	
 function rezervo() {
 	global $db;
-	
+
+	$perdorues = $_SESSION['username'];
 if (isset($_POST['rezervo'])) {
 	
 	// Variables that come from the Reservations form
@@ -110,8 +111,8 @@ if (isset($_POST['rezervo'])) {
 			exit(); 			
 		} else {
 			$db->query("INSERT INTO orders 
-							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,femij,cost) 
-						VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$persona','$femij','$cmimiKthyes')") or die(mysql_error());
+							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,femij,rezervues,cost) 
+						VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$persona','$femij','$perdorues','$cmimiKthyes')") or die(mysql_error());
 			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
 			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
 			$infos .=  'Prej: '.$prej.'<br />';
@@ -129,8 +130,8 @@ if (isset($_POST['rezervo'])) {
 		
 	} elseif($drejtimi == 'një drejtim') {
 		$db->query("INSERT INTO orders 
-						   (name,surname,prej,deri,date,persona,femij,cost) 
-					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$femij','$cmimi')") or die(mysql_error());	
+						   (name,surname,prej,deri,date,persona,femij,rezervues,cost) 
+					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$femij','$perdorues','$cmimi')") or die(mysql_error());	
 		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
 		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
 		$infos .= 'Prej: '.$prej.'<br />';
@@ -336,9 +337,16 @@ $cost = 0;
 	}elseif(isset($PostedID) && $action == 'edito' || isset($_POST['editoket'])){
 		return '<div id="Formulari">'.Modelet::edito($PostedID).'</div>';
 	}elseif(isset($dataZgjedhur)) {
-		$query = $db->query("SELECT * FROM orders WHERE date = '$dataZgjedhur'");
+	echo $dataZgjedhur;
+	echo 	$PrejZgjedhur = $_POST['Prej'];
+	echo	$DeriZgjedhur = $_POST['Deri'];
+		$query = $db->query("
+		SELECT * FROM orders WHERE prej='$PrejZgjedhur' AND deri='$DeriZgjedhur' AND (date = '$dataZgjedhur' OR data_kthyese = '$dataZgjedhur')") or die(mysql_error());
+		$data = $dataZgjedhur;
 	}else { 
 		$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
+		$dat = mysql_fetch_array($query);
+		$data = $dat['date'];
 	}
 
 
@@ -346,7 +354,7 @@ $cost = 0;
 while ($row = mysql_fetch_array($query)) {
 		
  $cost += $row['cost'];
- $data = funksionet::formato_daten($row['date']);
+ $date = funksionet::formato_daten($data);
  $id = $row['order_id'];	
 		if ($i % 2 != "0") # An odd row
 		  $rowColor = "bgC1";
@@ -360,6 +368,7 @@ while ($row = mysql_fetch_array($query)) {
 	<td>'.$row['prej'].' - '.$row['deri'].'</td>
 	<td  style="text-align:center;">'.$row['persona'].'</td>
 	<td  style="text-align:center;"> '.$row['femij'].'</td>
+	<td>'.$row['rezervues'].'</td>
 		<td width="172"  style="text-align:center;">
 			'.funksionet::list_actions($id,'delete','Anulo', $row['date']).
 			  funksionet::list_actions($id,'printo','Printo').
@@ -396,6 +405,15 @@ return '
 	}, A_CALTPL);
 	</script>
 	</td>
+	<td>
+		<select class="selectDest" name="Prej">
+		'.funksionet::directions(1).'
+		</select>
+	</td>
+	<td>
+		<select class="selectDest" name="Deri">
+		'.funksionet::directions(2).'</td>
+		</select>
 	<td><input type="submit" value="Shfaqe listen"></td>
 	
 </tr>
@@ -410,6 +428,7 @@ return '
 	   		<td> Destinacioni </td>
 	   		<td width="20">Persona</td>
 	   		<td width="20">Fëmij</td>
+	   		<td>E kreu</td>
 	   		<td> Opsionet </td>
 	   		<td width="50"> &Ccedil;mimi </td>
 	   </tr>
@@ -423,7 +442,7 @@ return '
 		</tr>
 		<tr class="bgC2">
 			<td><strong>Data:</strong></td>
-			<td>'.$data.'</td>
+			<td>'.$date.'</td>
 		</tr>
 	</table>
 	   
