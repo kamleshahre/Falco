@@ -7,7 +7,7 @@ public function menu_for_reservations() {
 	
 switch ($page) {
 	case 'rezervimet':
-		$topNavigation = array('Rezervo','Listat','Ndihmë');
+		$topNavigation = array('Rezervo','Listat','Profit','Ndihmë');
 	break;
 
 	case 'perdoruesit':

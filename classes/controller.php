@@ -35,6 +35,10 @@ global $subpage;
 		return Modelet::lista();
 		break;
 		
+		case 'profit':
+		return Modelet::profit();
+		break;
+		
 		case 'ndihme':
 		return 'Qendra per ndihm shkon ktu';
 		break;
@@ -337,11 +341,9 @@ $cost = 0;
 	}elseif(isset($PostedID) && $action == 'edito' || isset($_POST['editoket'])){
 		return '<div id="Formulari">'.Modelet::edito($PostedID).'</div>';
 	}elseif(isset($dataZgjedhur)) {
-	echo $dataZgjedhur;
-	echo 	$PrejZgjedhur = $_POST['Prej'];
-	echo	$DeriZgjedhur = $_POST['Deri'];
-		$query = $db->query("
-		SELECT * FROM orders WHERE prej='$PrejZgjedhur' AND deri='$DeriZgjedhur' AND (date = '$dataZgjedhur' OR data_kthyese = '$dataZgjedhur')") or die(mysql_error());
+		$PrejZgjedhur = $_POST['Prej'];
+		$DeriZgjedhur = $_POST['Deri'];
+		$query = $db->query("SELECT * FROM orders WHERE prej='$PrejZgjedhur' AND deri='$DeriZgjedhur' AND (date = '$dataZgjedhur' OR data_kthyese = '$dataZgjedhur')") or die(mysql_error());
 		$data = $dataZgjedhur;
 	}else { 
 		$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
@@ -447,6 +449,45 @@ return '
 	</table>
 	   
 	   ';
+	
+}
+
+function profit() {
+	global $db;
+
+	$usersQuery = $db->query("SELECT username FROM users WHERE status='agent';");
+	while ($rows = mysql_fetch_array($usersQuery)) {
+			$users = $rows['username'];
+			$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date
+								FROM orders
+								WHERE rezervues='$users' AND EXTRACT(MONTH FROM date)='05';");
+			while($row = mysql_fetch_array($query)) {
+				
+				if ($i % 2 != "0") # An odd row
+				  $rowColor = "bgC1";
+				else # An even row
+		  		  $rowColor = "bgC2";	
+				$list = '';
+				$lista .= '
+					<tr class="'.$rowColor.'">
+						<td>'.$row['rezervues'].'</td>
+						<td>Maj</td>
+						<td>'.$row['sumaTotale'].'</td>
+					</tr>
+					';
+			}
+	}
+			
+	
+	return '<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0">
+				<tr class="bgC3" style="font-weight:bold;">
+					<td>Agjenti</td>
+					<td>Muaj</td>
+					<td>Pagesa totale</td>
+				</tr>
+				
+					'.$lista.'
+			</table>';
 	
 }
 
