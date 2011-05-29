@@ -454,36 +454,66 @@ return '
 
 function profit() {
 	global $db;
-
+	$i = 1;
 	$usersQuery = $db->query("SELECT username FROM users WHERE status='agent';");
 	while ($rows = mysql_fetch_array($usersQuery)) {
 			$users = $rows['username'];
-			$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date
-								FROM orders
-								WHERE rezervues='$users' AND EXTRACT(MONTH FROM date)='05';");
+			
+							if(isset($_POST['ZgjedhMuaj'])) {
+								$muaj = $_POST['muaj'];
+								$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date
+													FROM orders
+													WHERE rezervues='$users' AND EXTRACT(MONTH FROM date)='$muaj';");
+							} else {
+								 $muaj = date('m');
+								 $query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date
+													FROM orders
+													WHERE rezervues='$users' AND EXTRACT(MONTH FROM date)='$muaj';");
+							}
+							
 			while($row = mysql_fetch_array($query)) {
 				
 				if ($i % 2 != "0") # An odd row
 				  $rowColor = "bgC1";
 				else # An even row
 		  		  $rowColor = "bgC2";	
-				$list = '';
 				$lista .= '
 					<tr class="'.$rowColor.'">
-						<td>'.$row['rezervues'].'</td>
-						<td>Maj</td>
-						<td>'.$row['sumaTotale'].'</td>
+						<td>'.$i.'</td>
+						<td>'.ucfirst($row['rezervues']).'</td>
+						<td>'.funksionet::dateFROMintTOstr($muaj).'</td>
+						<td>'.$row['sumaTotale'].' &euro;</td>
 					</tr>
 					';
+				$i++;
 			}
 	}
 			
 	
-	return '<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0">
+	return '
+		<form action="" method="POST">
+			<select name="muaj">
+				<option value="01">Janar</option>
+				<option value="02">Shkurt</option>
+				<option value="03">Mars</option>
+				<option value="04">Prill</option>
+				<option value="05">Maj</option>
+				<option value="06">Qershor</option>
+				<option value="07">Korrik</option>
+				<option value="08">Gusht</option>
+				<option value="09">Shtator</option>
+				<option value="10">Tetor</option>
+				<option value="11">Nëntor</option>
+				<option value="12">Dhjetor</option>
+			</select>
+			<input type="submit" name="ZgjedhMuaj" value="Paraqit rezultatin">
+		</form>
+			<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0">
 				<tr class="bgC3" style="font-weight:bold;">
+					<td></td>
 					<td>Agjenti</td>
 					<td>Muaj</td>
-					<td>Pagesa totale</td>
+					<td>Profit</td>
 				</tr>
 				
 					'.$lista.'

@@ -117,6 +117,26 @@ return preg_replace($patterns, $replacements, $string);
  
 }
 
+//here is the function that transforms integer months into strings
+function dateFROMintTOstr($string) {
+
+$patterns = array();				$replacements = array();
+$patterns[0] = '/01/';				$replacements[11] = 'Janar';
+$patterns[1] = '/02/';				$replacements[10] = 'Shkurt';
+$patterns[2] = '/03/';				$replacements[9] = 'Mars';
+$patterns[3] = '/04/';				$replacements[8] = 'Prill';
+$patterns[4] = '/05/';				$replacements[7] = 'Maj';
+$patterns[5] = '/06/';				$replacements[6] = 'Qershor';
+$patterns[6] = '/07/';				$replacements[5] = 'Korrik';
+$patterns[7] = '/08/';				$replacements[4] = 'Gusht';
+$patterns[8] = '/09/';				$replacements[3] = 'Shtator';
+$patterns[9] = '/10/';				$replacements[2] = 'Tetor';
+$patterns[10] = '/11/';				$replacements[1] = 'Nentor';
+$patterns[11] = '/12/';				$replacements[0] = 'Dhjetor';
+
+return preg_replace($patterns, $replacements, $string);
+ 
+}
 
 	
 }//end of funksionet
