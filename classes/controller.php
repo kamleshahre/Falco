@@ -455,20 +455,32 @@ return '
 function profit() {
 	global $db;
 	$i = 1;
+	
+	//here we make the years for filters
+	$SelectYears	= '<option>Zgjidhe vitin:</option>';
+	for ($vite = 2011; $vite <= 2050; $vite++) {
+		$SelectYears	.= '<option>'.$vite.'</option>';
+	}
+		
+	
+	
+	
 	$usersQuery = $db->query("SELECT username FROM users WHERE status='agent';");
 	while ($rows = mysql_fetch_array($usersQuery)) {
 			$users = $rows['username'];
 			
 							if(isset($_POST['ZgjedhMuaj'])) {
+								$viti = $_POST['viti'];
 								$muaj = $_POST['muaj'];
 								$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date
 													FROM orders
-													WHERE rezervues='$users' AND EXTRACT(MONTH FROM date)='$muaj';");
+													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
 							} else {
+								 $viti = date('Y');
 								 $muaj = date('m');
 								 $query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date
 													FROM orders
-													WHERE rezervues='$users' AND EXTRACT(MONTH FROM date)='$muaj';");
+													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='2011');");
 							}
 							
 			while($row = mysql_fetch_array($query)) {
@@ -477,11 +489,12 @@ function profit() {
 				  $rowColor = "bgC1";
 				else # An even row
 		  		  $rowColor = "bgC2";	
-				$lista .= '
+				
+		  		  $GjithsejProfit += $row['sumaTotale'];
+		  		  $lista .= '
 					<tr class="'.$rowColor.'">
 						<td>'.$i.'</td>
 						<td>'.ucfirst($row['rezervues']).'</td>
-						<td>'.funksionet::dateFROMintTOstr($muaj).'</td>
 						<td>'.$row['sumaTotale'].' &euro;</td>
 					</tr>
 					';
@@ -492,7 +505,11 @@ function profit() {
 	
 	return '
 		<form action="" method="POST">
-			<select name="muaj">
+			
+		<table cellspacing="1" cellpadding="5" border="0" style="margin: 10px 10px 0pt;">			
+		<tr>
+		<td><select name="muaj">
+				<option value="00">Zgjidhe muajn:</option>
 				<option value="01">Janar</option>
 				<option value="02">Shkurt</option>
 				<option value="03">Mars</option>
@@ -505,19 +522,38 @@ function profit() {
 				<option value="10">Tetor</option>
 				<option value="11">Nëntor</option>
 				<option value="12">Dhjetor</option>
+		</td></select>
+		<td>
+			<select name="viti">
+			'.$SelectYears.'
 			</select>
-			<input type="submit" name="ZgjedhMuaj" value="Paraqit rezultatin">
+		</td>
+		<td><input type="submit" name="ZgjedhMuaj" value="Shfaqe listen"></td>
+		</tr>
+		</table>
+		
 		</form>
 			<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0">
 				<tr class="bgC3" style="font-weight:bold;">
 					<td></td>
 					<td>Agjenti</td>
-					<td>Muaj</td>
 					<td>Profit</td>
 				</tr>
 				
 					'.$lista.'
-			</table>';
+			</table>
+			
+   	<table style="margin:10px -10px 0 10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+		<tr class="bgC2">
+			<td><strong>Periudha:</strong></td>
+			<td>'.funksionet::dateFROMintTOstr($muaj).' '.$viti.'</td>
+		</tr>
+		<tr class="bgC2">
+			<td><strong>Gjithsejt Profit:</strong></td>
+			<td>'.$GjithsejProfit.' &euro;</td>
+		</tr>		
+	</table>
+			';
 	
 }
 
