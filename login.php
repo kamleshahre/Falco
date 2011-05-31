@@ -22,6 +22,7 @@ if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Sistemi Administrues Falco</title>
+<LINK REL="SHORTCUT ICON" HREF="favicon.png">
 <link rel="stylesheet" type="text/css" href="css/default.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>

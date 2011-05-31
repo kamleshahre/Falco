@@ -377,7 +377,7 @@ while ($row = mysql_fetch_array($query)) {
 			  funksionet::list_actions($id,'edito','Edito').
 			'
 		</td>
-	<td>'.$row['cost'].' &euro;</td>
+	<td style="text-align:right;">'.$row['cost'].' &euro;</td>
 	</tr>
 	';
 	  $i++; 
@@ -440,7 +440,7 @@ return '
 	   	<table style="margin:10px -10px 0 10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 		<tr class="bgC2">
 			<td><strong>Total:</strong></td>
-			<td>'.$cost.' &euro;</td>
+			<td style="text-align:right;">'.$cost.' &euro;</td>
 		</tr>
 		<tr class="bgC2">
 			<td><strong>Data:</strong></td>
@@ -493,9 +493,13 @@ function profit() {
 		  		  $GjithsejProfit += $row['sumaTotale'];
 		  		  $lista .= '
 					<tr class="'.$rowColor.'">
-						<td>'.$i.'</td>
+						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
 						<td>'.ucfirst($row['rezervues']).'</td>
-						<td>'.$row['sumaTotale'].' &euro;</td>
+						<td>
+							<input type="submit" value="E paguar" name="po">
+							<input type="submit" value="Jo e paguar" name="jo">
+						</td>
+						<td style="text-align:right;">'.$row['sumaTotale'].' &euro;</td>
 					</tr>
 					';
 				$i++;
@@ -535,9 +539,10 @@ function profit() {
 		</form>
 			<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0">
 				<tr class="bgC3" style="font-weight:bold;">
-					<td></td>
+					<td width="20"></td>
 					<td>Agjenti</td>
-					<td>Profit</td>
+					<td width="180">Opsionet</td>
+					<td width="80">Profit</td>
 				</tr>
 				
 					'.$lista.'
@@ -550,7 +555,7 @@ function profit() {
 		</tr>
 		<tr class="bgC2">
 			<td><strong>Gjithsejt Profit:</strong></td>
-			<td>'.$GjithsejProfit.' &euro;</td>
+			<td style="text-align:right;">'.$GjithsejProfit.' &euro;</td>
 		</tr>		
 	</table>
 			';
