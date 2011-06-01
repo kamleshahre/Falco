@@ -6,7 +6,7 @@ background:url("images/header_bg.jpg") repeat-x;
 }
 
 #wrapper {
-width: 1010px;
+width: 1024px;
 height: 500px;
 margin:0;
 padding:0;
@@ -101,7 +101,7 @@ a.menu_links:link {background-color: white; text-decoration: none;}
 
 #rightside {
 float:left;
-width: 808px;
+width: 824px;
 }
 
 .selectDest {

@@ -95,6 +95,8 @@ if (isset($_POST['rezervo'])) {
 	$cost = mysql_fetch_array($result);
 	$cmimi = $cost['cost'];
 	$cmimiKthyes = $cmimi * 2;
+	$provision = 0.10 * $cmimi;
+	$provisionKthyes = 0.10 * $cmimiKthyes;
 	
 	//Here we put all informations into database
 	if($drejtimi == 'kthyese') {
@@ -115,8 +117,8 @@ if (isset($_POST['rezervo'])) {
 			exit(); 			
 		} else {
 			$db->query("INSERT INTO orders 
-							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,femij,rezervues,cost) 
-						VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$persona','$femij','$perdorues','$cmimiKthyes')") or die(mysql_error());
+							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,femij,rezervues,cost,provision) 
+						VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$persona','$femij','$perdorues','$cmimiKthyes','$provisionKthyes')") or die(mysql_error());
 			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
 			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
 			$infos .=  'Prej: '.$prej.'<br />';
@@ -134,8 +136,8 @@ if (isset($_POST['rezervo'])) {
 		
 	} elseif($drejtimi == 'një drejtim') {
 		$db->query("INSERT INTO orders 
-						   (name,surname,prej,deri,date,persona,femij,rezervues,cost) 
-					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$femij','$perdorues','$cmimi')") or die(mysql_error());	
+						   (name,surname,prej,deri,date,persona,femij,rezervues,cost,provision) 
+					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$femij','$perdorues','$cmimi','$provision')") or die(mysql_error());	
 		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
 		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
 		$infos .= 'Prej: '.$prej.'<br />';
@@ -356,6 +358,8 @@ $cost = 0;
 while ($row = mysql_fetch_array($query)) {
 		
  $cost += $row['cost'];
+ $provisionTotal += $row['provision'];
+ $costNOPROVISION = $cost - $provisionTotal;
  $date = funksionet::formato_daten($data);
  $id = $row['order_id'];	
 		if ($i % 2 != "0") # An odd row
@@ -377,6 +381,8 @@ while ($row = mysql_fetch_array($query)) {
 			  funksionet::list_actions($id,'edito','Edito').
 			'
 		</td>
+	<td style="text-align:right;">'.$row['provision'].' &euro;</td>
+	<td>33</td>
 	<td style="text-align:right;">'.$row['cost'].' &euro;</td>
 	</tr>
 	';
@@ -426,25 +432,35 @@ return '
 		<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 	   <tr class="bgC3" style="font-weight:bold;">
 	   		<td width="20" > </td>
-	   		<td> Emri Mbiemri </td>
+	   		<td>Pasagjeri</td>
 	   		<td> Destinacioni </td>
 	   		<td width="20">Persona</td>
 	   		<td width="20">Fëmij</td>
 	   		<td>E kreu</td>
 	   		<td> Opsionet </td>
-	   		<td width="50"> &Ccedil;mimi </td>
+	   		<td>Me Provs.</td>
+	   		<td>Pa Provs.</td>
+	   		<td width="50">Çmimi</td>
 	   </tr>
 	   '.$lista.'
 	   </table>
 	   
 	   	<table style="margin:10px -10px 0 10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 		<tr class="bgC2">
-			<td><strong>Total:</strong></td>
-			<td style="text-align:right;">'.$cost.' &euro;</td>
-		</tr>
-		<tr class="bgC2">
 			<td><strong>Data:</strong></td>
 			<td>'.$date.'</td>
+		</tr>
+	   	<tr class="bgC2">
+			<td><strong>Total me provision:</strong></td>
+			<td style="text-align:right;">'.$provisionTotal.' &euro;</td>
+		</tr>
+		<tr class="bgC2">
+			<td><strong>Total pa provision:</strong></td>
+			<td style="text-align:right;">'.$costNOPROVISION.' &euro;</td>
+		</tr>
+	   	<tr class="bgC2">
+			<td><strong>Profit Total:</strong></td>
+			<td style="text-align:right;font-weight:bold;">'.$cost.' &euro;</td>
 		</tr>
 	</table>
 	   
@@ -495,10 +511,6 @@ function profit() {
 					<tr class="'.$rowColor.'">
 						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
 						<td>'.ucfirst($row['rezervues']).'</td>
-						<td>
-							<input type="submit" value="E paguar" name="po">
-							<input type="submit" value="Jo e paguar" name="jo">
-						</td>
 						<td style="text-align:right;">'.$row['sumaTotale'].' &euro;</td>
 					</tr>
 					';
@@ -541,7 +553,6 @@ function profit() {
 				<tr class="bgC3" style="font-weight:bold;">
 					<td width="20"></td>
 					<td>Agjenti</td>
-					<td width="180">Opsionet</td>
 					<td width="80">Profit</td>
 				</tr>
 				
