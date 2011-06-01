@@ -381,8 +381,7 @@ while ($row = mysql_fetch_array($query)) {
 			  funksionet::list_actions($id,'edito','Edito').
 			'
 		</td>
-	<td style="text-align:right;">'.$row['provision'].' &euro;</td>
-	<td>33</td>
+	<td style="text-align:right;">'.substr($row['provision'], 0, 4).' &euro;</td>
 	<td style="text-align:right;">'.$row['cost'].' &euro;</td>
 	</tr>
 	';
@@ -438,8 +437,7 @@ return '
 	   		<td width="20">Fëmij</td>
 	   		<td>E kreu</td>
 	   		<td> Opsionet </td>
-	   		<td>Me Provs.</td>
-	   		<td>Pa Provs.</td>
+	   		<td>Provs.</td>
 	   		<td width="50">Çmimi</td>
 	   </tr>
 	   '.$lista.'
@@ -451,11 +449,11 @@ return '
 			<td>'.$date.'</td>
 		</tr>
 	   	<tr class="bgC2">
-			<td><strong>Total me provision:</strong></td>
+			<td><strong>Provisioni total:</strong></td>
 			<td style="text-align:right;">'.$provisionTotal.' &euro;</td>
 		</tr>
 		<tr class="bgC2">
-			<td><strong>Total pa provision:</strong></td>
+			<td><strong>Profit pa provision:</strong></td>
 			<td style="text-align:right;">'.$costNOPROVISION.' &euro;</td>
 		</tr>
 	   	<tr class="bgC2">
@@ -475,7 +473,7 @@ function profit() {
 	//here we make the years for filters
 	$SelectYears	= '<option>Zgjidhe vitin:</option>';
 	for ($vite = 2011; $vite <= 2050; $vite++) {
-		$SelectYears	.= '<option>'.$vite.'</option>';
+		$SelectYears	.= '<option value="'.$vite.'">'.$vite.'</option>';
 	}
 		
 	
@@ -488,13 +486,13 @@ function profit() {
 							if(isset($_POST['ZgjedhMuaj'])) {
 								$viti = $_POST['viti'];
 								$muaj = $_POST['muaj'];
-								$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date
+								$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
 													FROM orders
 													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
 							} else {
 								 $viti = date('Y');
 								 $muaj = date('m');
-								 $query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date
+								 $query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
 													FROM orders
 													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='2011');");
 							}
@@ -507,10 +505,12 @@ function profit() {
 		  		  $rowColor = "bgC2";	
 				
 		  		  $GjithsejProfit += $row['sumaTotale'];
+		  		  $GjithsejProvis += $row['provs'];
 		  		  $lista .= '
 					<tr class="'.$rowColor.'">
 						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
 						<td>'.ucfirst($row['rezervues']).'</td>
+						<td style="text-align:right;">'.substr($row['provs'], 0, 4).'  &euro;</td>
 						<td style="text-align:right;">'.$row['sumaTotale'].' &euro;</td>
 					</tr>
 					';
@@ -553,6 +553,7 @@ function profit() {
 				<tr class="bgC3" style="font-weight:bold;">
 					<td width="20"></td>
 					<td>Agjenti</td>
+					<td width="80">Provision</td>
 					<td width="80">Profit</td>
 				</tr>
 				
@@ -565,8 +566,12 @@ function profit() {
 			<td>'.funksionet::dateFROMintTOstr($muaj).' '.$viti.'</td>
 		</tr>
 		<tr class="bgC2">
-			<td><strong>Gjithsejt Profit:</strong></td>
-			<td style="text-align:right;">'.$GjithsejProfit.' &euro;</td>
+			<td><strong>Provisioni total:</strong></td>
+			<td style="text-align:right;">'.$GjithsejProvis.' &euro;</td>
+		</tr>	
+		<tr class="bgC2">
+			<td><strong>Profit Total:</strong></td>
+			<td style="text-align:right;font-weight:bold;">'.$GjithsejProfit.' &euro;</td>
 		</tr>		
 	</table>
 			';
