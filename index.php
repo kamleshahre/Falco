@@ -5,6 +5,7 @@ $subpage = $_GET['submenu'];
 $act = $_GET['action']; 
 $perdorues = $_SESSION['username'];
 
+//// Here we decide which sub page to be active the first time when we click on the page in the left //////
 if(empty($page) && empty($subpage))
 	header("Location: index.php?menu=rezervimet&submenu=rezervo");
 elseif($page == 'perdoruesit' && empty($subpage))
@@ -13,9 +14,7 @@ elseif($page == 'rezervimet' && empty($subpage))
 	header("Location: index.php?menu=rezervimet&submenu=rezervo");
 elseif($page == 'menaxhment' && empty($subpage))
 	header("Location: index.php?menu=menaxhment&submenu=destinacionet");
-
-
-//$page = 'rezervimet' && $subpage = 'rezervo';
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 require_once 'classes/Membership.php';
 $membership = New Membership();

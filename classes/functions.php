@@ -15,7 +15,7 @@ switch ($page) {
 	break;	
 
 	case 'menaxhment':
-		$topNavigation = array('Destinacionet','Cmimet','Ndihmë');
+		$topNavigation = array('Destinacionet','Çmimet','Ndihmë');
 	break;	
 	
 	default:
@@ -111,7 +111,7 @@ function SpecialcharsCleaner($string) {
 $patterns = array();				$replacements = array();
 $patterns[0] = '/ë/';				$replacements[2] = 'e';
 $patterns[1] = '/ç/';				$replacements[1] = 'c';
-$patterns[2] = '/fox/';				$replacements[0] = 'slow';
+$patterns[2] = '/Ç/';				$replacements[0] = 'C';
 
 return preg_replace($patterns, $replacements, $string);
  

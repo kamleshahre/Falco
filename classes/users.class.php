@@ -1,6 +1,6 @@
 <?php
 
-class users{
+class users_class{
 	
 
 function users($roli) {

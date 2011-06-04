@@ -56,11 +56,11 @@ require_once 'users.class.php';
 global $subpage;	
 	switch ($subpage) {
 		case 'agjentet':
-			return users::users('agent');
+			return users_class::users('agent');
 		break;
 		
 		case 'administratoret':
-			return users::users('admin');
+			return users_class::users('admin');
 		break;
 		
 		case 'ndihme':
@@ -97,11 +97,5 @@ global $subpage;
 	
 	
 }//endof controller
-
-
-
-
-
-
 
 ?>
