@@ -14,7 +14,7 @@ switch ($page) {
 		$topNavigation = array('Agjentët','Administratorët','Ndihmë');
 	break;	
 
-	case 'destinacionet':
+	case 'menaxhment':
 		$topNavigation = array('Destinacionet','Cmimet','Ndihmë');
 	break;	
 	
@@ -39,7 +39,7 @@ switch ($page) {
 //here goes the navigation in the left side
 function left_menu() {
 $page = $_GET['menu'];
-	$leftNavigation = array('Rezervimet','Përdoruesit','Destinacionet');
+	$leftNavigation = array('Rezervimet','Përdoruesit','Menaxhment');
 	
 	foreach($leftNavigation as $row){
 		

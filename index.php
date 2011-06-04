@@ -11,6 +11,8 @@ elseif($page == 'perdoruesit' && empty($subpage))
 	header("Location: index.php?menu=perdoruesit&submenu=agjentet");
 elseif($page == 'rezervimet' && empty($subpage))
 	header("Location: index.php?menu=rezervimet&submenu=rezervo");
+elseif($page == 'menaxhment' && empty($subpage))
+	header("Location: index.php?menu=menaxhment&submenu=destinacionet");
 
 
 //$page = 'rezervimet' && $subpage = 'rezervo';
