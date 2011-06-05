@@ -7,7 +7,7 @@ background:url("images/header_bg.jpg") repeat-x;
 
 #wrapper {
 width: 1024px;
-height: 500px;
+height: 400px;
 margin:0;
 padding:0;
 float: left;
@@ -193,4 +193,28 @@ table.extra {
     text-align: center;
     padding:10px 0 10px 0;
 	font-weight: bold;
+}
+
+.footeri {
+float: left;
+width: 100%;
+}
+.LeftFooter {
+width: 200px;
+height: 100px;
+background-color: #F5F5F5;
+display: block;
+float: left;
+}
+
+.RightFooter {
+border-top:1px solid #CECECE;
+color: #8C8989;
+float: left;
+width: 804px;
+padding-left:10px;
+padding-top:10px;
+text-align: center;
+font-size:12px;
+margin-left:10px;
 }
