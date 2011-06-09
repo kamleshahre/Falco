@@ -265,7 +265,7 @@ $cost = 0;
 				</script>
 		';
 		exit();
-	}elseif(isset($PostedID) && $action == 'edito' || isset($_POST['editoket'])){
+	}elseif(isset($PostedID) && $action == 'edito'){
 		return '<div id="Formulari">'.reservations::edito($PostedID).'</div>';
 	}elseif(isset($dataZgjedhur)) {
 		$PrejZgjedhur = $_POST['Prej'];
