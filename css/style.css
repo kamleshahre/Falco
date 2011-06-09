@@ -238,3 +238,11 @@ width: 300px;
 margin-left:10px;
 margin-top:10px;
 }
+
+.name {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-family: Trebuchet MS;
+    padding: 5px;
+	border:1px solid #CECECE;	
+	border-bottom:none;
+}

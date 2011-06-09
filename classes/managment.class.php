@@ -81,35 +81,47 @@ function destinations(){
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////////
-function cmimet() {
-	global $db;
-	$query  = $db->query("SELECT * FROM costs;");
-	$i = 1;
+function cmimet_e_caktuara($name='') {
+	global $db;	
+		$i=1;
+		$query  = $db->query("SELECT * FROM costs WHERE prej='$name';");
 		while ($row = mysql_fetch_array($query)) {
 				if ($i % 2 != "0") # An odd row
 				  $rowColor = "bgC1";
 				else # An even row
-		  		  $rowColor = "bgC2";	
-			$lista .= '<tr class="'.$rowColor.'">
-							<td width="20" style="font-weight:bold;text-align:center;">'.$i.'</td>
-							<td>'.$row['prej'].'</td>
-							<td>'.$row['deri'].'</td>
-							<td width="60" style="font-weight:bold;text-align:center;">'.$row['cost'].' &euro;</td>
-						</tr>';
+		  		  $rowColor = "bgC2";
+			$deri = $row['deri'];
+			$cost = $row['cost'];
+			$list .= '<tr class="'.$rowColor.'">
+							<td style="font-weight:bold;text-align:center;">'.$i.'</td>
+							<td>'.$deri.'</td>
+							<td style="font-weight:bold;text-align:right;">'.$cost.' &euro;</td>
+					</tr>';
 			$i++;
 		}
-		
-		$cmimet = '<table width="100%" style="margin:10px 10px 0 10px;float:left;" class="extra" cellspacing="1" cellpadding="5" border="0" >
-				<tr class="bgC3" style="font-weight:bold;">
-					<td></td>
-					<td>Prej</td>
+		return $list;
+}
+
+function cmimet() {
+	global $db;
+	$result = $db->query("SELECT * FROM destinations WHERE direction=1;");
+	while ($rows = mysql_fetch_array($result)) {
+		$name = $rows['name'];
+		$query  = $db->query("SELECT * FROM costs WHERE prej='$name';");
+		$table .=  '<div class="destionations">
+				<div class="name">Prej: <strong>'.$name.'</strong></div>
+				<table width="100%"  class="extra" cellspacing="1" cellpadding="5" border="0" >
+				<tr class="bgC3" style="font-weight:bold">
+					<td width="20"></td>
 					<td>Deri</td>
-					<td>Çmimi</td>
+					<td width="50">Çmimi</td>
+					'.managment::cmimet_e_caktuara($name).'
 				</tr>
-				'.$lista.'	
-				</table>';
-	
-	return $cmimet;
+				</table>
+				</div>';
+	$i++;
+	}
+	return $table;
 }
 	
 }//endof managment
