@@ -62,7 +62,7 @@ min-width: 156px;
 
 #leftside {
 width: 200px;
-height: 100%;
+min-height: 515px;
 background-color: #f5f5f5;
 float:left;
 }
@@ -221,10 +221,10 @@ margin-left:10px;
 
 .buttoni {
 border:1px solid #CECECE;
-margin-top:3px;
-text-align: center;
+text-align: right;
 height: 28px;
 padding-top:5px;
+padding-right:5px;
 color: #646464;
 background:url('images/top-menu-item-bg.gif');
 font-weight: bold;
@@ -234,15 +234,13 @@ text-decoration: none;
 
 .destionations {
 float: left;
-width: 300px;
+width: 100%;
 margin-left:10px;
 margin-top:10px;
 }
 
 .name {
-    background: none repeat scroll 0 0 #FFFFFF;
     font-family: Trebuchet MS;
     padding: 5px;
-	border:1px solid #CECECE;	
 	border-bottom:none;
 }

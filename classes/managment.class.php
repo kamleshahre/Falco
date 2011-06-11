@@ -104,6 +104,14 @@ function cmimet_e_caktuara($name='') {
 
 function cmimet() {
 	global $db;
+
+	if(isset($_POST['new_dest'])) {
+		$postedNAME = $_POST['prej'];
+		$newCITY	= $_POST['new_city'];
+		$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY',33,NOW());");
+	}
+		
+	
 	$result = $db->query("SELECT * FROM destinations WHERE direction=1;");
 	while ($rows = mysql_fetch_array($result)) {
 		$name = $rows['name'];
@@ -118,6 +126,14 @@ function cmimet() {
 					'.managment::cmimet_e_caktuara($name).'
 				</tr>
 				</table>
+						<div class="buttoni">
+						
+							<form action="" method="POST">							
+							<input type="text" name="new_city">
+							<input type="hidden" name="prej" value="'.$name.'"> 
+							<input type="submit" name="new_dest" value="Shto destinacionin">
+							</form>
+						</div>
 				</div>';
 	$i++;
 	}
