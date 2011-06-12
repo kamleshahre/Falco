@@ -19,6 +19,14 @@ function toggleVisibility(id,visible) {
 	document.getElementById(id).style.visibility=(visible)?"visible":"hidden";
 }
 </script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(\'.lightbox\').click(function(){
+				$(\'.boxi\').css(\'display\',\'block\');
+			});
+		});
+	</script>
 <title>'.WEB_NAME.' | Paneli administrues</title>
 </head>
 <body>

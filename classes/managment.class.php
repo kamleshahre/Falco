@@ -115,7 +115,6 @@ function cmimet() {
 	$result = $db->query("SELECT * FROM destinations WHERE direction=1;");
 	while ($rows = mysql_fetch_array($result)) {
 		$name = $rows['name'];
-		$query  = $db->query("SELECT * FROM costs WHERE prej='$name';");
 		$table .=  '<div class="destionations">
 				<div class="name">Prej: <strong>'.$name.'</strong></div>
 				<table width="100%"  class="extra" cellspacing="1" cellpadding="5" border="0" >
@@ -127,7 +126,8 @@ function cmimet() {
 				</tr>
 				</table>
 						<div class="buttoni">
-						
+						<a href="#" class="lightbox">test</a>
+						<div class="boxi">'.$name.'</div>
 							<form action="" method="POST">							
 							<input type="text" name="new_city">
 							<input type="hidden" name="prej" value="'.$name.'"> 
@@ -135,7 +135,6 @@ function cmimet() {
 							</form>
 						</div>
 				</div>';
-	$i++;
 	}
 	return $table;
 }
