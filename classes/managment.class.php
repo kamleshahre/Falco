@@ -106,9 +106,16 @@ function cmimet() {
 	global $db;
 
 	if(isset($_POST['new_dest'])) {
-		$postedNAME = $_POST['prej'];
+		$postedNAME = $_POST['prej'];				
 		$newCITY	= $_POST['new_city'];
-		$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY',33,NOW());");
+		$cost = $_POST['cost'];
+			$result = mysql_fetch_array($db->query("SELECT * FROM costs WHERE prej='$postedNAME' AND deri='$newCITY';"));
+				if ($result['prej'] == $postedNAME && $result['deri'] == $newCITY) {
+					return "Ky destinacion egziston!";
+				}else {
+					$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");				
+				}
+	
 	}
 		
 	
@@ -126,10 +133,13 @@ function cmimet() {
 				</tr>
 				</table>
 						<div class="buttoni">
-						<a href="#" class="lightbox">test</a>
-						<div class="boxi">'.$name.'</div>
-							<form action="" method="POST">							
-							<input type="text" name="new_city">
+							<form action="" method="POST">
+							<label for="new_city">Deri:</label>							
+							<select name="new_city">
+								'.funksionet::directions(2).'
+							</select>
+							<label for="cost">Çmimi:</label>
+							<input type="text" name="cost" size="3">
 							<input type="hidden" name="prej" value="'.$name.'"> 
 							<input type="submit" name="new_dest" value="Shto destinacionin">
 							</form>
