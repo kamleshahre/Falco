@@ -111,7 +111,7 @@ function cmimet() {
 		$cost = $_POST['cost'];
 			$result = mysql_fetch_array($db->query("SELECT * FROM costs WHERE prej='$postedNAME' AND deri='$newCITY';"));
 				if ($result['prej'] == $postedNAME && $result['deri'] == $newCITY) {
-					return "Ky destinacion egziston!";
+					$error = funksionet::show_error("Destinacioni prej $postedNAME deri $newCITY egziston!");
 				}else {
 					$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");				
 				}
@@ -146,7 +146,7 @@ function cmimet() {
 						</div>
 				</div>';
 	}
-	return $table;
+	return $error.$table;
 }
 	
 }//endof managment
