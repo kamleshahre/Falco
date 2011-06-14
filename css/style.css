@@ -157,13 +157,13 @@ width: 150px;
 }
 .topNavigation a:hover, .topNavigation a:active{
 	background-color: white;
-	color: #EB3A3A;
+	color: #000000;
 }
 
 .topNavigationCurrent {
 	background-color: white;
 	font-weight: bold;
-	color:red;
+	color: #000000;
 }
 .leftNavigationCurrent {
 	background-color: white;
