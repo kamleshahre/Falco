@@ -68,9 +68,16 @@ function cmimet_e_caktuara($name='') {
 		return $list;
 }
 
-function cmimet() {
+function stacionet() {
 global $db;
 	
+
+	if (isset($_POST['delete_city'])) {
+		$city = $_POST['city'];
+		$error = funksionet::show_error('Qyteti '.$city.' eshte fshir me sukses nga databaza!');
+		$db->query("DELETE FROM destinations WHERE name='$city'");
+		$db->query("DELETE FROM costs WHERE prej='$city'");
+	}
 	
 	if (isset($_POST['new_dest'])) {
 		$qyteti = $_POST['new_city'];
@@ -91,6 +98,12 @@ global $db;
 			$direction1 .= '<tr class="'.$rowColor.'">
 								<td style="text-align:center;"><strong>'.$i.'</strong></td>
 								<td>'.$row['name'].'</td>
+								<td>
+									<form action="" method="POST">
+									<input type="hidden" name="city" value="'.$row['name'].'">
+									<input type="submit" name="delete_city" value="Fshij">
+									</form>
+								</td>
 							</tr>';
 		$i++;
 		}
@@ -105,6 +118,7 @@ global $db;
 			$direction2 .= '<tr class="'.$rowColor.'">
 								<td style="text-align:center;"><strong>'.$i.'</strong></td>
 								<td>'.$row['name'].'</td>
+								<td>DELETE</td>
 							</tr>';
 		$i++;
 		}
@@ -115,6 +129,7 @@ global $db;
 					<tr class="bgC3" style="font-weight:bold;">
 						<td></td>
 						<td>Udhëtime Prej</td>
+						<td>Opsionet</td>
 					</tr>
 					'.$direction1.'
 					</table>
@@ -132,6 +147,7 @@ global $db;
 					<tr class="bgC3" style="font-weight:bold;">
 						<td></td>
 						<td>Udhëtime Deri</td>
+						<td>Opsionet</td>
 					</tr>
 					'.$direction2.'
 					</table>
@@ -145,7 +161,7 @@ global $db;
 						</div>
 					</div>';
 		
-		return $table1.$table2;
+		return $error.$table1.$table2;
 		
 	}	
 }

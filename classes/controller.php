@@ -82,7 +82,7 @@ global $subpage;
 		break;
 		
 		case 'stacionet':
-			return managment::cmimet();
+			return managment::stacionet();
 		break;
 		
 		case 'ndihme':
