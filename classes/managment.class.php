@@ -73,10 +73,11 @@ global $db;
 	
 
 	if (isset($_POST['delete_city'])) {
+		$prejORderi = $_POST['prej_or_deri'];
 		$city = $_POST['city'];
 		$error = funksionet::show_error('Qyteti '.$city.' eshte fshir me sukses nga databaza!');
 		$db->query("DELETE FROM destinations WHERE name='$city'");
-		$db->query("DELETE FROM costs WHERE prej='$city'");
+		$db->query("DELETE FROM costs WHERE '$prejORderi'='$city'");
 	}
 	
 	if (isset($_POST['new_dest'])) {
@@ -98,8 +99,9 @@ global $db;
 			$direction1 .= '<tr class="'.$rowColor.'">
 								<td style="text-align:center;"><strong>'.$i.'</strong></td>
 								<td>'.$row['name'].'</td>
-								<td>
+								<td style="text-align:center;">
 									<form action="" method="POST">
+									<input type="hidden" name="prej_or_deri" value="prej">
 									<input type="hidden" name="city" value="'.$row['name'].'">
 									<input type="submit" name="delete_city" value="Fshij">
 									</form>
@@ -118,7 +120,13 @@ global $db;
 			$direction2 .= '<tr class="'.$rowColor.'">
 								<td style="text-align:center;"><strong>'.$i.'</strong></td>
 								<td>'.$row['name'].'</td>
-								<td>DELETE</td>
+								<td style="text-align:center;">
+									<form action="" method="POST">
+									<input type="hidden" name="prej_or_deri" value="deri">
+									<input type="hidden" name="city" value="'.$row['name'].'">
+									<input type="submit" name="delete_city" value="Fshij">
+									</form>
+								</td>
 							</tr>';
 		$i++;
 		}
@@ -129,7 +137,7 @@ global $db;
 					<tr class="bgC3" style="font-weight:bold;">
 						<td></td>
 						<td>Udhëtime Prej</td>
-						<td>Opsionet</td>
+						<td width="20" >Opsionet</td>
 					</tr>
 					'.$direction1.'
 					</table>
@@ -147,7 +155,7 @@ global $db;
 					<tr class="bgC3" style="font-weight:bold;">
 						<td></td>
 						<td>Udhëtime Deri</td>
-						<td>Opsionet</td>
+						<td width="20" >Opsionet</td>
 					</tr>
 					'.$direction2.'
 					</table>
