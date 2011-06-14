@@ -24,6 +24,7 @@ function toggleVisibility(id,visible) {
 <body>
 <div id="wrapper">
 	<div id="header">
+	<div class="BigLogo"></div>
 		<div class="logoWrapper">
 			<img class="logo" src="css/images/logo.png" alt="Falco System" />
 			<p class="slogan">Administrimi i rezervimeve ...</p>
@@ -51,7 +52,7 @@ return '
 <div id="rightside">
 '.$control->menu_switcher().'
 <div class="footeri">
-	<div class="RightFooter">Copyright '.date("Y").' © Shpetim Islami</div>
+	<div class="RightFooter">Copyright '.date("Y").' © Falco System</div>
 </div>
 </div>
 ';	

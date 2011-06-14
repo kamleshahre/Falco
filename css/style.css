@@ -35,10 +35,23 @@ font-size: 14px;
 color: #929090;
 }
 
+.BigLogo {
+background: url("images/image_logo.png");
+width: 128px;
+height: 128px;
+position: relative;
+float: left;
+left: 30px;
+top: 30px;
+}
+
 .logoWrapper {
-	width:300px;
-	float:left;
-	height: 160px;
+    float: left;
+    height: 124px;
+    left: 40px;
+    margin-top: 37px;
+    position: relative;
+    width: 300px;
 }
 
 
