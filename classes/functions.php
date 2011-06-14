@@ -15,7 +15,7 @@ switch ($page) {
 	break;	
 
 	case 'menaxhment':
-		$topNavigation = array('Destinacionet','Çmimet','Ndihmë');
+		$topNavigation = array('Destinacionet','Stacionet','Ndihmë');
 	break;	
 	
 	default:

@@ -50,16 +50,15 @@ global $control;
 return '
 <div id="rightside">
 '.$control->menu_switcher().'
+<div class="footeri">
+	<div class="RightFooter">Copyright '.date("Y").' © Shpetim Islami</div>
+</div>
 </div>
 ';	
 }
 
 public function footer() {
 return '
-<div class="footeri">
-	<div class="LeftFooter"></div>
-	<div class="RightFooter">Copyright '.date("Y").' © Shpetim Islami</div>
-</div>
 </div><!--end wrapper-->
 
 </body>

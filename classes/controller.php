@@ -81,7 +81,7 @@ global $subpage;
 			return managment::destinations();
 		break;
 		
-		case 'cmimet':
+		case 'stacionet':
 			return managment::cmimet();
 		break;
 		

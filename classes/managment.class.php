@@ -2,7 +2,74 @@
 class managment {
 	
 function destinations(){
-	global $db;
+global $db;
+
+	if(isset($_POST['new_dest'])) {
+		$postedNAME = $_POST['prej'];				
+		$newCITY	= $_POST['new_city'];
+		$cost = $_POST['cost'];
+			$results = mysql_fetch_array($db->query("SELECT * FROM costs WHERE prej='$postedNAME' AND deri='$newCITY';"));
+				if ($results['prej'] == $postedNAME && $results['deri'] == $newCITY) {
+					$error = funksionet::show_error("Destinacioni prej $postedNAME deri $newCITY egziston!");
+				}else{
+					$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");				
+				}
+	}
+		
+	
+	$result = $db->query("SELECT * FROM destinations WHERE direction=1;");
+	while ($rows = mysql_fetch_array($result)) {
+		$name = $rows['name'];
+		$table .=  '<div class="destionations">
+				<div class="name">Prej: <strong>'.$name.'</strong></div>
+				<table width="100%"  class="extra" cellspacing="1" cellpadding="5" border="0" >
+				<tr class="bgC3" style="font-weight:bold">
+					<td width="20"></td>
+					<td>Deri</td>
+					<td width="50">Çmimi</td>
+					'.managment::cmimet_e_caktuara($name).'
+				</tr>
+				</table>
+						<div class="buttoni">
+							<form action="" method="POST">
+							<label for="new_city">Deri:</label>							
+							<select name="new_city">
+								'.funksionet::directions(2).'
+							</select>
+							<label for="cost">Çmimi:</label>
+							<input type="text" name="cost" size="3">
+							<input type="hidden" name="prej" value="'.$name.'"> 
+							<input type="submit" name="new_dest" value="Shto Destinacionin">
+							</form>
+						</div>
+				</div>';
+	}
+	return $error.$table;	
+}
+/////////////////////////////////////////////////////////////////////////////////////
+function cmimet_e_caktuara($name='') {
+	global $db;	
+		$i=1;
+		$query  = $db->query("SELECT * FROM costs WHERE prej='$name';");
+		while ($row = mysql_fetch_array($query)) {
+				if ($i % 2 != "0") # An odd row
+				  $rowColor = "bgC1";
+				else # An even row
+		  		  $rowColor = "bgC2";
+			$deri = $row['deri'];
+			$cost = $row['cost'];
+			$list .= '<tr class="'.$rowColor.'">
+							<td style="font-weight:bold;text-align:center;">'.$i.'</td>
+							<td>'.$deri.'</td>
+							<td style="font-weight:bold;text-align:right;">'.$cost.' &euro;</td>
+					</tr>';
+			$i++;
+		}
+		return $list;
+}
+
+function cmimet() {
+global $db;
 	
 	
 	if (isset($_POST['new_dest'])) {
@@ -43,7 +110,7 @@ function destinations(){
 		}
 		
 		
-		$table1 =  '<div class="destionations">
+		$table1 =  '<div class="cities">
 					<table width="100%"  class="extra" cellspacing="1" cellpadding="5" border="0" >
 					<tr class="bgC3" style="font-weight:bold;">
 						<td></td>
@@ -52,14 +119,15 @@ function destinations(){
 					'.$direction1.'
 					</table>
 						<div class="buttoni">
-							<form action="" method="POST">							
+							<form action="" method="POST">	
+							<label for="new_city">Qyteti:</label>						
 							<input type="text" name="new_city">
 							<input type="hidden" name="direction" value="1"> 
-							<input type="submit" name="new_dest" value="Shto destinacionin">
+							<input type="submit" name="new_dest" value="Shto Qytetin">
 							</form>
 						</div>
 					</div>';
-		$table2 = '<div class="destionations">
+		$table2 = '<div class="cities">
 					<table width="100%"  class="extra" cellspacing="1" cellpadding="5" border="0" >
 					<tr class="bgC3" style="font-weight:bold;">
 						<td></td>
@@ -68,85 +136,18 @@ function destinations(){
 					'.$direction2.'
 					</table>
 						<div class="buttoni">
-							<form action="" method="POST">							
+							<form action="" method="POST">
+							<label for="new_city">Qyteti:</label>							
 							<input type="text" name="new_city">
 							<input type="hidden" name="direction" value="2"> 
-							<input type="submit" name="new_dest" value="Shto destinacionin">
+							<input type="submit" name="new_dest" value="Shto Qytetin">
 							</form>
 						</div>
 					</div>';
 		
 		return $table1.$table2;
 		
-	}
-}
-/////////////////////////////////////////////////////////////////////////////////////
-function cmimet_e_caktuara($name='') {
-	global $db;	
-		$i=1;
-		$query  = $db->query("SELECT * FROM costs WHERE prej='$name';");
-		while ($row = mysql_fetch_array($query)) {
-				if ($i % 2 != "0") # An odd row
-				  $rowColor = "bgC1";
-				else # An even row
-		  		  $rowColor = "bgC2";
-			$deri = $row['deri'];
-			$cost = $row['cost'];
-			$list .= '<tr class="'.$rowColor.'">
-							<td style="font-weight:bold;text-align:center;">'.$i.'</td>
-							<td>'.$deri.'</td>
-							<td style="font-weight:bold;text-align:right;">'.$cost.' &euro;</td>
-					</tr>';
-			$i++;
-		}
-		return $list;
-}
-
-function cmimet() {
-	global $db;
-
-	if(isset($_POST['new_dest'])) {
-		$postedNAME = $_POST['prej'];				
-		$newCITY	= $_POST['new_city'];
-		$cost = $_POST['cost'];
-			$result = mysql_fetch_array($db->query("SELECT * FROM costs WHERE prej='$postedNAME' AND deri='$newCITY';"));
-				if ($result['prej'] == $postedNAME && $result['deri'] == $newCITY) {
-					$error = funksionet::show_error("Destinacioni prej $postedNAME deri $newCITY egziston!");
-				}else {
-					$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");				
-				}
-	
-	}
-		
-	
-	$result = $db->query("SELECT * FROM destinations WHERE direction=1;");
-	while ($rows = mysql_fetch_array($result)) {
-		$name = $rows['name'];
-		$table .=  '<div class="destionations">
-				<div class="name">Prej: <strong>'.$name.'</strong></div>
-				<table width="100%"  class="extra" cellspacing="1" cellpadding="5" border="0" >
-				<tr class="bgC3" style="font-weight:bold">
-					<td width="20"></td>
-					<td>Deri</td>
-					<td width="50">Çmimi</td>
-					'.managment::cmimet_e_caktuara($name).'
-				</tr>
-				</table>
-						<div class="buttoni">
-							<form action="" method="POST">
-							<label for="new_city">Deri:</label>							
-							<select name="new_city">
-								'.funksionet::directions(2).'
-							</select>
-							<label for="cost">Çmimi:</label>
-							<input type="text" name="cost" size="3">
-							<input type="hidden" name="prej" value="'.$name.'"> 
-							<input type="submit" name="new_dest" value="Shto destinacionin">
-							</form>
-						</div>
-				</div>';
-	}
-	return $error.$table;
+	}	
 }
 	
 }//endof managment
