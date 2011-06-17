@@ -70,8 +70,6 @@ function cmimet_e_caktuara($name='') {
 
 function stacionet() {
 global $db;
-	
-
 	if (isset($_POST['delete_city'])) {
 		$prejORderi = $_POST['prej_or_deri'];
 		$city = $_POST['city'];

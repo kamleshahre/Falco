@@ -105,9 +105,19 @@ function users($roli) {
 	     	';
 		$i++;
 		} 
-	
- 		
-	return '<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+/////////////////////////////////// HERE WE CHECK IF WE ARE ON THE AGENTS SUBMENU OR ADMINS SUBMENU	
+ 	if($_GET['submenu'] == 'agjentet'){
+ 		$usertype = 'Agjent';
+ 		$width = 'width: 163px;';
+ 	}else { 
+ 		$usertype = 'Administrator';
+ 		$width = 'width: 213px;';
+ 	}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	return '<div class="AddNewAgent" style="'.$width.'"><img style="margin:5px;" src="images/add_user.png">
+			<span class="addUSERtxt">Shto '.$usertype.' te rij</span>
+			</div>
+			<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 			<tr class="bgC3" style="font-weight:bold;">
 				<td></td>
 				<td>Emri</td>

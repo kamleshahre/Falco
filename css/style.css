@@ -260,3 +260,21 @@ margin-top:10px;
     padding: 5px;
 	border-bottom:none;
 }
+
+.AddNewAgent {
+    background: url("images/top-menu-item-bg.gif") repeat scroll 0 0 transparent;
+    border: 1px solid #CECECE;
+    height: 32px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 163px;
+    color:#646464;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.addUSERtxt {
+    bottom: 3px;
+    position: relative;
+    vertical-align: super
+}
