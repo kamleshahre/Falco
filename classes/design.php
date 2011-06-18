@@ -19,6 +19,33 @@ function toggleVisibility(id,visible) {
 	document.getElementById(id).style.visibility=(visible)?"visible":"hidden";
 }
 </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+ 
+				$(\'.lightbox\').click(function(){
+					$(\'.backdrop, .box\').animate({\'opacity\':\'.50\'}, 300, \'linear\');
+					$(\'.box\').animate({\'opacity\':\'1.00\'}, 300, \'linear\');
+					$(\'.backdrop, .box\').css(\'display\', \'block\');
+				});
+ 
+				$(\'.close\').click(function(){
+					close_box();
+				});
+ 
+				$(\'.backdrop\').click(function(){
+					close_box();
+				});
+ 
+			});
+ 
+			function close_box()
+			{
+				$(\'.backdrop, .box\').animate({\'opacity\':\'0\'}, 300, \'linear\', function(){
+					$(\'.backdrop, .box\').css(\'display\', \'none\');
+				});
+			}
+</script>
 <title>'.WEB_NAME.' | Paneli administrues</title>
 </head>
 <body>
