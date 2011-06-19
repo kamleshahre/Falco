@@ -142,7 +142,8 @@ return preg_replace($patterns, $replacements, $string);
 
 function formulari_new_user($tipi="",$roli="") {
  		return '
-		<form action="" method="post">
+		<div class="formulariNeLightBox">
+ 		<form action="" method="post">
 		<table cellpading="4" cellspacing="5">
 		<tr>
 			<td>Pseudonimi:</td>
@@ -168,6 +169,7 @@ function formulari_new_user($tipi="",$roli="") {
 		<input type="hidden" name="tipi_i_rolit" value="'.$roli.'">
 		<input type="submit" class="close" value="Shto '.$tipi.'" name="new_user" style="float:right;margin-right:10px;">
 		</form>
+		</div>
 		';
 }
 

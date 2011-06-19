@@ -318,3 +318,12 @@ margin-top:10px;
 .lightbox {
 text-decoration: none;
 }
+.formulariNeLightBox {
+    background: none repeat scroll 0 0 #F5FFFA;
+    border: 2px solid #CECECE;
+    float: left;
+    margin: 65px 10px 10px;
+    padding: 7px;
+    position: relative;
+    width: 459px;
+}

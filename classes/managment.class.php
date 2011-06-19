@@ -75,7 +75,7 @@ global $db;
 		$city = $_POST['city'];
 		$error = funksionet::show_error('Qyteti '.$city.' eshte fshir me sukses nga databaza!');
 		$db->query("DELETE FROM destinations WHERE name='$city'");
-		$db->query("DELETE FROM costs WHERE '$prejORderi'='$city'");
+		$db->query("DELETE FROM costs WHERE $prejORderi='$city'") or die(mysql_error());
 	}
 	
 	if (isset($_POST['new_dest'])) {

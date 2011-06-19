@@ -22,7 +22,7 @@ function users($roli) {
 	}elseif(isset($delete)) {
 		$id = $_POST['id'];
 		$db->query("DELETE FROM users WHERE user_id = '$id'");
-		return funksionet::show_error("Përdoruesi që keni zgjedhur është fshir nga sistemi me sukses!");
+		$error = funksionet::show_error("Përdoruesi që keni zgjedhur është fshir nga sistemi me sukses!");
 	}elseif(isset($edit)) {
 	
 		
@@ -108,9 +108,11 @@ function users($roli) {
 		
 /////////////////////////////////// HERE WE CHECK IF THE NEW USER FORM IS SUBMITTED
 if (isset($_POST['new_user'])) {
-	$yes = $_POST['tipi_i_rolit'];
+	$username = $_POST['pseudonimi'];					$password = md5($_POST['fjalkalimi']);
+	$name	  = ucfirst($_POST['emri']);				$surname  = ucfirst($_POST['mbiemri']);
+	$roli 	  = $_POST['tipi_i_rolit'];					$adress	  = ucfirst($_POST['adresa']);
 	$db->query("INSERT INTO users (firstname,lastname,address,username,password,status)
-				VALUES ('test','test','test','test','test','$yes')");
+				VALUES ('$name','$surname','$adress','$username','$password','$roli')");
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// HERE WE CHECK IF WE ARE ON THE AGENTS SUBMENU OR ADMINS SUBMENU	
@@ -129,6 +131,7 @@ if (isset($_POST['new_user'])) {
 			<span class="addUSERtxt">Shto '.$usertype.' të rij</span>
 			</div></a>
 			<div class="backdrop"></div><div class="box"><div class="close">x</div>'.$formulari.'</div>
+			'.$error.'
 			<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 			<tr class="bgC3" style="font-weight:bold;">
 				<td></td>
