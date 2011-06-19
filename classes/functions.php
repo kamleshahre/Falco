@@ -141,30 +141,35 @@ return preg_replace($patterns, $replacements, $string);
 //
 
 function formulari_new_user($tipi="",$roli="") {
- 		return '
+ 		($roli == 'agent') ? $agent_provis ='<tr>
+							<td style="text-align:right;">Provision:</td>
+							<td><input type="text" size="3" name="provis"> %</td>
+						</tr>' : $agent_provis = "";
+		return '
 		<div class="formulariNeLightBox">
  		<form action="" method="post">
 		<table cellpading="4" cellspacing="5">
 		<tr>
-			<td>Pseudonimi:</td>
+			<td style="text-align:right;">Pseudonimi:</td>
 			<td><input type="text" name="pseudonimi"></td>
 		</tr>
 		<tr>
-			<td>Fjalkalimi:</td>
+			<td style="text-align:right;">Fjalkalimi:</td>
 			<td><input type="password" name="fjalkalimi" value=""></td>
 		</tr>
 		<tr>
-			<td>Emri:</td>
+			<td style="text-align:right;">Emri:</td>
 			<td><input type="text" name="emri" ></td>
 		</tr>
 		<tr>
-			<td>Mbiemri:</td>
+			<td style="text-align:right;">Mbiemri:</td>
 			<td><input type="text" name="mbiemri"></td>
 		</tr>
 		<tr>
-			<td>Adresa:</td>
+			<td style="text-align:right;">Adresa:</td>
 			<td><input type="text" name="adresa"></td>
 		</tr>
+		'.$agent_provis.'
 		</table>
 		<input type="hidden" name="tipi_i_rolit" value="'.$roli.'">
 		<input type="submit" class="close" value="Shto '.$tipi.'" name="new_user" style="float:right;margin-right:10px;">

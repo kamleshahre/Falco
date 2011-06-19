@@ -15,9 +15,9 @@ function users($roli) {
 		$emri		=	$_POST['emri'];				$mbiemri	=	$_POST['mbiemri'];
 		$pseudonimi	=	$_POST['pseudonimi'];		$fjalkalmi	=	md5($_POST['fjalkalimi']);
 		$adresa		=	$_POST['adresa'];			$roli		=	$_POST['roli'];
-		$id 		=	$_POST['id'];
+		$id 		=	$_POST['id'];				$sel_provis =	'0.'.$_POST['selected_provis'];
 		$db->query("UPDATE users 
-					SET firstname='$emri', lastname='$mbiemri', username='$pseudonimi', password='$fjalkalmi', address='$adresa', status='$roli' WHERE user_id='$id' ") or die(mysql_error());
+					SET firstname='$emri', lastname='$mbiemri', username='$pseudonimi', password='$fjalkalmi', address='$adresa',selected_provis='$sel_provis' , status='$roli' WHERE user_id='$id' ") or die(mysql_error());
 	
 	}elseif(isset($delete)) {
 		$id = $_POST['id'];
@@ -33,27 +33,31 @@ function users($roli) {
 		<form action="" method="post">
 		<table cellpading="4" cellspacing="5">
 		<tr>
-			<td>Pseudonimi:</td>
+			<td style="text-align:right;">Pseudonimi:</td>
 			<td><input type="text" name="pseudonimi" value="'.$row['username'].'"></td>
 		</tr>
 		<tr>
-			<td>Fjalkalimi:</td>
+			<td style="text-align:right;">Fjalkalimi:</td>
 			<td><input type="password" name="fjalkalimi" value=""></td>
 		</tr>
 		<tr>
-			<td>Emri:</td>
+			<td style="text-align:right;">Emri:</td>
 			<td><input type="text" name="emri" value="'.$row['firstname'].'"></td>
 		</tr>
 		<tr>
-			<td>Mbiemri:</td>
+			<td style="text-align:right;">Mbiemri:</td>
 			<td><input type="text" name="mbiemri" value="'.$row['lastname'].'"></td>
 		</tr>
 		<tr>
-			<td>Adresa:</td>
+			<td style="text-align:right;">Adresa:</td>
 			<td><input type="text" name="adresa"  value="'.$row['address'].'"></td>
 		</tr>
+		<tr >
+			<td style="text-align:right;">Provisioni:</td>
+			<td style="text-align:left;"><input type="text" name="selected_provis" size="3" value="'.str_replace("0.", "", $row['selected_provis']).'"> %</td>
+		</tr>
 		<tr>
-			<td>Roli:</td>
+			<td style="text-align:right;">Roli:</td>
 			<td>
 				<select style="width:150px;" name="roli">
 					<option value="">Zgjidhe rolin:</option>
@@ -83,14 +87,18 @@ function users($roli) {
 		//variables that come from the database
 		$firstname = $row['firstname'];			$lastname = $row['lastname'];
 		$address   = $row['address'];			$username = $row['username'];
-		$status    = $row['status'];
+		$status    = $row['status'];			$sel_prov = $row['selected_provis'];
 	
+		if($_GET['submenu'] == "agjentet") {
+			$provisTR = '<td>'.str_replace("0.","",$sel_prov).' %</td>';
+		}
 		$users .= '<tr class="'.$rowColor.'">
 				<td style="text-align:center;"><strong>'.$i.'</strong></td>
 				<td>'.$firstname.'</td>
 				<td>'.$lastname.'</td>
 				<td>'.$username.'</td>
 				<td>'.$address.'</td>
+				'.$provisTR.'
 				<td width="118">
 					<form action="" method="post" style="float:left;">
 					<input type="hidden" name="id" value="'.$row['user_id'].'">
@@ -111,8 +119,9 @@ if (isset($_POST['new_user'])) {
 	$username = $_POST['pseudonimi'];					$password = md5($_POST['fjalkalimi']);
 	$name	  = ucfirst($_POST['emri']);				$surname  = ucfirst($_POST['mbiemri']);
 	$roli 	  = $_POST['tipi_i_rolit'];					$adress	  = ucfirst($_POST['adresa']);
-	$db->query("INSERT INTO users (firstname,lastname,address,username,password,status)
-				VALUES ('$name','$surname','$adress','$username','$password','$roli')");
+	$provis   = '0.'.$_POST['provis'];
+	$db->query("INSERT INTO users (firstname,lastname,address,username,password,status,selected_provis)
+				VALUES ('$name','$surname','$adress','$username','$password','$roli','$provis')");
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// HERE WE CHECK IF WE ARE ON THE AGENTS SUBMENU OR ADMINS SUBMENU	
@@ -127,7 +136,10 @@ if (isset($_POST['new_user'])) {
  		$width = 'width: 213px;';
  	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	return '<a href="#" class="lightbox"><div class="AddNewAgent" style="'.$width.'"><img style="margin:5px;border:0;" src="images/add_user.png">
+		if($_GET['submenu'] == "agjentet") {
+			$provisTDH = '<td width="20">Provisioni</td>';
+		}
+ 	return '<a href="#" class="lightbox"><div class="AddNewAgent" style="'.$width.'"><img style="margin:5px;border:0;" src="images/add_user.png">
 			<span class="addUSERtxt">Shto '.$usertype.' të rij</span>
 			</div></a>
 			<div class="backdrop"></div><div class="box"><div class="close">x</div>'.$formulari.'</div>
@@ -139,6 +151,7 @@ if (isset($_POST['new_user'])) {
 				<td>Mbiemri</td>
 				<td>Pseudonimi</td>
 				<td>Adresa</td>
+				'.$provisTDH.'
 				<td>Opsionet</td>
 				'.$users.'
 			</tr>

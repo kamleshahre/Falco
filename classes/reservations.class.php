@@ -2,8 +2,10 @@
 class reservations {
 function rezervo() {
 	global $db;
-
+	//here we get the provision from the current agent
 	$perdorues = $_SESSION['username'];
+	$selected_provision = mysql_fetch_array($db->query("SELECT selected_provis FROM users where username='$perdorues'"));
+	$provis = $selected_provision['selected_provis'];
 if (isset($_POST['rezervo'])) {
 	
 	// Variables that come from the Reservations form
@@ -11,7 +13,13 @@ if (isset($_POST['rezervo'])) {
 	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
 	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
 	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
-	$persona  = $_POST['persona'];
+
+	if(empty($_POST['persona'])) {
+		$persona = 1;
+	}else{
+		$persona = $_POST['persona'];
+	}
+	
 	$femij 	  = $_POST['femij'];		
 	$drejtimi =	$_POST['drejtimi'];
 	
@@ -20,8 +28,8 @@ if (isset($_POST['rezervo'])) {
 	$cost = mysql_fetch_array($result);
 	$cmimi = $cost['cost'];
 	$cmimiKthyes = $cmimi * 2;
-	$provision = 0.10 * $cmimi;
-	$provisionKthyes = 0.10 * $cmimiKthyes;
+	$provision = $provis * $cmimi;
+	$provisionKthyes = $provis * $cmimiKthyes;
 	
 	//Here we put all informations into database
 	if($drejtimi == 'kthyese') {
@@ -68,7 +76,7 @@ if (isset($_POST['rezervo'])) {
 		$infos .= 'Prej: '.$prej.'<br />';
 		$infos .= 'Deri: '.$deri.'<br />';
 		$infos .= 'Data: '.$data.'<br />';
-		(empty($persona)) ? $infos .= 'Persona: 1 <br />' : $infos .= 'Persona: '.$persona.'<br />';
+		$infos .= 'Persona: '.$persona.'<br />';
 		(!empty($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
 		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
 		$infos .= '<a target="_blank" href="GeneratePDF.php">Gjenero tiket</a>';
