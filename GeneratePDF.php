@@ -53,7 +53,11 @@ $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 //set some language-dependent strings
 $pdf->setLanguageArray($l);
 $image = $pdf->Image("tcpdf/images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
-$id = $_GET['id'];
+$id =  $_GET['id'];
+	//Here we check if there is any SQL injetion :)
+	if(!ctype_digit($_GET['id']) && !empty($_GET['id'])) {
+		echo "Don't try it! :)";
+		exit(); }
 if(isset($id)) 
 	$result = $db->query("SELECT * FROM orders WHERE order_id=$id;");
 else
