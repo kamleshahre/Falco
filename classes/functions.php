@@ -48,7 +48,7 @@ $page = $_GET['menu'];
 		if(funksionet::SpecialcharsCleaner($row) == ucfirst($_GET['menu']))
 			$css = 'leftNavigationCurrent';
 		else 	
-			$css = 'topNavigationLinks'; 
+			$css = 'LeftNavigationLinks'; 
 		
 		$navi .= '<a  class="menu_links '.$css.'" href="index.php?menu='.funksionet::SpecialcharsCleaner(strtolower($row)).'"><p class="menus">
 					<img src="images/'.funksionet::SpecialcharsCleaner(strtolower($row)).'.png" class="left_menu_icon" >

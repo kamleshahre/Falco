@@ -33,7 +33,6 @@ $db = new MySQL(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, false);
 
 
 echo $design->header();
-echo $design->LeftSide();
-echo $design->RightSide();
+echo '<div id="contentWrapper">'.$design->LeftSide().$design->RightSide().'</div>';
 echo $design->footer();
 ?>

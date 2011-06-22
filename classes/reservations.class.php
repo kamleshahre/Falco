@@ -26,8 +26,8 @@ if (isset($_POST['rezervo'])) {
 	//Here we get the last cost for the reserved destination
 	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
 	$cost = mysql_fetch_array($result);
-	$cmimi = $cost['cost'];
-	$cmimiKthyes = $cmimi * 2;
+	$cmimi = $cost['cost'] * $persona;
+	$cmimiKthyes = ($cmimi * 2) * $persona;
 	$provision = $provis * $cmimi;
 	$provisionKthyes = $provis * $cmimiKthyes;
 	

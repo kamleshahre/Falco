@@ -28,7 +28,7 @@ $(document).ready(function(){
 					$(\'.box\').animate({\'opacity\':\'1.00\'}, 300, \'linear\');
 					$(\'.backdrop, .box\').css(\'display\', \'block\');
 				});
- 
+				
 				$(\'.close\').click(function(){
 					close_box();
 				});
