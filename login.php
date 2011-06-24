@@ -23,30 +23,51 @@ if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Sistemi Administrues Falco</title>
 <LINK REL="SHORTCUT ICON" HREF="favicon.png">
-<link rel="stylesheet" type="text/css" href="css/default.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<link href="css/login.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/* <![CDATA[ */
+	$(document).ready(function(){
+			$(".block").fadeIn(1000);				   
+			$(".idea").fadeIn(1000);
+			$('.idea').supersleight();
+			$('#username').example('Username');	
+			$('#password').example('Password');
+	});
+/* ]]> */
+</script>
 </head>
 
 <body>
-<div id="login">
-	<form method="post" action="">
-    	<h2>Login <small>enter your credentials</small></h2>
-        <p>
-        	<label for="name">Pseudonimi: </label>
-            <input type="text" name="username" />
-        </p>
+
+
+    <div id="wrap">
         
-        <p>
-        	<label for="pwd">Fjalëkalimi: </label>
-            <input type="password" name="pwd" class="PassMar" />
-        </p>
         
-        <p>
-        	<input type="submit" id="submit" value="Hyrja në sistem" name="submit" />
-        </p>
-    </form>
-    <?php if(isset($response)) echo "<h4 class='alert'>" . $response . "</h4>"; ?>
-</div><!--end login-->
+<div class="block">
+            <form action="" method="post">
+            <div class="left"></div>
+            <div class="right">
+                <div class="div-row">
+
+                	<input type="text" id="username" name="username"  onfocus="this.value='';" onblur="if (this.value=='') {this.value='Pseudonimi';}" value="Pseudonimi" />
+                                    </div>
+                <div class="div-row">
+                     <input type="password" id="password" name="pwd" onfocus="this.value='';" onblur="if (this.value=='') {this.value='************';}" value="************" />
+                </div>
+                <div class="rm-row">
+                    <!-- ktu eshte dashur te jet REMEMBER ME  -->
+                </div>
+
+                <div class="send-row">
+                    <button id="login" value="" type="submit" name="login"></button>
+                </div>
+                            </div>
+            </form>
+            <?php if(isset($response)) echo "<h4 class='alert'>" . $response . "</h4>"; ?>
+        </div>                
+    </div>
+    
 </body>
 </html>

@@ -9,7 +9,7 @@ mysql_select_db('falco_db');
 $query="SELECT * FROM costs WHERE prej = '$country';";
 $result=mysql_query($query) or die("2");
 ?>
-<select class="selectDest" name="state">
+<select class="selectDest" name="Deri">
  <option></option>
   <?php while($row = mysql_fetch_array($result)) { 
   	print'<option>'.$row['deri'].'</option>';

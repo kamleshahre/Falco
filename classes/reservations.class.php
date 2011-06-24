@@ -124,7 +124,7 @@ if (isset($_POST['rezervo'])) {
 		Deri:
 	</td>
 	<td>
-		<div id="statediv"><select class="selectDest" name="state">
+		<div id="statediv"><select class="selectDest" name="deri">
 			<option></option>
 		</select></div>
 	</td>
