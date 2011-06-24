@@ -112,8 +112,9 @@ if (isset($_POST['rezervo'])) {
 		Prej:
 	</td>
 	<td>
-		<select class="selectDest" name="Prej">
-			'.funksionet::directions(1).'
+		<select class="selectDest" name="Prej" onChange="getState(this.value)">
+			<option></option>
+			'.funksionet::all_directions().'
 		</select>
 	</td>
 	
@@ -123,9 +124,9 @@ if (isset($_POST['rezervo'])) {
 		Deri:
 	</td>
 	<td>
-		<select class="selectDest" name="Deri">
-			'.funksionet::directions(2).'
-		</select>
+		<div id="statediv"><select class="selectDest" name="state">
+			<option></option>
+		</select></div>
 	</td>
 </tr>
 <tr>
@@ -217,12 +218,21 @@ if (isset($_POST['rezervo'])) {
 <table width="585" cellspacing="0" cellpadding="3" border="0 " style="float:left;">
 <tr>
 	<td >Persona:</td>
-	<td><input type="text" size="3" name="persona"></td>
+	<td>
+		<select name="persona">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+		</select>
+	</td>
 </tr>
-<tr>
+<!-- <tr>
 	<td width="30" >Fëmij:</td>
 	<td><input type="text" size="3" name="femij"></td>
-</tr>
+</tr> -->
 <tr>
 	<td width="100">
 		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">

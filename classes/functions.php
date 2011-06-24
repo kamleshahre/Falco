@@ -71,6 +71,15 @@ function directions($direction) {
 	$city .= '<option>'.$row['name'].'</option>';
 	}
 	return $city;
+}
+
+function all_directions() {
+	global $db;
+	$query = $db->query("SELECT * FROM destinations;");
+	while($row = mysql_fetch_array($query)){
+	$city .= '<option>'.$row['name'].'</option>';
+	}
+	return $city;
 }	
 	
 //here we format the date from db format to human readable format	

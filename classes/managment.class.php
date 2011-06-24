@@ -12,7 +12,8 @@ global $db;
 				if ($results['prej'] == $postedNAME && $results['deri'] == $newCITY) {
 					$error = funksionet::show_error("Destinacioni prej $postedNAME deri $newCITY egziston!");
 				}else{
-					$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");				
+					$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");	
+					$db->query("INSERT INTO costs (deri,prej,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");			
 				}
 	}
 		
