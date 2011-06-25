@@ -141,8 +141,8 @@ height: 22px;
 .WraperForForm {
 	float: left;
 	text-align: left;
-	margin-left:10%;
-	
+	margin-left:5%;
+	margin-bottom: 10px;	
 }
 
 .topNavigation {
@@ -332,4 +332,24 @@ text-decoration: none;
     padding: 7px;
     position: relative;
     width: 459px;
+}
+
+.elementsBox {
+position: relative;
+display: block;
+float: left;
+height: 20px;
+width: 180px;
+padding: 3px;
+margin-top:3px;
+}
+.elementsLabelBox {
+position: relative;
+display: block;
+float: left;
+height: 20px;
+width: 150px;
+padding: 3px;
+text-align: right;
+margin-top:3px;
 }

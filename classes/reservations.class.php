@@ -10,18 +10,17 @@ if (isset($_POST['rezervo'])) {
 	
 	// Variables that come from the Reservations form
 	$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
-	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
-	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
+	$prej     =	$_POST['Prej'];					$deri 	  	 = $_POST['Deri'];
 	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
-
+	$drejtimi =	$_POST['drejtimi'];
+	//$femij 	  = $_POST['femij'];
 	if(empty($_POST['persona'])) {
 		$persona = 1;
 	}else{
 		$persona = $_POST['persona'];
 	}
 	
-	$femij 	  = $_POST['femij'];		
-	$drejtimi =	$_POST['drejtimi'];
+	
 	
 	//Here we get the last cost for the reserved destination
 	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
@@ -50,8 +49,8 @@ if (isset($_POST['rezervo'])) {
 			exit(); 			
 		} else {
 			$db->query("INSERT INTO orders 
-							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,femij,rezervues,cost,provision) 
-						VALUES ('$emri','$mbiemri','$prej','$deri','$KthyesePrej','$KthyeseDeri','$data','$dataKthyese','$persona','$femij','$perdorues','$cmimiKthyes','$provisionKthyes')") or die(mysql_error());
+							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,rezervues,cost,provision) 
+						VALUES ('$emri','$mbiemri','$prej','$deri','$deri','$prej','$data','$dataKthyese','$persona','$perdorues','$cmimiKthyes','$provisionKthyes')") or die(mysql_error());
 			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
 			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
 			$infos .=  'Prej: '.$prej.'<br />';
@@ -69,8 +68,8 @@ if (isset($_POST['rezervo'])) {
 		
 	} elseif($drejtimi == 'një drejtim') {
 		$db->query("INSERT INTO orders 
-						   (name,surname,prej,deri,date,persona,femij,rezervues,cost,provision) 
-					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$femij','$perdorues','$cmimi','$provision')") or die(mysql_error());	
+						   (name,surname,prej,deri,date,persona,rezervues,cost,provision) 
+					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$perdorues','$cmimi','$provision')") or die(mysql_error());	
 		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
 		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
 		$infos .= 'Prej: '.$prej.'<br />';
@@ -88,54 +87,44 @@ if (isset($_POST['rezervo'])) {
 <div class="WraperForForm">	
 <form action="index.php?menu=rezervimet&submenu=rezervo" method="post">
 
-<table  cellspacing="5" cellpadding="0" border="0" >
-<tr>
-	<td width="100">
+<div class="elementsLabelBox">
 		Emri:
-	</td>
-	<td width="190">
+</div>
+<div class="elementsBox">
 		<input type="text" id="emri" name="emri">
-	</td>
+</div>
 
-	<td width="100">
+<div class="elementsLabelBox">
 		Mbiemri:
-	</td>
-	<td width="190">
+</div>
+<div class="elementsBox">
 		<input type="text" id="mbiemri" name="mbiemri">
-	</td>
-</tr>
-</table>
+</div>
 
-<table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;">
-<tr>
-	<td width="100">
+<div class="elementsLabelBox">
 		Prej:
-	</td>
-	<td>
+	</div>
+<div class="elementsBox">
 		<select class="selectDest" name="Prej" onChange="getState(this.value)">
 			<option></option>
 			'.funksionet::all_directions().'
 		</select>
-	</td>
+</div>
 	
-</tr>
-<tr>
-	<td width="80">
+<div class="elementsLabelBox">
 		Deri:
-	</td>
-	<td>
+</div>
+<div class="elementsBox">
 		<div id="statediv"><select class="selectDest" name="deri">
 			<option></option>
 		</select></div>
-	</td>
-</tr>
-<tr>
-	<td>
+</div>
+<div class="elementsLabelBox">
 	
 			<form name="Data1Drejtim">
 			<label for="data1drejtim">Data e nisjes:</label>
-	</td>
-		<td>
+</div>
+<div class="elementsBox">
 			<input type="text" id="data1drejtim" name="data1drejtim">
 			<script language="JavaScript">
 
@@ -156,40 +145,14 @@ if (isset($_POST['rezervo'])) {
 	}, A_CALTPL);
 	</script>
 				
-	</td>
-		
-	</tr>
-</table>
-
-<!-- ___________________Return table_____________________________________ -->
-<table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;" id="hideThis" >
-<tr>
-	<td width="100">
-		Prej:
-	</td>
-	<td>
-		<select class="selectDest" name="KthyesePrej" >
-				'.funksionet::directions(2).'
-		</select>
-	</td>
-</tr>
-<tr>
-	<td width="40">
-		Deri:
-	</td>
-	<td>
-		<select class="selectDest" name="KthyeseDeri">
-			'.funksionet::directions(1).'
-		</select>
-	</td>
-
-<tr>
-	<td>
+</div>
+<!-- ___________________ RETURN DATE _____________________________________ -->
+<div id="hideThis">
+<div class="elementsLabelBox">
 		<label for="dataKthyese">Data kthyese:</label>
-	</td>		
+</div>	
 
-	<td>
-			
+<div class="elementsBox">			
 			<input type="text" id="dataKthyese" name="dataKthyese">
 				<script language="JavaScript">
 
@@ -210,15 +173,16 @@ if (isset($_POST['rezervo'])) {
 	}, A_CALTPL);
 	</script>
 			</form>
-		</td>
+</div>
+</div>	
 
-</tr>
-</table>
 
-<table width="585" cellspacing="0" cellpadding="3" border="0 " style="float:left;">
-<tr>
-	<td >Persona:</td>
-	<td>
+
+
+<div class="elementsLabelBox">
+	Persona:
+</div>
+<div class="elementsBox">
 		<select name="persona">
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -227,28 +191,29 @@ if (isset($_POST['rezervo'])) {
 			<option value="5">5</option>
 			<option value="6">6</option>
 		</select>
-	</td>
-</tr>
+</div>
 <!-- <tr>
 	<td width="30" >Fëmij:</td>
 	<td><input type="text" size="3" name="femij"></td>
 </tr> -->
-<tr>
-	<td width="100">
-		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
-		<label for="1drejtim">Një drejtim</label>
-	</td>
 
-	<td >
-		<input type="radio" id="kthyese" name="drejtimi" checked="checked" value="kthyese"  onclick="toggleVisibility(\'hideThis\',1)">
+<div class="elementsBox">
+</div>
+<div class="elementsLabelBox">
+</div>
+
+<div class="elementsLabelBox">
+		<label for="1drejtim">Një drejtim</label>
+		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
+<br/>
 		<label for="1drejtim">Kthyese</label>
-	</td>
+		<input type="radio" id="kthyese" name="drejtimi" checked="checked" value="kthyese"  onclick="toggleVisibility(\'hideThis\',1)">
+</div>
 	
-	<td>
-	<input style="float:right;" type="submit" value="Rezervo" name="rezervo" />
-	</td>
-</tr>
-</table>
+	
+	<input style="float:right;margin:15px 49px 0 0;" type="submit" value="Rezervo" name="rezervo" />
+	
+
 </form><!-- end of the reservation form-->
 </div>
 ';
@@ -316,7 +281,7 @@ while ($row = mysql_fetch_array($query)) {
 	<td>'.$row['name'].' '.$row['surname'].'</td>
 	<td>'.$row['prej'].' - '.$row['deri'].'</td>
 	<td  style="text-align:center;">'.$row['persona'].'</td>
-	<td  style="text-align:center;"> '.$row['femij'].'</td>
+	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
 	<td>'.$row['rezervues'].'</td>
 		<td width="172"  style="text-align:center;">
 			'.funksionet::list_actions($id,'delete','Anulo', $row['date']).
@@ -377,7 +342,7 @@ return '
 	   		<td>Pasagjeri</td>
 	   		<td> Destinacioni </td>
 	   		<td width="20">Persona</td>
-	   		<td width="20">Fëmij</td>
+	   		<!-- <td width="20">Fëmij</td> -->
 	   		<td>E kreu</td>
 	   		<td> Opsionet </td>
 	   		<td>Provision</td>
