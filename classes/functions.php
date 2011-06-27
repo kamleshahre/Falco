@@ -211,5 +211,47 @@ function formulari_new_user($tipi="",$roli="") {
 		';
 }
 
+function filters_travelers() {
+return '<form action="" method="post">
+<table  style="margin:10px 10px 0 10px;float:left;" cellspacing="1" cellpadding="5" border="0" >
+<tr>
+	<td>	
+<input type="text" id="dataZgjedhur" name="dataZgjedhur">
+				<script language="JavaScript">
+
+				
+	// whole calendar template can be redefined per individual calendar
+	var A_CALTPL = {
+		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
+		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
+		\'yearscroll\': true,
+		\'weekstart\': 0,
+		\'centyear\'  : 70,
+		\'imgpath\' : \'images/\'
+	}
+	
+	new tcal ({
+		// if referenced by ID then form name is not required
+		\'controlname\': \'dataZgjedhur\'
+	}, A_CALTPL);
+	</script>
+	</td>
+	<td>
+		<select class="selectDest" name="Prej" onChange="getState(this.value)">
+			<option></option>
+			'.funksionet::all_directions().'
+		</select>
+	</td>
+	<td>
+		<div id="statediv"><select class="selectDest" name="Deri">
+			<option></option>
+		</select></div>
+	<td><input type="submit" value="Shfaqe listen"></td>
+	
+</tr>
+</table>
+</form>';
+}
+
 	
 }//end of funksionet
