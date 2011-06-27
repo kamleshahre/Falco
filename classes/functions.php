@@ -126,10 +126,12 @@ function back() {
 
 
 //here are the functions for the reservations
-function list_actions($id,$value='',$name='',$date='') {
+function list_actions($id,$value='',$name='',$date='',$from='',$to='') {
 return '
 	<form action="" method="POST">
 <input type="hidden" name="date" value="'.$date.'">
+<input type="hidden" name="from" value="'.$from.'">
+<input type="hidden" name="to" value="'.$to.'">
 <input type="hidden" name="id" value="'.$id.'">
 <input type="hidden" name="action" value="'.$value.'">
 <input type="submit" value="'.$name.'" style="float:left;" >

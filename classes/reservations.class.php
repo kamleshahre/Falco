@@ -56,8 +56,8 @@ if (isset($_POST['rezervo'])) {
 			$infos .=  'Prej: '.$prej.'<br />';
 			$infos .=  'Deri: '.$deri.'<br />';
 			$infos .=  'Data: '.$data.'<br />';
-			$infos .=  'Kthimi prej: '.$KthyesePrej.'<br />';
-			$infos .=  'Kthimi deri: '.$KthyeseDeri.'<br />';
+			$infos .=  'Kthimi prej: '.$deri.'<br />';
+			$infos .=  'Kthimi deri: '.$prej.'<br />';
 			$infos .=  'Data kthyese:'.$dataKthyese.'<br />';
 			$infos .= 'Persona: '.$persona.'<br />';
 			(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
@@ -236,11 +236,7 @@ $action = $_POST['action'];
 $i = 1; 
 $cost = 0;
 
-	if(isset($PostedID) && $action == 'delete'){
-		$db->query("DELETE FROM orders WHERE order_id = $PostedID;");
-		//$query = $db->query("SELECT * FROM orders WHERE date = '$PostedDATE'") or die(mysql_error());
-		//return funksionet::show_error('Rezervimi u anulua!');
-	}
+
 	if(isset($PostedID) && $action == 'printo') {
 		echo '<script type="text/javascript">
 				<!--
@@ -257,7 +253,15 @@ $cost = 0;
 		$DeriZgjedhur = $_POST['Deri'];
 		$query = $db->query("SELECT * FROM orders WHERE prej='$PrejZgjedhur' AND deri='$DeriZgjedhur' AND (date = '$dataZgjedhur' OR data_kthyese = '$dataZgjedhur')") or die(mysql_error());
 		$data = $dataZgjedhur;
-	}else { 
+	}elseif(isset($PostedID) && $action == 'delete'){
+		$from = $_POST['from'];
+		$to = $_POST['to'];
+		$data = $_POST['date'];
+		$db->query("DELETE FROM orders WHERE order_id = $PostedID;");
+		$query = $db->query("SELECT * FROM orders WHERE prej='$from' AND deri='$to' AND (date = '$data' OR data_kthyese = '$data')") or die(mysql_error());
+		$error =  funksionet::show_error('Rezervimi u anulua!');
+	}
+	else { 
 		$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
 		$dat = mysql_fetch_array($query);
 		$data = $dat['date'];
@@ -286,7 +290,7 @@ while ($row = mysql_fetch_array($query)) {
 	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
 	<td>'.$row['rezervues'].'</td>
 		<td width="172"  style="text-align:center;">
-			'.funksionet::list_actions($id,'delete','Anulo', $row['date']).
+			'.funksionet::list_actions($id,'delete','Anulo', $row['date'],$row['prej'],$row['deri']).
 			  funksionet::list_actions($id,'printo','Printo').
 			  funksionet::list_actions($id,'edito','Edito').
 			'
@@ -297,9 +301,9 @@ while ($row = mysql_fetch_array($query)) {
 	';
 	  $i++; 
 }
-return '
+return $error.'
 <form action="" method="post">
-<table  style="margin:10px 10px 0 10px;" cellspacing="1" cellpadding="5" border="0" >
+<table  style="margin:10px 10px 0 10px;float:left;" cellspacing="1" cellpadding="5" border="0" >
 <tr>
 	<td>	
 <input type="text" id="dataZgjedhur" name="dataZgjedhur">
