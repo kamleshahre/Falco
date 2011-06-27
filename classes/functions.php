@@ -5,22 +5,37 @@ class funksionet {
 public function menu_for_reservations() {
 	global $page, $subpage;
 	
-switch ($page) {
-	case 'rezervimet':
-		$topNavigation = array('Rezervo','Listat','Profit','Ndihmë');
-	break;
-
-	case 'perdoruesit':
-		$topNavigation = array('Agjentët','Administratorët','Ndihmë');
-	break;	
-
-	case 'menaxhment':
-		$topNavigation = array('Destinacionet','Stacionet','Ndihmë');
-	break;	
+if ($_SESSION['roli'] == 'admin') {	
 	
-	default:
-		;
-	break;
+	switch ($page) {
+		case 'rezervimet':
+			$topNavigation = array('Rezervo','Listat','Profit','Ndihmë');
+		break;
+	
+		case 'perdoruesit':
+			$topNavigation = array('Agjentët','Administratorët','Ndihmë');
+		break;	
+	
+		case 'menaxhment':
+			$topNavigation = array('Destinacionet','Stacionet','Ndihmë');
+		break;	
+		
+		default:
+			;
+		break;
+	} 
+
+}elseif($_SESSION['roli'] == 'agent') {
+	
+	switch ($page) {
+		case 'rezervimet':
+			$topNavigation = array('Rezervo','Ndihmë');
+		break;
+	
+		default:
+			;
+		break;
+	}
 }
 	
 
@@ -39,7 +54,14 @@ switch ($page) {
 //here goes the navigation in the left side
 function left_menu() {
 $page = $_GET['menu'];
-	$leftNavigation = array('Rezervimet','Përdoruesit','Menaxhment');
+	//here we check if the user is admin or agent and then we show the navigation according to his status
+	if($_SESSION['roli'] == 'agent') {
+		$leftNavigation = array('Rezervimet');
+	}
+	else {
+		$leftNavigation = array('Rezervimet','Përdoruesit','Menaxhment');
+	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	foreach($leftNavigation as $row){
 		

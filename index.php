@@ -20,7 +20,7 @@ require_once 'classes/Membership.php';
 $membership = New Membership();
 $membership->confirm_Member();
 
-echo '<strong>'.$_SESSION['roli'].'</strong>';
+//echo '<strong>'.$_SESSION['roli'].'</strong>'; //here I check if we are agent or admin
 require_once 'classes/design.php';
 $design = new HTML();
 require_once 'classes/functions.php';
