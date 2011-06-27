@@ -259,12 +259,51 @@ $cost = 0;
 		$data = $_POST['date'];
 		$db->query("DELETE FROM orders WHERE order_id = $PostedID;");
 		$query = $db->query("SELECT * FROM orders WHERE prej='$from' AND deri='$to' AND (date = '$data' OR data_kthyese = '$data')") or die(mysql_error());
-		$error =  funksionet::show_error('Rezervimi u anulua!');
+		$error =  funksionet::show_error('Rezervimi u anulua me sukses!');
 	}
 	else { 
-		$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
-		$dat = mysql_fetch_array($query);
-		$data = $dat['date'];
+		return '<form action="" method="post">
+<table  style="margin:10px 10px 0 10px;float:left;" cellspacing="1" cellpadding="5" border="0" >
+<tr>
+	<td>	
+<input type="text" id="dataZgjedhur" name="dataZgjedhur">
+				<script language="JavaScript">
+
+				
+	// whole calendar template can be redefined per individual calendar
+	var A_CALTPL = {
+		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
+		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
+		\'yearscroll\': true,
+		\'weekstart\': 0,
+		\'centyear\'  : 70,
+		\'imgpath\' : \'images/\'
+	}
+	
+	new tcal ({
+		// if referenced by ID then form name is not required
+		\'controlname\': \'dataZgjedhur\'
+	}, A_CALTPL);
+	</script>
+	</td>
+	<td>
+		<select class="selectDest" name="Prej">
+		'.funksionet::directions(1).'
+		</select>
+	</td>
+	<td>
+		<select class="selectDest" name="Deri">
+		'.funksionet::directions(2).'</td>
+		</select>
+	<td><input type="submit" value="Shfaqe listen"></td>
+	
+</tr>
+</table>
+</form>'.funksionet::show_error('Zgjedhni listën e udhëtarëve!');
+		
+		//$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
+		//$dat = mysql_fetch_array($query);
+		//$data = $dat['date'];
 	}
 
 
