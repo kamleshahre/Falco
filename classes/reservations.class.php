@@ -26,7 +26,7 @@ if (isset($_POST['rezervo'])) {
 	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
 	$cost = mysql_fetch_array($result);
 	$cmimi = $cost['cost'] * $persona;
-	$cmimiKthyes = ($cmimi * 2) * $persona;
+	$cmimiKthyes = ($cmimi * 2);
 	$provision = $provis * $cmimi;
 	$provisionKthyes = $provis * $cmimiKthyes;
 	
@@ -238,9 +238,10 @@ $cost = 0;
 
 	if(isset($PostedID) && $action == 'delete'){
 		$db->query("DELETE FROM orders WHERE order_id = $PostedID;");
-		$query = $db->query("SELECT * FROM orders WHERE date = '$PostedDATE'") or die(mysql_error());
+		//$query = $db->query("SELECT * FROM orders WHERE date = '$PostedDATE'") or die(mysql_error());
 		//return funksionet::show_error('Rezervimi u anulua!');
-	}elseif(isset($PostedID) && $action == 'printo') {
+	}
+	if(isset($PostedID) && $action == 'printo') {
 		echo '<script type="text/javascript">
 				<!--
 				window.location = "GeneratePDF.php?id='.$PostedID.'"
@@ -248,9 +249,10 @@ $cost = 0;
 				</script>
 		';
 		exit();
-	}elseif(isset($PostedID) && $action == 'edito'){
+	}if(isset($PostedID) && $action == 'edito'){
 		return '<div id="Formulari">'.reservations::edito($PostedID).'</div>';
-	}elseif(isset($dataZgjedhur)) {
+	}
+	if(isset($dataZgjedhur)) {
 		$PrejZgjedhur = $_POST['Prej'];
 		$DeriZgjedhur = $_POST['Deri'];
 		$query = $db->query("SELECT * FROM orders WHERE prej='$PrejZgjedhur' AND deri='$DeriZgjedhur' AND (date = '$dataZgjedhur' OR data_kthyese = '$dataZgjedhur')") or die(mysql_error());
