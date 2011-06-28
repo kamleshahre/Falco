@@ -111,6 +111,13 @@ function formato_daten($data) {
 	return $data[2].'.'.$data[1].'.'.$data[0];
 }
 
+//here we format the date from human format to db readable format	
+function cformato_daten($data) {
+	
+	$data = explode('.', $data);
+	return $data[0].'.'.$data[1].'.'.$data[2];
+}
+
 
 //here we format all the manual made errors
 function show_error($message) {
@@ -129,7 +136,7 @@ function back() {
 function list_actions($id,$value='',$name='',$date='',$from='',$to='') {
 return '
 	<form action="" method="POST">
-<input type="hidden" name="date" value="'.$date.'">
+<input type="hidden" name="datum" value="'.$date.'">
 <input type="hidden" name="from" value="'.$from.'">
 <input type="hidden" name="to" value="'.$to.'">
 <input type="hidden" name="id" value="'.$id.'">

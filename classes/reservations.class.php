@@ -251,14 +251,18 @@ $cost = 0;
 	if(isset($dataZgjedhur)) {
 		$PrejZgjedhur = $_POST['Prej'];
 		$DeriZgjedhur = $_POST['Deri'];
-		$query = $db->query("SELECT * FROM orders WHERE prej='$PrejZgjedhur' AND deri='$DeriZgjedhur' AND (date = '$dataZgjedhur' OR data_kthyese = '$dataZgjedhur')") or die(mysql_error());
+		$query = $db->query("SELECT * FROM orders WHERE (prej='$PrejZgjedhur' AND deri='$DeriZgjedhur' AND date = '$dataZgjedhur')
+							OR (KthyesePrej='$PrejZgjedhur' AND KthyeseDeri='$DeriZgjedhur' AND data_kthyese = '$dataZgjedhur')
+							") or die(mysql_error());
 		$data = $dataZgjedhur;
 	}elseif(isset($PostedID) && $action == 'delete'){
 		$from = $_POST['from'];
 		$to = $_POST['to'];
-		$data = $_POST['date'];
+		$data = $_POST['datum'];
 		$db->query("DELETE FROM orders WHERE order_id = $PostedID;");
-		$query = $db->query("SELECT * FROM orders WHERE prej='$from' AND deri='$to' AND (date = '$data' OR data_kthyese = '$data')") or die(mysql_error());
+		$query = $db->query("SELECT * FROM orders WHERE (prej='$from' AND deri='$to' AND date = '$data')
+							OR (KthyesePrej='$from' AND KthyeseDeri='$to' AND data_kthyese = '$data')
+							") or die(mysql_error());
 		$error =  funksionet::show_error('Rezervimi u anulua me sukses!');
 	}
 	else { 
@@ -277,6 +281,15 @@ while ($row = mysql_fetch_array($query)) {
  $provisionTotal += $row['provision'];
  $costNOPROVISION = $cost - $provisionTotal;
  $date = funksionet::formato_daten($data);
+ if(empty($row['KthyesePrej']) && empty($row['KthyeseDeri'])) { 
+ 	$prej = $row['prej'];
+ 	$deri = $row['deri'];
+ 	$data = $row['date'];
+ }else{
+	$prej = $row['KthyesePrej'];
+ 	$deri = $row['KthyeseDeri'];
+ 	$data = $row['data_kthyese'];
+ }
  $id = $row['order_id'];	
 		if ($i % 2 != "0") # An odd row
 		  $rowColor = "bgC1";
@@ -292,7 +305,7 @@ while ($row = mysql_fetch_array($query)) {
 	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
 	<td>'.$row['rezervues'].'</td>
 		<td width="172"  style="text-align:center;">
-			'.funksionet::list_actions($id,'delete','Anulo', $row['date'],$row['prej'],$row['deri']).
+			'.funksionet::list_actions($id,'delete','Anulo', $data,$prej,$deri).
 			  funksionet::list_actions($id,'printo','Printo').
 			  funksionet::list_actions($id,'edito','Edito').
 			'
@@ -401,7 +414,7 @@ function profit() {
 			
 		<table cellspacing="1" cellpadding="5" border="0" style="margin: 10px 10px 0pt;">			
 		<tr>
-		<td><select name="muaj">
+		<td><select name="muaj" class="selectDest">
 				<option value="00">Zgjidhe muajn:</option>
 				<option value="01">Janar</option>
 				<option value="02">Shkurt</option>
@@ -417,7 +430,7 @@ function profit() {
 				<option value="12">Dhjetor</option>
 		</td></select>
 		<td>
-			<select name="viti">
+			<select name="viti" class="selectDest">
 			'.$SelectYears.'
 			</select>
 		</td>

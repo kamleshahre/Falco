@@ -190,7 +190,7 @@ $returned
 <tr>
 	<td class="hide" width="345"></td>
 	<td class="bolder" width="80">&Ccedil;mimi</td>
-	<td >$ $cmimi</td>
+	<td>$cmimi &euro;</td>
 </tr>
 </table>
 
