@@ -29,7 +29,7 @@ require_once 'reservations.class.php';
 global $subpage;
 	switch ($subpage) {
 		case 'rezervo':
-		return '<div id="Formulari">'.reservations::rezervo().'</div>';
+		return reservations::rezervo();
 		break;
 		
 		case 'listat':
@@ -45,7 +45,7 @@ global $subpage;
 		break;
 		
 		default:
-			return '<div id="Formulari">'.reservations::rezervo().'</div>';
+			return reservations::rezervo();
 		break;
 	}
 	

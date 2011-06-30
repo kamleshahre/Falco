@@ -129,12 +129,11 @@ height: 22px;
 }
 
 #Formulari {
-    background: none repeat scroll 0 0 #F5FFFA;
+    background: none repeat scroll 0 0 #F5F5F5;
     border: 2px solid #CECECE;
     float: left;
     margin: 10px;
     width: 100%;
-    text-align: center;
     padding:10px 0 10px 0;
 }
 

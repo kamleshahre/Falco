@@ -33,19 +33,19 @@ if (isset($_POST['rezervo'])) {
 	//Here we put all informations into database
 	if($drejtimi == 'kthyese') {
 		if (empty($data) && !empty($dataKthyese)){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes!';
+			return funksionet::show_error('Gabim në zgjedhjen tuaj: Ju lutem zgjdhni daten e nisjes!');
 			exit();
 		} elseif(empty($dataKthyese) && !empty($data)) {
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes kthyese!';
+			return funksionet::show_error('Gabim në zgjedhjen tuaj: Ju lutem zgjdhni daten e nisjes kthyese!');
 			exit();
 		}elseif(empty($data) && empty($dataKthyese)){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni datat e nisjeve!';
+			return funksionet::show_error('Gabim në zgjedhjen tuaj: Ju lutem zgjdhni datat e nisjeve!');
 			exit();
 		}elseif($data >= $dataKthyese){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
+			return funksionet::show_error('Gabim në zgjedhjen tuaj: Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!');
 			exit(); 
 		}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
+			return funksionet::show_error('Gabim në zgjedhjen tuaj: data nuk mund te jet me heret se sot!');
 			exit(); 			
 		} else {
 			$db->query("INSERT INTO orders 
@@ -83,10 +83,9 @@ if (isset($_POST['rezervo'])) {
 	}
 
 }else {
-	return '
+	return '<div id="Formulari">
 <div class="WraperForForm">	
-<form action="index.php?menu=rezervimet&submenu=rezervo" method="post">
-
+<form action="" method="post">
 <div class="elementsLabelBox">
 		Emri:
 </div>
@@ -121,7 +120,6 @@ if (isset($_POST['rezervo'])) {
 </div>
 <div class="elementsLabelBox">
 	
-			<form name="Data1Drejtim">
 			<label for="data1drejtim">Data e nisjes:</label>
 </div>
 <div class="elementsBox">
@@ -172,7 +170,7 @@ if (isset($_POST['rezervo'])) {
 		\'controlname\': \'dataKthyese\'
 	}, A_CALTPL);
 	</script>
-			</form>
+			
 </div>
 </div>	
 
@@ -216,6 +214,7 @@ if (isset($_POST['rezervo'])) {
 
 </form><!-- end of the reservation form-->
 </div>
+</div><!-- end of Formulari-->
 ';
 	} 	
 	
@@ -300,7 +299,7 @@ while ($row = mysql_fetch_array($query)) {
 	'<tr class="'.$rowColor.'"">
 	<td style="text-align:center;"><strong>'.$i.'</strong></td>
 	<td>'.$row['name'].' '.$row['surname'].'</td>
-	<td>'.$row['prej'].' - '.$row['deri'].'</td>
+	<td>'.$prej.' - '.$deri.'</td>
 	<td  style="text-align:center;">'.$row['persona'].'</td>
 	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
 	<td>'.$row['rezervues'].'</td>

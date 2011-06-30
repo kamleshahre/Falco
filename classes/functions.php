@@ -121,7 +121,7 @@ function cformato_daten($data) {
 
 //here we format all the manual made errors
 function show_error($message) {
-	return '<div class="ErrorWrapper">'.$message.'</div>';
+	return '<div class="ErrorWrapper"><img style="border:0;margin:5px;" src="images/warning_logo.png"><span style="vertical-align:super;position:relative;bottom:7px;">'.$message.'</span></div>';
 }
 
 
