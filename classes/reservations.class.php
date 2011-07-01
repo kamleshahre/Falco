@@ -87,7 +87,7 @@ if (isset($_POST['rezervo'])) {
 	<strong>Ju keni rezervuar një udhëtim me këto të dhena:</strong></div>
 	<a target="_blank" href="GeneratePDF.php"><img title="Gjenero tiketën" alt="Gjenero tiketën" style="float:right;border:0;margin-top:10px;" src="images/print.png"></a>
 		<form action="" method="post" style="float:right;border:0;margin-top:10px;">
-		<input type="submit" name="storno" value="" class="x_button" >
+		<input type="submit" name="storno" value="" class="x_button" title="Anulo" >
 		</form>
 	<table width="100%" style="margin-top:10px;margin-left:10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 	<tr class="bgC3" style="font-weight:bold">
@@ -309,15 +309,11 @@ while ($row = mysql_fetch_array($query)) {
  $provisionTotal += $row['provision'];
  $costNOPROVISION = $cost - $provisionTotal;
  $date = funksionet::formato_daten($data);
-// if(empty($row['KthyesePrej']) && empty($row['KthyeseDeri'])) { 
-// 	$prej = $row['prej'];
-// 	$deri = $row['deri'];
-// 	$data = $row['date'];
-// }else{
-//	$prej = $row['KthyesePrej'];
-// 	$deri = $row['KthyeseDeri'];
-// 	$data = $row['data_kthyese'];
-// }
+ if(empty($row['KthyesePrej']) && empty($row['KthyeseDeri'])) { 
+ $arrow = '<img src="images/one_way.gif">';
+ }else {
+ $arrow = '<img src="images/two_ways.gif">';
+ }
  $id = $row['order_id'];	
 		if ($i % 2 != "0") # An odd row
 		  $rowColor = "bgC1";
@@ -328,7 +324,7 @@ while ($row = mysql_fetch_array($query)) {
 	'<tr class="'.$rowColor.'"">
 	<td style="text-align:center;"><strong>'.$i.'</strong></td>
 	<td>'.$row['name'].' '.$row['surname'].'</td>
-	<td>'.$row['prej'].' - '.$row['deri'].'</td>
+	<td>'.$row['prej'].' '.$arrow.' '.$row['deri'].'</td>
 	<td  style="text-align:center;">'.$row['persona'].'</td>
 	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
 	<td>'.$row['rezervues'].'</td>
