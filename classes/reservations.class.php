@@ -324,7 +324,7 @@ while ($row = mysql_fetch_array($query)) {
 	'<tr class="'.$rowColor.'"">
 	<td style="text-align:center;"><strong>'.$i.'</strong></td>
 	<td>'.$row['name'].' '.$row['surname'].'</td>
-	<td>'.$row['prej'].' '.$arrow.' '.$row['deri'].'</td>
+	<td style="text-align:center;">'.$row['prej'].' '.$arrow.' '.$row['deri'].'</td>
 	<td  style="text-align:center;">'.$row['persona'].'</td>
 	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
 	<td>'.$row['rezervues'].'</td>
@@ -334,7 +334,7 @@ while ($row = mysql_fetch_array($query)) {
 			  funksionet::list_actions($id,'edito','Edito').
 			'
 		</td>
-	<td style="text-align:right;">'.substr($row['provision'], 0, 4).' &euro;</td>
+	<td style="text-align:right;">'.substr($row['provision'], 0, -1).' &euro;</td>
 	<td style="text-align:right;">'.$row['cost'].' &euro;</td>
 	</tr>
 	';
@@ -424,7 +424,7 @@ function profit() {
 					<tr class="'.$rowColor.'">
 						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
 						<td>'.ucfirst($row['rezervues']).'</td>
-						<td style="text-align:right;">'.substr($row['provs'], 0, 4).'  &euro;</td>
+						<td style="text-align:right;">'.substr($row['provs'], 0, -1).'  &euro;</td>
 						<td style="text-align:right;">'.$row['sumaTotale'].' &euro;</td>
 					</tr>
 					';
