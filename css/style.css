@@ -352,3 +352,12 @@ padding: 3px;
 text-align: right;
 margin-top:3px;
 }
+
+.x_button {
+    background: url("images/anulo.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    height: 28px;
+    width: 29px;
+    cursor:pointer;
+    margin-right:5px;
+}

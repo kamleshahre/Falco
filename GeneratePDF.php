@@ -66,6 +66,7 @@ $row = mysql_fetch_array($result);
 $emri = $row['name'];			$mbiemri = $row['surname'];
 $prej = $row['prej'];			$deri 	 = $row['deri'];
 $data = $row['date'];			$cmimi   = $row['cost'];
+$persona = $row['persona'];
 
 if (!empty($row['KthyesePrej']) && !empty($row['KthyeseDeri'])) {
 	$returned = '
@@ -174,11 +175,15 @@ $html = <<<EOF
 	<td class="kuq">Pasagjeri</td>
 	<td class="kuq">Prej</td>
 	<td class="kuq">Deri</td>
+	<td class="kuq">Data</td>
+	<td class="kuq">Persona</td>
 </tr>
 <tr>
 	<td>$emri $mbiemri</td>
 	<td>$prej</td>
 	<td>$deri</td>
+	<td>$data</td>
+	<td >$persona</td>
 </tr>
 
 $returned
@@ -188,9 +193,9 @@ $returned
 <table cellpadding="4" cellspacing="0" >
 
 <tr>
-	<td class="hide" width="345"></td>
+	<td class="hide" width="458"></td>
 	<td class="bolder" width="80">&Ccedil;mimi</td>
-	<td>$cmimi &euro;</td>
+	<td width="100" >$cmimi &euro;</td>
 </tr>
 </table>
 

@@ -2,10 +2,18 @@
 class reservations {
 function rezervo() {
 	global $db;
-	//here we get the provision from the current agent
+//here we get the provision from the current agent
 	$perdorues = $_SESSION['username'];
 	$selected_provision = mysql_fetch_array($db->query("SELECT selected_provis FROM users where username='$perdorues'"));
 	$provis = $selected_provision['selected_provis'];
+//here we check if we want to delete the last made reservation 
+if(isset($_POST['storno'])){
+	$last_order_id = mysql_fetch_array($db->query("SELECT  MAX(order_id) as last_order_id FROM orders"));
+	$last_id = $last_order_id['last_order_id'];
+	$db->query("DELETE FROM orders WHERE order_id = '$last_id';");
+	return funksionet::show_error('Rezervimi u anulua me sukes!');
+	exit();}
+/////////////////////////////////////////////////////////////////////////////
 if (isset($_POST['rezervo'])) {
 	
 	// Variables that come from the Reservations form
@@ -46,7 +54,7 @@ if (isset($_POST['rezervo'])) {
 			exit(); 
 		}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
 			return funksionet::show_error('Gabim në zgjedhjen tuaj: data nuk mund te jet me heret se sot!');
-			exit(); 			
+			exit();
 		} else {
 			$db->query("INSERT INTO orders 
 							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,rezervues,cost,provision) 
@@ -58,28 +66,49 @@ if (isset($_POST['rezervo'])) {
 			$infos .=  'Data: '.$data.'<br />';
 			$infos .=  'Kthimi prej: '.$deri.'<br />';
 			$infos .=  'Kthimi deri: '.$prej.'<br />';
-			$infos .=  'Data kthyese:'.$dataKthyese.'<br />';
+			$infos .=  'Data kthyese:'.funksionet::formato_daten($dataKthyese).'<br />';
 			$infos .= 'Persona: '.$persona.'<br />';
 			(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
 			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
 			$infos .=  '<a target="_blank" href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
 		}
 	return $infos;
-		
+	//HERE WE SHOW INFOS ABOUT THE RESERVATION MADE 1 WAY
 	} elseif($drejtimi == 'një drejtim') {
 		$db->query("INSERT INTO orders 
 						   (name,surname,prej,deri,date,persona,rezervues,cost,provision) 
 					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$perdorues','$cmimi','$provision')") or die(mysql_error());	
-		$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
-		$infos .= 'Drejtimi: '.$drejtimi.'<br />';
-		$infos .= 'Prej: '.$prej.'<br />';
-		$infos .= 'Deri: '.$deri.'<br />';
-		$infos .= 'Data: '.$data.'<br />';
-		$infos .= 'Persona: '.$persona.'<br />';
-		(!empty($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
-		$infos .= '&Ccedil;mimi: '.$cmimi.'<br />';
-		$infos .= '<a target="_blank" href="GeneratePDF.php">Gjenero tiket</a>';
-	return $infos;	
+		$infos  = '<td>'.$emri.' '.$mbiemri.'</td>';
+		$infos .= '<td>'.$prej.'</td>';
+		$infos .= '<td>'.$deri.'</td>';
+		$infos .= '<td>'.funksionet::formato_daten($data).'</td>';
+		$infos .= '<td style="text-align:center;">'.$persona.'</td>';
+	return '<div style="margin:10px;float:left;">
+	<strong>Ju keni rezervuar një udhëtim me këto të dhena:</strong></div>
+	<a target="_blank" href="GeneratePDF.php"><img title="Gjenero tiketën" alt="Gjenero tiketën" style="float:right;border:0;margin-top:10px;" src="images/print.png"></a>
+		<form action="" method="post" style="float:right;border:0;margin-top:10px;">
+		<input type="submit" name="storno" value="" class="x_button" >
+		</form>
+	<table width="100%" style="margin-top:10px;margin-left:10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+	<tr class="bgC3" style="font-weight:bold">
+					<td>Pasagjeri</td>
+					<td>Prej</td>
+					<td>Deri</td>
+					<td width="100">Data</td>
+					<td width="80">Persona</td>
+				</tr>
+				<tr class="bgC2">
+				'.$infos.'
+				</tr>
+				
+	</table>
+	<table style="margin-top:-1px;margin-right:-10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+				<tr class="bgC2">
+					<td width="100" style="font-weight:bold;">Çmimi:</td>
+					<td width="80" style="text-align:right;">'.$cmimi.' &euro;</td>
+				</tr>
+	</table>
+	';	
 	}
 
 }else {
@@ -280,15 +309,15 @@ while ($row = mysql_fetch_array($query)) {
  $provisionTotal += $row['provision'];
  $costNOPROVISION = $cost - $provisionTotal;
  $date = funksionet::formato_daten($data);
- if(empty($row['KthyesePrej']) && empty($row['KthyeseDeri'])) { 
- 	$prej = $row['prej'];
- 	$deri = $row['deri'];
- 	$data = $row['date'];
- }else{
-	$prej = $row['KthyesePrej'];
- 	$deri = $row['KthyeseDeri'];
- 	$data = $row['data_kthyese'];
- }
+// if(empty($row['KthyesePrej']) && empty($row['KthyeseDeri'])) { 
+// 	$prej = $row['prej'];
+// 	$deri = $row['deri'];
+// 	$data = $row['date'];
+// }else{
+//	$prej = $row['KthyesePrej'];
+// 	$deri = $row['KthyeseDeri'];
+// 	$data = $row['data_kthyese'];
+// }
  $id = $row['order_id'];	
 		if ($i % 2 != "0") # An odd row
 		  $rowColor = "bgC1";
@@ -299,12 +328,12 @@ while ($row = mysql_fetch_array($query)) {
 	'<tr class="'.$rowColor.'"">
 	<td style="text-align:center;"><strong>'.$i.'</strong></td>
 	<td>'.$row['name'].' '.$row['surname'].'</td>
-	<td>'.$prej.' - '.$deri.'</td>
+	<td>'.$row['prej'].' - '.$row['deri'].'</td>
 	<td  style="text-align:center;">'.$row['persona'].'</td>
 	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
 	<td>'.$row['rezervues'].'</td>
 		<td width="172"  style="text-align:center;">
-			'.funksionet::list_actions($id,'delete','Anulo', $data,$prej,$deri).
+			'.funksionet::list_actions($id,'delete','Anulo', $row['date'],$row['prej'],$row['deri']).
 			  funksionet::list_actions($id,'printo','Printo').
 			  funksionet::list_actions($id,'edito','Edito').
 			'
