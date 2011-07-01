@@ -4,6 +4,7 @@ require_once('tcpdf/tcpdf.php');
 require_once ('classes/class.db.php');
 require_once 'includes/constants.php';
 $db = new MySQL(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, false);
+require_once 'classes/functions.php';
 
 
 // create new PDF document
@@ -65,7 +66,7 @@ else
 $row = mysql_fetch_array($result);
 $emri = $row['name'];			$mbiemri = $row['surname'];
 $prej = $row['prej'];			$deri 	 = $row['deri'];
-$data = $row['date'];			$cmimi   = $row['cost'];
+$data = funksionet::formato_daten($row['date']);			$cmimi   = $row['cost'];
 $persona = $row['persona'];
 
 if (!empty($row['KthyesePrej']) && !empty($row['KthyeseDeri'])) {
@@ -74,6 +75,8 @@ if (!empty($row['KthyesePrej']) && !empty($row['KthyeseDeri'])) {
 	<td><strong>Kthyese</strong></td>
 	<td>'.$row['KthyesePrej'].'</td>
 	<td>'.$row['KthyeseDeri'].'</td>
+	<td>'.funksionet::formato_daten($row['data_kthyese']).'</td>
+	<td style="text-align:center">'.$row['persona'].'</td>
 </tr>';
 
 }
@@ -170,20 +173,20 @@ $html = <<<EOF
 
 <br />
 
-<table class="first" cellpadding="4" cellspacing="0">
+<table class="first" cellpadding="4" cellspacing="0" width="100%">
 <tr class="bolder">
 	<td class="kuq">Pasagjeri</td>
 	<td class="kuq">Prej</td>
 	<td class="kuq">Deri</td>
 	<td class="kuq">Data</td>
-	<td class="kuq">Persona</td>
+	<td class="kuq" >Persona</td>
 </tr>
 <tr>
 	<td>$emri $mbiemri</td>
 	<td>$prej</td>
 	<td>$deri</td>
 	<td>$data</td>
-	<td >$persona</td>
+	<td style="text-align:center;">$persona</td>
 </tr>
 
 $returned

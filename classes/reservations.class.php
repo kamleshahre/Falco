@@ -28,8 +28,6 @@ if (isset($_POST['rezervo'])) {
 		$persona = $_POST['persona'];
 	}
 	
-	
-	
 	//Here we get the last cost for the reserved destination
 	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
 	$cost = mysql_fetch_array($result);
@@ -59,22 +57,56 @@ if (isset($_POST['rezervo'])) {
 			$db->query("INSERT INTO orders 
 							   (name,surname,prej,deri,KthyesePrej,KthyeseDeri,date,data_kthyese,persona,rezervues,cost,provision) 
 						VALUES ('$emri','$mbiemri','$prej','$deri','$deri','$prej','$data','$dataKthyese','$persona','$perdorues','$cmimiKthyes','$provisionKthyes')") or die(mysql_error());
-			$infos = '<strong>Ju keni rezervuar nje udhetim me keto te dhena:</strong><br />';
-			$infos .=  'Drejtimi: '.$drejtimi.'<br />';
-			$infos .=  'Prej: '.$prej.'<br />';
-			$infos .=  'Deri: '.$deri.'<br />';
-			$infos .=  'Data: '.$data.'<br />';
-			$infos .=  'Kthimi prej: '.$deri.'<br />';
-			$infos .=  'Kthimi deri: '.$prej.'<br />';
-			$infos .=  'Data kthyese:'.funksionet::formato_daten($dataKthyese).'<br />';
-			$infos .= 'Persona: '.$persona.'<br />';
-			(isset($femij)) ? $infos .= 'Femij: '.$femij.'<br />' : $infos .= '';
-			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
-			$infos .=  '<a target="_blank" href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
+			$infos  = '<td>'.$emri.' '.$mbiemri.'</td>';
+			$infos .=  '<td>'.$prej.'</td>';
+			$infos .=  '<td>'.$deri.'</td>';
+			$infos .=  '<td>'.$deri.'</td>';
+			$infos .=  '<td>'.$prej.'</td>';
+			$infos .=  '<td>'.funksionet::formato_daten($data).'</td>';
+			$infos .=  '<td>'.funksionet::formato_daten($dataKthyese).'</td>';
+			$infos .= '<td style="text-align:center;">'.$persona.'</td>';
+//			$infos .=  '&Ccedil;mimi: '.$cmimiKthyes.'<br />';
+//			$infos .=  '<a target="_blank" href="GeneratePDF.php" target="_blank">Gjenero tiket</a>';
 		}
-	return $infos;
+	return '<div style="margin:10px;float:left;">
+	<strong>Ju keni rezervuar një udhëtim me këto të dhena:</strong></div>
+	<a target="_blank" href="GeneratePDF.php"><img title="Gjenero tiketën" alt="Gjenero tiketën" style="float:right;border:0;margin-top:10px;" src="images/print.png"></a>
+		<form action="" method="post" style="float:right;border:0;margin-top:10px;">
+		<input type="submit" name="storno" value="" class="x_button" title="Anulo" >
+		</form>
+	<table width="100%" style="margin-top:10px;margin-left:10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+	<tr class="bgC3" style="font-weight:bold">
+					<td width="90">Pasagjeri</td>
+					<td width="75">Prej</td>
+					<td width="75">Deri</td>
+					<td width="90">Kthimi nga</td>
+					<td width="90">Kthimi deri</td>
+					<td width="90">Data</td>
+					<td width="90">Data kthyese</td>
+					<td width="10">Persona</td>
+				</tr>
+				<tr class="bgC2">
+				'.$infos.'
+				</tr>
+				
+	</table>
+	<table style="margin-top:-1px;margin-right:-10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+				<tr class="bgC2">
+					<td width="100" style="font-weight:bold;">Çmimi:</td>
+					<td width="71" style="text-align:right;">'.$cmimiKthyes.' &euro;</td>
+				</tr>
+	</table>
+	';
+	
 	//HERE WE SHOW INFOS ABOUT THE RESERVATION MADE 1 WAY
 	} elseif($drejtimi == 'një drejtim') {
+		if (empty($data)){
+			return funksionet::show_error('Gabim në zgjedhjen tuaj: Ju lutem zgjdhni daten e nisjes!');
+			exit();
+		}elseif($data < date('Y-m-d')){
+			return funksionet::show_error('Gabim në zgjedhjen tuaj: data nuk mund te jet me heret se sot!');
+			exit();
+		}else {
 		$db->query("INSERT INTO orders 
 						   (name,surname,prej,deri,date,persona,rezervues,cost,provision) 
 					VALUES ('$emri','$mbiemri','$prej','$deri','$data','$persona','$perdorues','$cmimi','$provision')") or die(mysql_error());	
@@ -108,7 +140,7 @@ if (isset($_POST['rezervo'])) {
 					<td width="80" style="text-align:right;">'.$cmimi.' &euro;</td>
 				</tr>
 	</table>
-	';	
+	';	}
 	}
 
 }else {
@@ -407,7 +439,7 @@ function profit() {
 								 $muaj = date('m');
 								 $query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
 													FROM orders
-													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='2011');");
+													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
 							}
 							
 			while($row = mysql_fetch_array($query)) {
