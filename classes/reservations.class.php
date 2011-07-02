@@ -296,7 +296,7 @@ $action = $_POST['action'];
 $i = 1; 
 $cost = 0;
 
-
+	//here we check if we clicked the Print button
 	if(isset($PostedID) && $action == 'printo') {
 		echo '<script type="text/javascript">
 				<!--
@@ -305,8 +305,64 @@ $cost = 0;
 				</script>
 		';
 		exit();
-	}if(isset($PostedID) && $action == 'edito'){
+	//here we check if we clicked the Edit button
+	}elseif(isset($PostedID) && $action == 'edito'){
 		return '<div id="Formulari">'.reservations::edito($PostedID).'</div>';
+	//here we check if we already edited the reservation
+	}elseif(isset($_POST['editoket'])) {
+	
+	// Variables that come from the Reservations form
+	$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
+	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
+	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
+	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
+	$persona  = $_POST['persona'];
+	$drejtimi =	$_POST['drejtimi'];
+	$id 	  = $_POST['id_to_edit'];
+	
+	//Here we get the last cost for the reserved destination
+	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
+	$cost = mysql_fetch_array($result);
+	$cmimi = $cost['cost'];
+	$cmimiKthyes = $cmimi * 2;
+	
+	//Here we put all informations into database
+	if($drejtimi == 'kthyese') {
+		if (empty($data) && !empty($dataKthyese)){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes!';
+			exit();
+		} elseif(empty($dataKthyese) && !empty($data)) {
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes kthyese!';
+			exit();
+		}elseif(empty($data) && empty($dataKthyese)){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni datat e nisjeve!';
+			exit();
+		}elseif($data >= $dataKthyese){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
+			exit(); 
+		}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
+			exit(); 			
+		} else {
+			$db->query("UPDATE orders SET
+						name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',KthyesePrej='$KthyesePrej',
+						KthyeseDeri='$KthyeseDeri',date='$data',data_kthyese='$dataKthyese',persona='$persona',
+						cost='$cmimiKthyes' WHERE order_id='$id'");
+			$infos = '<strong>Ndryshimet e juaja janë ruajtur me sukses!</strong><br />';
+			$infos .=  '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
+		}
+	return $infos;
+		
+	} elseif($drejtimi == 'një drejtim') {
+		$db->query("UPDATE orders 
+					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
+					date='$data',persona='$persona',cost='$cmimi' 
+					WHERE order_id = '$id'") or die(mysql_error());	
+		$infos = '<strong>Ndryshimet e juaja janë ruajtur me sukses!</strong><br />';
+		$infos .= '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
+	return $infos;	
+	}
+	
 	}
 	if(isset($dataZgjedhur)) {
 		$PrejZgjedhur = $_POST['Prej'];
@@ -531,63 +587,6 @@ function profit() {
 
 function edito($IDtoEdit='') {
 global $db;
-	if (isset($_POST['editoket'])) {
-	
-	// Variables that come from the Reservations form
-	$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
-	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
-	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
-	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
-	$persona  = $_POST['persona'];
-	$femij 	  = $_POST['femij'];		
-	$drejtimi =	$_POST['drejtimi'];
-	
-	$id 	  = $_POST['id_to_edit'];
-	
-	//Here we get the last cost for the reserved destination
-	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
-	$cost = mysql_fetch_array($result);
-	$cmimi = $cost['cost'];
-	$cmimiKthyes = $cmimi * 2;
-	
-	//Here we put all informations into database
-	if($drejtimi == 'kthyese') {
-		if (empty($data) && !empty($dataKthyese)){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes!';
-			exit();
-		} elseif(empty($dataKthyese) && !empty($data)) {
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes kthyese!';
-			exit();
-		}elseif(empty($data) && empty($dataKthyese)){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni datat e nisjeve!';
-			exit();
-		}elseif($data >= $dataKthyese){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
-			exit(); 
-		}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
-			return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
-			exit(); 			
-		} else {
-			$db->query("UPDATE orders SET
-						name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',KthyesePrej='$KthyesePrej',
-						KthyeseDeri='$KthyeseDeri',date='$data',data_kthyese='$dataKthyese',persona='$persona',
-						femij='$femij',cost='$cmimiKthyes' WHERE order_id='$id'");
-			$infos = '<strong>Ndryshimet e juaja janë ruajtur me sukses!</strong><br />';
-			$infos .=  '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
-		}
-	return $infos;
-		
-	} elseif($drejtimi == 'një drejtim') {
-		$db->query("UPDATE orders 
-					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
-					date='$data',persona='$persona',femij='$femij',cost='$cmimi' 
-					WHERE order_id = '$id'") or die(mysql_error());	
-		$infos = '<strong>Ndryshimet e juaja janë ruajtur me sukses!</strong><br />';
-		$infos .= '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
-	return $infos;	
-	}
-
-}else {
 	
 	global $db;
 
@@ -595,59 +594,50 @@ global $db;
 
 // Variables that come from the database
 	$emri 	  = $values['name'];					$mbiemri     = $values['surname'];
-	$id 	  = $values['order_id'];
+	$id 	  = $values['order_id'];				
+	$data_e_nisjes = $values['date'];				$data_e_kthimit = $values['data_kthyese'];
 	return '
 <div class="WraperForForm">	
-<form action="index.php?menu=rezervimet&submenu=listat" method="post">
+<form action="" method="post">
 <input type="hidden" name="id_to_edit" value="'.$id.'">
-<table  cellspacing="5" cellpadding="0" border="0" >
-<tr>
-	<td width="100">
+<div class="elementsLabelBox">
 		Emri:
-	</td>
-	<td width="190">
+</div>
+<div class="elementsBox">
 		<input type="text" id="emri" name="emri" value="'.$emri.'">
-	</td>
+</div>
 
-	<td width="100">
+<div class="elementsLabelBox">
 		Mbiemri:
-	</td>
-	<td width="190">
+</div>
+<div class="elementsBox"> 
 		<input type="text" id="mbiemri" name="mbiemri" value="'.$mbiemri.'">
-	</td>
-</tr>
-</table>
+</div>
 
-<table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;">
-<tr>
-	<td width="100">
+<div class="elementsLabelBox">
 		Prej:
-	</td>
-	<td>
-		<select class="selectDest" name="Prej">
-			'.funksionet::directions(1).'
+	</div>
+<div class="elementsBox">
+		<select class="selectDest" name="Prej" onChange="getState(this.value)">
+			<option></option>
+			'.funksionet::all_directions().'
 		</select>
-	</td>
+</div>
 	
-</tr>
-<tr>
-	<td width="80">
+<div class="elementsLabelBox">
 		Deri:
-	</td>
-	<td>
-		<select class="selectDest" name="Deri">
-			'.funksionet::directions(2).'
-		</select>
-	</td>
-</tr>
-<tr>
-	<td>
+</div>
+<div class="elementsBox">
+		<div id="statediv"><select class="selectDest" name="deri">
+			<option></option>
+		</select></div>
+</div>
+<div class="elementsLabelBox">
 	
-			<form name="Data1Drejtim">
 			<label for="data1drejtim">Data e nisjes:</label>
-	</td>
-		<td>
-			<input type="text" id="data1drejtim" name="data1drejtim">
+</div>
+<div class="elementsBox">
+			<input type="text" id="data1drejtim" name="data1drejtim" value="'.$data_e_nisjes.'">
 			<script language="JavaScript">
 
 				
@@ -667,41 +657,15 @@ global $db;
 	}, A_CALTPL);
 	</script>
 				
-	</td>
-		
-	</tr>
-</table>
-
-<!-- ___________________Return table_____________________________________ -->
-<table width="300" cellspacing="5" cellpadding="0" border="0" style="float:left;" id="hideThis" >
-<tr>
-	<td width="100">
-		Prej:
-	</td>
-	<td>
-		<select class="selectDest" name="KthyesePrej" >
-				'.funksionet::directions(2).'
-		</select>
-	</td>
-</tr>
-<tr>
-	<td width="40">
-		Deri:
-	</td>
-	<td>
-		<select class="selectDest" name="KthyeseDeri">
-			'.funksionet::directions(1).'
-		</select>
-	</td>
-
-<tr>
-	<td>
+</div>
+<!-- ___________________ RETURN DATE _____________________________________ -->
+<div id="hideThis">
+<div class="elementsLabelBox">
 		<label for="dataKthyese">Data kthyese:</label>
-	</td>		
+</div>	
 
-	<td>
-			
-			<input type="text" id="dataKthyese" name="dataKthyese">
+<div class="elementsBox">			
+			<input type="text" id="dataKthyese" name="dataKthyese" >
 				<script language="JavaScript">
 
 				
@@ -720,41 +684,47 @@ global $db;
 		\'controlname\': \'dataKthyese\'
 	}, A_CALTPL);
 	</script>
-			</form>
-		</td>
+			
+</div>
+</div>	
 
-</tr>
-</table>
 
-<table width="585" cellspacing="0" cellpadding="3" border="0 " style="float:left;">
-<tr>
-	<td >Persona:</td>
-	<td><input type="text" size="3" name="persona"></td>
-</tr>
-<tr>
-	<td width="30" >Fëmij:</td>
-	<td><input type="text" size="3" name="femij"></td>
-</tr>
-<tr>
-	<td width="100">
-		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
+
+
+<div class="elementsLabelBox">
+	Persona:
+</div>
+<div class="elementsBox" >
+		<select name="persona">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+		</select>
+</div>
+
+<div class="elementsBox">
+</div>
+<div class="elementsLabelBox">
+</div>
+
+<div class="elementsLabelBox">
 		<label for="1drejtim">Një drejtim</label>
-	</td>
-
-	<td >
-		<input type="radio" id="kthyese" name="drejtimi" checked="checked" value="kthyese"  onclick="toggleVisibility(\'hideThis\',1)">
+		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
+<br/>
 		<label for="1drejtim">Kthyese</label>
-	</td>
+		<input type="radio" id="kthyese" name="drejtimi" checked="checked" value="kthyese"  onclick="toggleVisibility(\'hideThis\',1)">
+</div>
 	
-	<td>
-	<input style="float:right;" type="submit" value="Ruaj te dhënat" name="editoket" />
-	</td>
-</tr>
-</table>
+	
+	<input style="float:right;margin:15px 49px 0 0;" type="submit" value="Ruaj te dhënat" name="editoket"  />
+	
+
 </form><!-- end of the reservation form-->
 </div>
 ';
-	} 	
 	
 }	
 
