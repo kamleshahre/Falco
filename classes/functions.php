@@ -99,7 +99,7 @@ function all_directions() {
 	global $db;
 	$query = $db->query("SELECT * FROM destinations;");
 	while($row = mysql_fetch_array($query)){
-	$city .= '<option>'.$row['name'].'</option>';
+	$city .= '<option value="'.$row['name'].'">'.$row['name'].'</option>';
 	}
 	return $city;
 }	
