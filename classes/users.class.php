@@ -7,8 +7,8 @@ static function users($roli) {
 	
 	global $db;
 	$i = 1;	
-	$delete = $_POST['delete'];
-	$edit = $_POST['edit'];
+if(isset($_POST['delete']))	$delete = $_POST['delete'];
+if(isset($_POST['edit'])) $edit = $_POST['edit'];
 
 	if(isset($_POST['user_edited'])) {
 		//variables coming from the form
@@ -77,7 +77,10 @@ static function users($roli) {
 
 
   		 $query = $db->query("SELECT * FROM users WHERE status = '$roli'");
-	
+  		 $users='';
+  		 $error='';
+  		 $provisTR='';
+  		 $provisTDH='';
 		while($row = mysql_fetch_array($query)) { 
 		if ($i % 2 != "0") # An odd row
 		  $rowColor = "bgC1";

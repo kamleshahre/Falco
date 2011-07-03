@@ -83,9 +83,10 @@ $page = $_GET['menu'];
 }
 	
 //here we select the direction accoring to the numbers 1 (this is for the cities from here) or 2 (this is for the cities abroad)
-function directions($direction) {
+static function directions($direction) {
 	global $db;
 	$query = $db->query("SELECT * FROM destinations WHERE direction = $direction");
+	$city='';
 	while($row = mysql_fetch_array($query)){
 	$city .= '<option>'.$row['name'].'</option>';
 	}
@@ -103,7 +104,7 @@ static function all_directions() {
 }	
 	
 //here we format the date from db format to human readable format	
-function formato_daten($data) {
+static function formato_daten($data) {
 	
 	$data = explode('-', $data);
 	return $data[2].'.'.$data[1].'.'.$data[0];
@@ -118,7 +119,7 @@ function cformato_daten($data) {
 
 
 //here we format all the manual made errors
-function show_error($message) {
+static function show_error($message) {
 	return '<div class="ErrorWrapper"><img style="border:0;margin:5px;" src="images/warning_logo.png"><span style="vertical-align:super;position:relative;bottom:7px;">'.$message.'</span></div>';
 }
 
@@ -131,7 +132,7 @@ function back() {
 
 
 //here are the functions for the reservations
-function list_actions($id,$value='',$name='',$date='',$from='',$to='') {
+static function list_actions($id,$value='',$name='',$date='',$from='',$to='') {
 return '
 	<form action="" method="POST">
 <input type="hidden" name="datum" value="'.$date.'">
@@ -156,7 +157,7 @@ return preg_replace($patterns, $replacements, $string);
 }
 
 //here is the function that transforms integer months into strings
-function dateFROMintTOstr($string) {
+static function dateFROMintTOstr($string) {
 
 $patterns = array();				$replacements = array();
 $patterns[0] = '/01/';				$replacements[11] = 'Janar';
@@ -178,7 +179,7 @@ return preg_replace($patterns, $replacements, $string);
 
 //
 
-function formulari_new_user($tipi="",$roli="") {
+static function formulari_new_user($tipi="",$roli="") {
  		($roli == 'agent') ? $agent_provis ='<tr>
 							<td style="text-align:right;">Provision:</td>
 							<td><input type="text" size="3" name="provis"> %</td>
@@ -216,7 +217,7 @@ function formulari_new_user($tipi="",$roli="") {
 		';
 }
 
-function filters_travelers() {
+static function filters_travelers() {
 return '<form action="" method="post">
 <table  style="margin:10px 10px 0 10px;float:left;" cellspacing="1" cellpadding="5" border="0" >
 <tr>

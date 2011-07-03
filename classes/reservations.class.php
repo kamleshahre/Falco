@@ -284,14 +284,14 @@ if (isset($_POST['rezervo'])) {
 
 
 
-function lista() {
+static function lista() {
 	global $db,$act;
 	
-$dataZgjedhur = $_POST['dataZgjedhur'];	//selected date
-$delete = $_POST['Anulo'];
-$PostedID = $_POST['id'];
-$PostedDATE = $_POST['date'];
-$action = $_POST['action'];
+if(isset($_POST['dataZgjedhur']))  $dataZgjedhur = $_POST['dataZgjedhur'];	//selected date
+if(isset($_POST['Anulo'])) $delete = $_POST['Anulo'];
+if(isset($_POST['id'])) $PostedID = $_POST['id'];
+if(isset($_POST['date'])) $PostedDATE = $_POST['date'];
+if(isset($_POST['action'])) $action = $_POST['action'];
 	
 $i = 1; 
 $cost = 0;
@@ -390,7 +390,9 @@ $cost = 0;
 	}
 
 
-	
+$provisionTotal = '';
+$lista = '';	
+$error = '';
 while ($row = mysql_fetch_array($query)) {
 		
  $cost += $row['cost'];
@@ -467,7 +469,7 @@ return $error.funksionet::filters_travelers().'
 	
 }
 
-function profit() {
+static function profit() {
 	global $db;
 	$i = 1;
 	
@@ -481,6 +483,7 @@ function profit() {
 	
 	
 	$usersQuery = $db->query("SELECT username FROM users WHERE status='agent';");
+	$lista='';
 	while ($rows = mysql_fetch_array($usersQuery)) {
 			$users = $rows['username'];
 			
@@ -497,7 +500,10 @@ function profit() {
 													FROM orders
 													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
 							}
-							
+			$GjithsejProfit='';
+			$GjithsejProvis='';
+			$GjithsejPAProvis='';
+			//$lista='';
 			while($row = mysql_fetch_array($query)) {
 				
 				if ($i % 2 != "0") # An odd row
@@ -585,7 +591,7 @@ function profit() {
 }
 
 
-function edito($IDtoEdit='') {
+static function edito($IDtoEdit='') {
 global $db;
 	
 	global $db;

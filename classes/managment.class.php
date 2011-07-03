@@ -1,9 +1,9 @@
 <?php
 class managment {
 	
-function destinations(){
+static function destinations(){
 global $db;
-
+	
 	if(isset($_POST['new_dest'])) {
 		$postedNAME = $_POST['prej'];				
 		$newCITY	= $_POST['new_city'];
@@ -19,6 +19,8 @@ global $db;
 		
 	
 	$result = $db->query("SELECT * FROM destinations WHERE direction=1;");
+	$table='';
+	$error='';
 	while ($rows = mysql_fetch_array($result)) {
 		$name = $rows['name'];
 		$table .=  '<div class="destionations">
@@ -48,10 +50,11 @@ global $db;
 	return $error.$table;	
 }
 /////////////////////////////////////////////////////////////////////////////////////
-function cmimet_e_caktuara($name='') {
+static function cmimet_e_caktuara($name='') {
 	global $db;	
 		$i=1;
 		$query  = $db->query("SELECT * FROM costs WHERE prej='$name';");
+		$list='';
 		while ($row = mysql_fetch_array($query)) {
 				if ($i % 2 != "0") # An odd row
 				  $rowColor = "bgC1";
@@ -69,7 +72,7 @@ function cmimet_e_caktuara($name='') {
 		return $list;
 }
 
-function stacionet() {
+static function stacionet() {
 global $db;
 	if (isset($_POST['delete_city'])) {
 		$prejORderi = $_POST['prej_or_deri'];
@@ -89,6 +92,9 @@ global $db;
 	$numri1 = $db->query("SELECT * FROM destinations WHERE direction='1';");
 	$numri2 = $db->query("SELECT * FROM destinations WHERE direction='2';");
 		$i = 1;
+		$direction1='';
+		$direction2='';
+		$error='';
 		while ($row = mysql_fetch_array($numri1)) {
 			if ($i % 2 != "0") # An odd row
 			  $rowColor = "bgC1";
