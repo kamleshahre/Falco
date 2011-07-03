@@ -484,6 +484,9 @@ static function profit() {
 	
 	$usersQuery = $db->query("SELECT username FROM users WHERE status='agent';");
 	$lista='';
+	$GjithsejProfit='';
+	$GjithsejProvis='';
+	$GjithsejPAProvis='';
 	while ($rows = mysql_fetch_array($usersQuery)) {
 			$users = $rows['username'];
 			
@@ -500,11 +503,18 @@ static function profit() {
 													FROM orders
 													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
 							}
-			$GjithsejProfit='';
-			$GjithsejProvis='';
-			$GjithsejPAProvis='';
-			//$lista='';
+
 			while($row = mysql_fetch_array($query)) {
+				if (empty($row['rezervues'])) {
+				 $rezervuesi = '----- -----';
+				 $sumaTotale = '--';
+				 $provizioni = '--';
+				}
+				else{
+				 $rezervuesi = ucfirst($row['rezervues']);
+				 $sumaTotale = $row['sumaTotale'];
+				 $provizioni = substr($row['provs'], 0, -1);
+				}
 				
 				if ($i % 2 != "0") # An odd row
 				  $rowColor = "bgC1";
@@ -517,9 +527,9 @@ static function profit() {
 		  		  $lista .= '
 					<tr class="'.$rowColor.'">
 						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
-						<td>'.ucfirst($row['rezervues']).'</td>
-						<td style="text-align:right;">'.substr($row['provs'], 0, -1).'  &euro;</td>
-						<td style="text-align:right;">'.$row['sumaTotale'].' &euro;</td>
+						<td>'.$users.'</td>
+						<td style="text-align:right;">'.$provizioni.'  &euro;</td>
+						<td style="text-align:right;">'.$sumaTotale.' &euro;</td>
 					</tr>
 					';
 				$i++;
