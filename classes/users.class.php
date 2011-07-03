@@ -1,9 +1,9 @@
 <?php
 
 class users_class{
-	
+	var $delete='';
 
-function users($roli) {
+static function users($roli) {
 	
 	global $db;
 	$i = 1;	

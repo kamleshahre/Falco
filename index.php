@@ -1,9 +1,9 @@
 <?php
-
+error_reporting (E_ALL ^ E_NOTICE);
 $page = $_GET['menu'];
 $subpage = $_GET['submenu'];
-$act = $_GET['action']; 
-$perdorues = $_SESSION['username'];
+//$act = $_GET['action']; 
+//$perdorues = $_SESSION['username'];
 
 //// Here we decide which sub page to be active the first time when we click on the page in the left //////
 if(empty($page) && empty($subpage))

@@ -1,6 +1,6 @@
 <?php
 class reservations {
-function rezervo() {
+static function rezervo() {
 	global $db;
 //here we get the provision from the current agent
 	$perdorues = $_SESSION['username'];

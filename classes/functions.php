@@ -2,7 +2,7 @@
 class funksionet {
 
 //here goes the navigation in the top	
-public function menu_for_reservations() {
+static function menu_for_reservations() {
 	global $page, $subpage;
 	
 if ($_SESSION['roli'] == 'admin') {	
@@ -38,7 +38,7 @@ if ($_SESSION['roli'] == 'admin') {
 	}
 }
 	
-
+	$topnavi = '';
 	foreach ($topNavigation as $row) {
 		if(funksionet::SpecialcharsCleaner($row) == ucfirst($_GET['submenu']))
 			$css = 'topNavigationCurrent';
@@ -52,7 +52,7 @@ if ($_SESSION['roli'] == 'admin') {
 
 
 //here goes the navigation in the left side
-function left_menu() {
+static function left_menu() {
 $page = $_GET['menu'];
 	//here we check if the user is admin or agent and then we show the navigation according to his status
 	if($_SESSION['roli'] == 'agent') {
@@ -62,11 +62,8 @@ $page = $_GET['menu'];
 		$leftNavigation = array('Rezervimet','Përdoruesit','Menaxhment');
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	$navi = '';
 	foreach($leftNavigation as $row){
-		
-		
-		
 		if(funksionet::SpecialcharsCleaner($row) == ucfirst($_GET['menu']))
 			$css = 'leftNavigationCurrent';
 		else 	
@@ -95,9 +92,10 @@ function directions($direction) {
 	return $city;
 }
 
-function all_directions() {
+static function all_directions() {
 	global $db;
 	$query = $db->query("SELECT * FROM destinations;");
+	$city = '';
 	while($row = mysql_fetch_array($query)){
 	$city .= '<option value="'.$row['name'].'">'.$row['name'].'</option>';
 	}
@@ -146,7 +144,7 @@ return '
 }
 
 //here is the function that filters special characters
-function SpecialcharsCleaner($string) {
+static function SpecialcharsCleaner($string) {
 
 $patterns = array();				$replacements = array();
 $patterns[0] = '/ë/';				$replacements[2] = 'e';
