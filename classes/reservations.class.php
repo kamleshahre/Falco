@@ -348,7 +348,7 @@ $cost = 0;
 						name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',KthyesePrej='$KthyesePrej',
 						KthyeseDeri='$KthyeseDeri',date='$data',data_kthyese='$dataKthyese',persona='$persona',
 						cost='$cmimiKthyes' WHERE order_id='$id'");
-			$infos = '<strong>Ndryshimet e juaja janë ruajtur me sukses!</strong><br />';
+			$infos = funksionet::show_error('Ndryshimet e juaja janë ruajtur me sukses!');
 			$infos .=  '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
 		}
 	return $infos;
@@ -358,7 +358,7 @@ $cost = 0;
 					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
 					date='$data',persona='$persona',cost='$cmimi' 
 					WHERE order_id = '$id'") or die(mysql_error());	
-		$infos = '<strong>Ndryshimet e juaja janë ruajtur me sukses!</strong><br />';
+		$infos = funksionet::show_error('Ndryshimet e juaja janë ruajtur me sukses!');
 		$infos .= '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
 	return $infos;	
 	}
