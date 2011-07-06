@@ -143,7 +143,7 @@ if (isset($_POST['new_user'])) {
 			$provisTDH = '<td width="20">Provisioni</td>';
 		}
  	return '<a href="#" class="lightbox"><div class="AddNewAgent" style="'.$width.'"><img style="margin:5px;border:0;" src="images/add_user.png">
-			<span class="addUSERtxt">Shto '.$usertype.' të rij</span>
+			<span class="addUSERtxt">Shto '.$usertype.' të ri</span>
 			</div></a>
 			<div class="backdrop"></div><div class="box"><div class="close">x</div>'.$formulari.'</div>
 			'.$error.'
