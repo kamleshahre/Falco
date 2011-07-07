@@ -745,4 +745,291 @@ global $db;
 }	
 
 
+
+
+//KTU SHKOJN FUNKSIONET QE DO TI SHEH AGJENTI
+static function lista_per_agent() {
+global $db,$act;
+$username = $_SESSION['username'];
+if(isset($_POST['dataZgjedhur']))  $dataZgjedhur = $_POST['dataZgjedhur'];	//selected date
+if(isset($_POST['Anulo'])) $delete = $_POST['Anulo'];
+if(isset($_POST['id'])) $PostedID = $_POST['id'];
+if(isset($_POST['date'])) $PostedDATE = $_POST['date'];
+if(isset($_POST['action'])) $action = $_POST['action'];
+	
+$i = 1; 
+$cost = 0;
+
+	//here we check if we clicked the Print button
+	if(isset($PostedID) && $action == 'printo') {
+		echo '<script type="text/javascript">
+				<!--
+				window.location = "GeneratePDF.php?id='.$PostedID.'"
+				//-->
+				</script>
+		';
+		exit();
+	//here we check if we clicked the Edit button
+	}elseif(isset($PostedID) && $action == 'edito'){
+		return '<div id="Formulari">'.reservations::edito($PostedID).'</div>';
+	//here we check if we already edited the reservation
+	}elseif(isset($_POST['editoket'])) {
+	
+	// Variables that come from the Reservations form
+	$emri 	  = $_POST['emri'];					$mbiemri     = $_POST['mbiemri'];
+	$prej     =	$_POST['Prej'];					$KthyesePrej = $_POST['KthyesePrej'];
+	$deri 	  =	$_POST['Deri'];					$KthyeseDeri = $_POST['KthyeseDeri'];
+	$data     =	$_POST['data1drejtim'];			$dataKthyese = $_POST['dataKthyese'];
+	$persona  = $_POST['persona'];
+	$drejtimi =	$_POST['drejtimi'];
+	$id 	  = $_POST['id_to_edit'];
+	
+	//Here we get the last cost for the reserved destination
+	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
+	$cost = mysql_fetch_array($result);
+	$cmimi = $cost['cost'];
+	$cmimiKthyes = $cmimi * 2;
+	
+	//Here we put all informations into database
+	if($drejtimi == 'kthyese') {
+		if (empty($data) && !empty($dataKthyese)){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes!';
+			exit();
+		} elseif(empty($dataKthyese) && !empty($data)) {
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni daten e nisjes kthyese!';
+			exit();
+		}elseif(empty($data) && empty($dataKthyese)){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Ju lutem zgjdhni datat e nisjeve!';
+			exit();
+		}elseif($data >= $dataKthyese){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> Data e kthimit nuk mundet te jetë para datës së nisjes, ju lutem korigjoni gabimin!';
+			exit(); 
+		}elseif($data < date('Y-m-d') || $dataKthyese < date('Y-m-d')){
+			return '<strong>Gabim në zgjedhjen tuaj:</strong> data nuk mund te jet me heret se sot!';
+			exit(); 			
+		} else {
+			$db->query("UPDATE orders SET
+						name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',KthyesePrej='$KthyesePrej',
+						KthyeseDeri='$KthyeseDeri',date='$data',data_kthyese='$dataKthyese',persona='$persona',
+						cost='$cmimiKthyes' WHERE order_id='$id'");
+			$infos = funksionet::show_error('Ndryshimet e juaja janë ruajtur me sukses!');
+			$infos .=  '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
+		}
+	return $infos;
+		
+	} elseif($drejtimi == 'një drejtim') {
+		$db->query("UPDATE orders 
+					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
+					date='$data',persona='$persona',cost='$cmimi' 
+					WHERE order_id = '$id'") or die(mysql_error());	
+		$infos = funksionet::show_error('Ndryshimet e juaja janë ruajtur me sukses!');
+		$infos .= '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
+	return $infos;	
+	}
+	
+	}
+	if(isset($dataZgjedhur)) {
+		$PrejZgjedhur = $_POST['Prej'];
+		$DeriZgjedhur = $_POST['Deri'];
+		$query = $db->query("SELECT * FROM orders WHERE rezervues='$username' AND (prej='$PrejZgjedhur' AND deri='$DeriZgjedhur' AND date = '$dataZgjedhur')
+							OR (KthyesePrej='$PrejZgjedhur' AND KthyeseDeri='$DeriZgjedhur' AND data_kthyese = '$dataZgjedhur')
+							;") or die(mysql_error());
+		$data = $dataZgjedhur;
+	}elseif(isset($PostedID) && $action == 'delete'){
+		$from = $_POST['from'];
+		$to = $_POST['to'];
+		$data = $_POST['datum'];
+		$db->query("DELETE FROM orders WHERE order_id = $PostedID;");
+		$query = $db->query("SELECT * FROM orders WHERE (prej='$from' AND deri='$to' AND date = '$data')
+							OR (KthyesePrej='$from' AND KthyeseDeri='$to' AND data_kthyese = '$data')
+							") or die(mysql_error());
+		$error =  funksionet::show_error('Rezervimi u anulua me sukses!');
+	}
+	else { 
+		return funksionet::filters_travelers().funksionet::show_error('Zgjedhni listën e udhëtarëve!');
+		
+		//$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
+		//$dat = mysql_fetch_array($query);
+		//$data = $dat['date'];
+	}
+
+
+$provisionTotal = '';
+$lista = '';	
+$error = '';
+while ($row = mysql_fetch_array($query)) {
+		
+ $cost += $row['cost'];
+ $provisionTotal += $row['provision'];
+ $costNOPROVISION = $cost - $provisionTotal;
+ $date = funksionet::formato_daten($data);
+ if(empty($row['KthyesePrej']) && empty($row['KthyeseDeri'])) { 
+ $arrow = '<img src="images/one_way.gif">';
+ }else {
+ $arrow = '<img src="images/two_ways.gif">';
+ }
+ $id = $row['order_id'];	
+		if ($i % 2 != "0") # An odd row
+		  $rowColor = "bgC1";
+		else # An even row
+  		  $rowColor = "bgC2";	
+  	
+	$lista .= 
+	'<tr class="'.$rowColor.'"">
+	<td style="text-align:center;"><strong>'.$i.'</strong></td>
+	<td>'.$row['name'].' '.$row['surname'].'</td>
+	<td style="text-align:center;">'.$row['prej'].' '.$arrow.' '.$row['deri'].'</td>
+	<td  style="text-align:center;">'.$row['persona'].'</td>
+	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
+	<td>'.$row['rezervues'].'</td>
+		<td width="172"  style="text-align:center;">
+			'.funksionet::list_actions($id,'delete','Anulo', $row['date'],$row['prej'],$row['deri']).
+			  funksionet::list_actions($id,'printo','Printo').
+			  funksionet::list_actions($id,'edito','Edito').
+			'
+		</td>
+	<td style="text-align:right;">'.substr($row['provision'], 0, -1).' &euro;</td>
+	<td style="text-align:right;">'.$row['cost'].' &euro;</td>
+	</tr>
+	';
+	  $i++; 
+}
+return $error.funksionet::filters_travelers().'
+		<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+	   <tr class="bgC3" style="font-weight:bold;">
+	   		<td width="20" > </td>
+	   		<td>Pasagjeri</td>
+	   		<td> Destinacioni </td>
+	   		<td width="20">Persona</td>
+	   		<!-- <td width="20">Fëmij</td> -->
+	   		<td>E kreu</td>
+	   		<td> Opsionet </td>
+	   		<td>Provision</td>
+	   		<td width="50">Çmimi</td>
+	   </tr>
+	   '.$lista.'
+	   </table>
+	   
+	   	<table style="margin:10px -10px 0 10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+		<tr class="bgC2">
+			<td><strong>Data:</strong></td>
+			<td>'.$date.'</td>
+		</tr>
+	</table>
+	   
+	   ';
+	
+}
+
+static function profit_per_agent() {
+	global $db;
+	$i = 1;
+	
+	//here we make the years for filters
+	$SelectYears	= '<option>Zgjidhe vitin:</option>';
+	for ($vite = 2011; $vite <= 2050; $vite++) {
+		$SelectYears	.= '<option value="'.$vite.'">'.$vite.'</option>';
+	}
+	
+	$lista='';
+	$username =  $_SESSION['username'];
+	
+			
+							if(isset($_POST['ZgjedhMuaj'])) {
+								$viti = $_POST['viti'];
+								$muaj = $_POST['muaj'];
+								$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
+													FROM orders
+													WHERE rezervues='$username' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti' );");
+							} else {
+								 $viti = date('Y');
+								 $muaj = date('m');
+								 $query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
+													FROM orders
+													WHERE rezervues='$username' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
+							}
+
+			while($row = mysql_fetch_array($query)) {
+				if (empty($row['rezervues'])) {
+				 $rezervuesi = '----- -----';
+				 $sumaTotale = '0';
+				 $provizioni = '0';
+				}
+				else{
+				 $rezervuesi = ucfirst($row['rezervues']);
+				 $sumaTotale = $row['sumaTotale'];
+				 $provizioni = substr($row['provs'], 0, -1);
+				}
+				
+				if ($i % 2 != "0") # An odd row
+				  $rowColor = "bgC1";
+				else # An even row
+		  		  $rowColor = "bgC2";	
+				
+		  		  $GjithsejProfit += $row['sumaTotale'];
+		  		  $GjithsejProvis += $row['provs'];
+		  		  $GjithsejPAProvis = $GjithsejProfit - $GjithsejProvis;
+		  		  $lista .= '
+					<tr class="'.$rowColor.'">
+						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
+						<td>'.ucfirst($username).'</td>
+						<td style="text-align:right;">'.$provizioni.'  &euro;</td>
+						<td style="text-align:right;">'.$sumaTotale.' &euro;</td>
+					</tr>
+					';
+				$i++;
+			}
+			
+	
+	return '
+		<form action="" method="POST">
+			
+		<table cellspacing="1" cellpadding="5" border="0" style="margin: 10px 10px 0pt;">			
+		<tr>
+		<td><select name="muaj" class="selectDest">
+				<option value="00">Zgjidhe muajn:</option>
+				<option value="01">Janar</option>
+				<option value="02">Shkurt</option>
+				<option value="03">Mars</option>
+				<option value="04">Prill</option>
+				<option value="05">Maj</option>
+				<option value="06">Qershor</option>
+				<option value="07">Korrik</option>
+				<option value="08">Gusht</option>
+				<option value="09">Shtator</option>
+				<option value="10">Tetor</option>
+				<option value="11">Nëntor</option>
+				<option value="12">Dhjetor</option>
+		</td></select>
+		<td>
+			<select name="viti" class="selectDest">
+			'.$SelectYears.'
+			</select>
+		</td>
+		<td><input type="submit" name="ZgjedhMuaj" value="Shfaqe listen"></td>
+		</tr>
+		</table>
+		
+		</form>
+			<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0">
+				<tr class="bgC3" style="font-weight:bold;">
+					<td width="20"></td>
+					<td>Agjenti</td>
+					<td width="80">Provision</td>
+					<td width="80">Profit</td>
+				</tr>
+				
+					'.$lista.'
+			</table>
+			
+   	<table style="margin:10px -10px 0 10px;float:right;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+		<tr class="bgC2">
+			<td><strong>Periudha:</strong></td>
+			<td>'.funksionet::dateFROMintTOstr($muaj).' '.$viti.'</td>
+		</tr>
+	</table>
+			';
+	
+}
+
 }//endof reservations

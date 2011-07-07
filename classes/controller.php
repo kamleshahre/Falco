@@ -33,13 +33,14 @@ global $subpage;
 		break;
 		
 		case 'listat':
-		return reservations::lista();
+		return ($_SESSION['roli']=='admin') ? reservations::lista() : reservations::lista_per_agent();
 		break;
 		
 		case 'profit':
-		return reservations::profit();
+		return ($_SESSION['roli']=='admin') ? reservations::profit() :  reservations::profit_per_agent();
 		break;
 		
+	
 		case 'ndihme':
 		return 'Qendra per ndihm shkon ktu';
 		break;
