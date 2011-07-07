@@ -281,9 +281,6 @@ if (isset($_POST['rezervo'])) {
 	
 }	
 
-
-
-
 static function lista() {
 	global $db,$act;
 	
@@ -420,8 +417,8 @@ while ($row = mysql_fetch_array($query)) {
 	<td>'.$row['rezervues'].'</td>
 		<td width="172"  style="text-align:center;">
 			'.funksionet::list_actions($id,'delete','Anulo', $row['date'],$row['prej'],$row['deri']).
-			  funksionet::list_actions($id,'printo','Printo').
-			  funksionet::list_actions($id,'edito','Edito').
+			  funksionet::list_actions($id,'printo','Printo', $row['date']).
+			  funksionet::list_actions($id,'edito','Edito', $row['date']).
 			'
 		</td>
 	<td style="text-align:right;">'.substr($row['provision'], 0, -1).' &euro;</td>
@@ -599,7 +596,6 @@ static function profit() {
 			';
 	
 }
-
 
 static function edito($IDtoEdit='') {
 global $db;
@@ -881,11 +877,10 @@ while ($row = mysql_fetch_array($query)) {
 	<td style="text-align:center;">'.$row['prej'].' '.$arrow.' '.$row['deri'].'</td>
 	<td  style="text-align:center;">'.$row['persona'].'</td>
 	<!-- <td  style="text-align:center;"> '.$row['femij'].'</td> -->
-	<td>'.$row['rezervues'].'</td>
 		<td width="172"  style="text-align:center;">
 			'.funksionet::list_actions($id,'delete','Anulo', $row['date'],$row['prej'],$row['deri']).
-			  funksionet::list_actions($id,'printo','Printo').
-			  funksionet::list_actions($id,'edito','Edito').
+			  funksionet::list_actions($id,'printo','Printo', $row['date']).
+			  funksionet::list_actions($id,'edito','Edito', $row['date']).
 			'
 		</td>
 	<td style="text-align:right;">'.substr($row['provision'], 0, -1).' &euro;</td>
@@ -902,7 +897,6 @@ return $error.funksionet::filters_travelers().'
 	   		<td> Destinacioni </td>
 	   		<td width="20">Persona</td>
 	   		<!-- <td width="20">Fëmij</td> -->
-	   		<td>E kreu</td>
 	   		<td> Opsionet </td>
 	   		<td>Provision</td>
 	   		<td width="50">Çmimi</td>

@@ -22,7 +22,7 @@ function toggleVisibility(id,visible) {
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
- 
+     			$(\'#disable_form input[type=submit]\', this).attr(\'disabled\', \'disabled\');
 				$(\'.lightbox\').click(function(){
 					$(\'.backdrop, .box\').animate({\'opacity\':\'.50\'}, 300, \'linear\');
 					$(\'.box\').animate({\'opacity\':\'1.00\'}, 300, \'linear\');
@@ -36,7 +36,6 @@ $(document).ready(function(){
 				$(\'.backdrop\').click(function(){
 					close_box();
 				});
- 
 			});
  
 			function close_box()

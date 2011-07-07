@@ -133,8 +133,13 @@ function back() {
 
 //here are the functions for the reservations
 static function list_actions($id,$value='',$name='',$date='',$from='',$to='') {
-return '
-	<form action="" method="POST">
+if($date < date("Y-m-d")) {
+$class = 'id="disable_form"';
+}else{
+$class = '';
+}
+	return '
+	<form action="" method="POST" '.$class.'>
 <input type="hidden" name="datum" value="'.$date.'">
 <input type="hidden" name="from" value="'.$from.'">
 <input type="hidden" name="to" value="'.$to.'">
