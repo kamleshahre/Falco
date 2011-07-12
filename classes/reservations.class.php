@@ -193,7 +193,7 @@ if (isset($_POST['rezervo'])) {
 		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
 		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
 		\'yearscroll\': true,
-		\'weekstart\': 0,
+		\'weekstart\': 1,
 		\'centyear\'  : 70,
 		\'imgpath\' : \'images/\'
 	}
@@ -221,7 +221,7 @@ if (isset($_POST['rezervo'])) {
 		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
 		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
 		\'yearscroll\': true,
-		\'weekstart\': 0,
+		\'weekstart\': 1,
 		\'centyear\'  : 70,
 		\'imgpath\' : \'images/\'
 	}
@@ -658,7 +658,7 @@ global $db;
 		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
 		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
 		\'yearscroll\': true,
-		\'weekstart\': 0,
+		\'weekstart\': 1,
 		\'centyear\'  : 70,
 		\'imgpath\' : \'images/\'
 	}
@@ -686,7 +686,7 @@ global $db;
 		\'months\' : [\'Janar\', \'Shkurt\', \'Mars\', \'Prill\', \'Maj\', \'Qershor\', \'Korrik\', \'Gusht\', \'Shtator\', \'Tetor\', \'Nentor\', \'Dhjetor\'],
 		\'weekdays\' : [\'Di\', \'He\', \'Ma\', \'Me\', \'Ej\', \'Pr\', \'Sh\'],
 		\'yearscroll\': true,
-		\'weekstart\': 0,
+		\'weekstart\': 1,
 		\'centyear\'  : 70,
 		\'imgpath\' : \'images/\'
 	}

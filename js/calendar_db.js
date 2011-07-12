@@ -218,7 +218,7 @@ function f_tcalUpdate (d_date) {
 			if (d_current.getMonth() != d_date.getMonth())
 				a_class[a_class.length] = 'othermonth';
 			// weekend
-			if (d_current.getDay() == 0 || d_current.getDay() == 6)
+			if (d_current.getDay() == 3 || d_current.getDay() == 6)
 				a_class[a_class.length] = 'weekend';
 			// today
 			if (d_current.valueOf() == d_today.valueOf())
@@ -226,6 +226,9 @@ function f_tcalUpdate (d_date) {
 			// selected
 			if (d_current.valueOf() == d_selected.valueOf())
 				a_class[a_class.length] = 'selected';
+//--------- disbale all other dates exepct for the 3d day and the 6th day {ADDED by SHPETIM ISLAMI}
+			if (d_current.getDay() != 3 && d_current.getDay() != 6)
+				a_class[a_class.length] = 'othermonth';
 
 			s_html += '<td onclick="A_TCALS[\'' + this.s_id + '\'].f_hide(' + d_current.valueOf() + ')"' + (a_class.length ? ' class="' + a_class.join(' ') + '">' : '>') + n_date + '</td>';
 			d_current.setDate(++n_date);

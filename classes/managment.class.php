@@ -178,6 +178,38 @@ global $db;
 		
 	}	
 }
+
+static function udhetimet() {
+global $db;
+$lista = '';
+$i=1;	
+
+$result = $db->query("SELECT * FROM available_trips;");
+while($rows = mysql_fetch_array($result)) {
+		if ($i % 2 != "0") # An odd row
+		  $rowColor = "bgC1";
+		else # An even row
+  		  $rowColor = "bgC2";
+$lista .=	'<tr class="'.$rowColor.'"">
+				<td  style="text-align:center;font-weight:bold;">'.$i.'</td>
+				<td>'.$rows['prej'].'</td>
+				<td>'.$rows['deri'].'</td>
+				<td>'.funksionet::formato_daten($rows['data']).'</td>
+				<td  style="text-align:center;">'.$rows['vende'].'</td>	 
+				</tr>';
+$i++;
+}
+return	'<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
+		   <tr class="bgC3" style="font-weight:bold;">
+	   		<td width="20" > </td>
+	   		<td>Prej</td>
+	   		<td>Deri</td>
+	   		<td width="50">Data</td>
+	   		<td width="50">Vende</td>
+	  	   </tr>
+	  	   '.$lista.'
+		</table>';
+}
 	
 }//endof managment
 

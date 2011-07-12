@@ -86,6 +86,10 @@ global $subpage;
 			return managment::stacionet();
 		break;
 		
+		case 'udhetimet':
+			return managment::udhetimet();
+		break;
+		
 		case 'ndihme':
 			return 'Qendra per ndihm shkon ktu';
 		break;
