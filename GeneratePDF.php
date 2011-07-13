@@ -54,7 +54,7 @@ $pdf->AddPage();
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 //set some language-dependent strings
 $pdf->setLanguageArray($l);
-$image = $pdf->Image("tcpdf/images/logo.png", 15, 10, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
+$image = $pdf->Image("tcpdf/images/logo.png", 15, 20, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
 if(isset($_GET['id'])) $id =  $_GET['id'];
 	//Here we check if there is any SQL injetion :)
 	if(isset($_GET['id']) && !ctype_digit($_GET['id']) && !empty($_GET['id'])) {
@@ -173,7 +173,8 @@ $html = <<<EOF
 
 
 <br />
-
+<br/>
+<br/>
 <table class="first" cellpadding="4" cellspacing="0" width="100%">
 <tr class="bolder">
 	<td class="kuq">Pasagjeri</td>
@@ -208,12 +209,9 @@ $returned
 </p>
 
 <p id="second">
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porta nisl at dui semper ut semper lectus volutpat. 
-Integer sollicitudin cursus mi et fermentum. Pellentesque in sem id felis commodo auctor. Nulla fringilla dui ac odio
- iaculis vel posuere eros dignissim. Donec nulla odio, pretium vitae consectetur sit amet, hendrerit interdum mauris.<br/> 
-- Proin tincidunt consectetur nisi vel pellentesque. Ut ac felis quis lorem porttitor convallis at in diam. Sed molestie, 
- sem at molestie posuere, nibh justo auctor nunc, eu posuere sem purus eget ipsum. In auctor gravida vulputate. Aenean in<br/> 
-- sapien purus, non ornare tortor. Cras nec risus lacus. Integer dictum sodales bibendum. 
+<strong>Bagazhi:</strong> P&euml;r bagazhin q&euml; nuk ka tiket&euml; nuk mbajm&euml; p&euml;rgjegj&euml;si. P&euml;r bagazhin me tiket&euml; transportuesi garanton
+deri n&euml; vler&euml; 150 EU, me d&euml;shmi t&euml; v&euml;rtetimit t&euml; blerjes.<br/>
+<strong>Rezervimi i thkimit:</strong> Rezervimi p&euml;r kthim v&euml;rtetohet p&euml; s&euml; paku 2 dit&euml;.
 </p>
 EOF;
 

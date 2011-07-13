@@ -8,12 +8,13 @@ global $db;
 		$postedNAME = $_POST['prej'];				
 		$newCITY	= $_POST['new_city'];
 		$cost = $_POST['cost'];
+		$return_cost = $_POST['return_cost'];
 			$results = mysql_fetch_array($db->query("SELECT * FROM costs WHERE prej='$postedNAME' AND deri='$newCITY';"));
 				if ($results['prej'] == $postedNAME && $results['deri'] == $newCITY) {
 					$error = funksionet::show_error("Destinacioni prej $postedNAME deri $newCITY egziston!");
 				}else{
-					$db->query("INSERT INTO costs (prej,deri,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");	
-					$db->query("INSERT INTO costs (deri,prej,cost,date) VALUES ('$postedNAME', '$newCITY','$cost',NOW());");			
+					$db->query("INSERT INTO costs (prej,deri,cost,return_cost,date) VALUES ('$postedNAME', '$newCITY','$cost','$return_cost',NOW());");	
+					$db->query("INSERT INTO costs (deri,prej,cost,return_cost,date) VALUES ('$postedNAME', '$newCITY','$cost','$return_cost',NOW());");			
 				}
 	}
 		
@@ -29,7 +30,8 @@ global $db;
 				<tr class="bgC3" style="font-weight:bold">
 					<td width="20"></td>
 					<td>Deri</td>
-					<td width="50">Çmimi</td>
+					<td width="90">Një drejtim</td>
+					<td width="90">Kthyese</td>
 					'.managment::cmimet_e_caktuara($name).'
 				</tr>
 				</table>
@@ -41,6 +43,8 @@ global $db;
 							</select>
 							<label for="cost">Çmimi:</label>
 							<input type="text" name="cost" size="3">
+							<label for="cost"><img src="images/two_ways.gif"></label>
+							<input type="text" name="return_cost" size="3">
 							<input type="hidden" name="prej" value="'.$name.'"> 
 							<input type="submit" name="new_dest" value="Shto Destinacionin">
 							</form>
@@ -62,10 +66,12 @@ static function cmimet_e_caktuara($name='') {
 		  		  $rowColor = "bgC2";
 			$deri = $row['deri'];
 			$cost = $row['cost'];
+			$return_cost = $row['return_cost'];
 			$list .= '<tr class="'.$rowColor.'">
 							<td style="font-weight:bold;text-align:center;">'.$i.'</td>
 							<td>'.$deri.'</td>
 							<td style="font-weight:bold;text-align:right;">'.$cost.' &euro;</td>
+							<td style="font-weight:bold;text-align:right;">'.$return_cost.' &euro;</td>
 					</tr>';
 			$i++;
 		}

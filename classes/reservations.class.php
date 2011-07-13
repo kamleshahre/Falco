@@ -32,7 +32,7 @@ if (isset($_POST['rezervo'])) {
 	$result = $db->query("SELECT * FROM costs WHERE prej = '$prej' AND deri = '$deri' ORDER by date ASC LIMIT 1");
 	$cost = mysql_fetch_array($result);
 	$cmimi = $cost['cost'] * $persona;
-	$cmimiKthyes = ($cmimi * 2);
+	$cmimiKthyes = $cost['return_cost'] * $persona;
 	$provision = $provis * $cmimi;
 	$provisionKthyes = $provis * $cmimiKthyes;
 	
@@ -355,8 +355,10 @@ $cost = 0;
 					SET name='$emri',surname='$mbiemri',prej='$prej',deri='$deri',
 					date='$data',persona='$persona',cost='$cmimi' 
 					WHERE order_id = '$id'") or die(mysql_error());	
-		$infos = funksionet::show_error('Ndryshimet e juaja janë ruajtur me sukses!');
-		$infos .= '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
+		$infos = funksionet::show_error('Ndryshimet e juaja janë ruajtur me sukses!
+		<a target="_blank" href="GeneratePDF.php?id='.$id.'""><img title="Gjenero tiketën" alt="Gjenero tiketën" style="border:0;margin-left:10px;top:5px;position:relative;" src="images/print.png"></a>
+		');
+	//	$infos .= '<a target="_blank" href="GeneratePDF.php?id='.$id.'">Gjenero tiket</a>';
 	return $infos;	
 	}
 	
@@ -380,7 +382,6 @@ $cost = 0;
 	}
 	else { 
 		return funksionet::filters_travelers().funksionet::show_error('Zgjedhni listën e udhëtarëve!');
-		
 		//$query = $db->query("SELECT * FROM orders WHERE date = curdate()") or die(mysql_error());
 		//$dat = mysql_fetch_array($query);
 		//$data = $dat['date'];
