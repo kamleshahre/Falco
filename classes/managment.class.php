@@ -55,6 +55,7 @@ global $db;
 }
 /////////////////////////////////////////////////////////////////////////////////////
 static function cmimet_e_caktuara($name='') {
+	
 	global $db;	
 		$i=1;
 		$query  = $db->query("SELECT * FROM costs WHERE prej='$name';");
