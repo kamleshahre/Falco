@@ -919,7 +919,8 @@ return $error.funksionet::filters_travelers().'
 static function profit_per_agent() {
 	global $db;
 	$i = 1;
-	
+	$GjithsejProfit ='';
+	$GjithsejProvis ='';
 	//here we make the years for filters
 	$SelectYears	= '<option>Zgjidhe vitin:</option>';
 	for ($vite = 2011; $vite <= 2050; $vite++) {
