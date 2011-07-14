@@ -145,7 +145,7 @@ if (isset($_POST['new_user'])) {
  	return '<a href="#" class="lightbox"><div class="AddNewAgent" style="'.$width.'"><img style="margin:5px;border:0;" src="images/add_user.png">
 			<span class="addUSERtxt">Shto '.$usertype.' të ri</span>
 			</div></a>
-			<div class="backdrop"></div><div class="box"><div class="close">x</div>'.$formulari.'</div>
+			<div class="backdrop"></div><div class="box"><div class="close">X</div>'.$formulari.'</div>
 			'.$error.'
 			<table width="100%" style="margin:10px 10px 0 10px;" class="extra" cellspacing="1" cellpadding="5" border="0" >
 			<tr class="bgC3" style="font-weight:bold;">

@@ -17,7 +17,7 @@ if ($_SESSION['roli'] == 'admin') {
 		break;	
 	
 		case 'menaxhment':
-			$topNavigation = array('Destinacionet','Stacionet','Udhëtimet','Ndihmë');
+			$topNavigation = array('Destinacionet','Stacionet','Ndihmë'); //edhe njo: 'Udhëtimet'
 		break;	
 		
 		default:
@@ -216,7 +216,7 @@ static function formulari_new_user($tipi="",$roli="") {
 		'.$agent_provis.'
 		</table>
 		<input type="hidden" name="tipi_i_rolit" value="'.$roli.'">
-		<input type="submit" class="close" value="Shto '.$tipi.'" name="new_user" style="float:right;margin-right:10px;">
+		<input type="submit" class="button_right" value="Shto '.$tipi.'" name="new_user" style="float:right;margin-right:10px;">
 		</form>
 		</div>
 		';

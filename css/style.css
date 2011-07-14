@@ -156,7 +156,7 @@ height: 22px;
     height: 31px;
     text-align: center;
     text-decoration: none;
-    width: 124px;
+    width: 140px;
     padding-top:7px;
 	margin-right:5px;
 	font-family: Trebuchet MS;
@@ -316,6 +316,17 @@ margin-top:10px;
 	display:none;
 }
 .close {
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    margin-right: -10px;
+    padding: 5px 22px 5px 18px;
+    position: relative;
+}
+
+.button_right {
 			float:right;
 			margin-right:6px;
 			cursor:pointer;
