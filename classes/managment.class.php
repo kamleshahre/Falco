@@ -3,7 +3,8 @@ class managment {
 	
 static function destinations(){
 global $db;
-	
+
+$error='';
 	if(isset($_POST['new_dest'])) {
 		$postedNAME = $_POST['prej'];				
 		$newCITY	= $_POST['new_city'];
@@ -21,7 +22,6 @@ global $db;
 	
 	$result = $db->query("SELECT * FROM destinations WHERE direction=1;");
 	$table='';
-	$error='';
 	while ($rows = mysql_fetch_array($result)) {
 		$name = $rows['name'];
 		$table .=  '<div class="destionations">
