@@ -42,7 +42,7 @@ global $subpage;
 		
 	
 		case 'ndihme':
-		return 'Qendra per ndihm shkon ktu';
+		return  Help_modules::reservation_help();
 		break;
 		
 		default:
@@ -65,7 +65,7 @@ global $subpage;
 		break;
 		
 		case 'ndihme':
-			return 'Qendra per ndihm shkon ktu';
+			return Help_modules::users_help();
 		break;
 		
 		default:
@@ -91,7 +91,7 @@ global $subpage;
 		break;
 		
 		case 'ndihme':
-			return 'Qendra per ndihm shkon ktu';
+			return  Help_modules::managment_help();
 		break;
 		
 		default:

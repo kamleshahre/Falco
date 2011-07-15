@@ -36,6 +36,11 @@ $(document).ready(function(){
 				$(\'.backdrop\').click(function(){
 					close_box();
 				});
+				
+				$("#firstpane p.menu_head").click(function(){
+    				$(this).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+    				$(this).siblings();
+				});
 			});
  
 			function close_box()

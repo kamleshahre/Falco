@@ -372,3 +372,31 @@ margin-top:3px;
     cursor:pointer;
     margin-right:5px;
 }
+
+.menu_list {
+    margin: 10px 0 0 10px;
+    width: 100%;
+}
+.menu_head {
+	padding: 5px 10px;
+	cursor: pointer;
+	position: relative;
+	margin:1px;
+    font-weight:bold;
+}
+.menu_body {
+	display:none;
+	padding-left:30px;
+}
+.menu_body a {
+  display:block;
+  color:#006699;
+  background-color:#EFEFEF;
+  padding-left:10px;
+  font-weight:bold;
+  text-decoration:none;
+}
+.menu_body a:hover {
+  color: #000000;
+  text-decoration:underline;
+}
