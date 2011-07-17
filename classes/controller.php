@@ -18,7 +18,7 @@ global $page;
 			break;			
 			
 			default:
-			return 'rezervimet';
+			return $this->rezervimet_switcher();
 			break;
 		}
 		

@@ -470,15 +470,16 @@ return $error.funksionet::filters_travelers().'
 static function profit() {
 	global $db;
 	$i = 1;
-	
+	if (isset($_POST['paguaj'])) {
+	$username = $_POST['username'];
+	$paid = $_POST['statusi'];
+	$db->query("INSERT INTO agent_payments (agent, paid) VALUES ('$username','$paid')");
+	}
 	//here we make the years for filters
 	$SelectYears	= '<option>Zgjidhe vitin:</option>';
 	for ($vite = 2011; $vite <= 2050; $vite++) {
 		$SelectYears	.= '<option value="'.$vite.'">'.$vite.'</option>';
 	}
-		
-	
-	
 	
 	$usersQuery = $db->query("SELECT username FROM users WHERE status='agent';");
 	$lista='';
@@ -522,10 +523,27 @@ static function profit() {
 		  		  $GjithsejProfit += $row['sumaTotale'];
 		  		  $GjithsejProvis += $row['provs'];
 		  		  $GjithsejPAProvis = $GjithsejProfit - $GjithsejProvis;
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$check_agent_if_paid = mysql_fetch_array($db->query("SELECT * FROM agent_payments WHERE agent='$users';"));
+if($check_agent_if_paid['paid'] == 'Y') {
+	$yes_or_no = 'E paguar';
+}else {
+	$yes_or_no = '<form method="POST" action="">
+				 		<input type="hidden" value="'.$users.'" name="username">
+						<input type="hidden" value="Y" name="statusi">
+						<input type="submit" value="Paguaj" name="paguaj">
+				</form>';
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  		  
+
+		  		  
 		  		  $lista .= '
 					<tr class="'.$rowColor.'">
 						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
 						<td>'.$users.'</td>
+							<td>
+'.$yes_or_no.'
+							</td>
 						<td style="text-align:right;">'.$provizioni.'  &euro;</td>
 						<td style="text-align:right;">'.$sumaTotale.' &euro;</td>
 					</tr>
@@ -569,6 +587,7 @@ static function profit() {
 				<tr class="bgC3" style="font-weight:bold;">
 					<td width="20"></td>
 					<td>Agjenti</td>
+					<td>Statusi</td>
 					<td width="80">Provision</td>
 					<td width="80">Profit</td>
 				</tr>

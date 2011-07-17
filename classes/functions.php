@@ -33,7 +33,7 @@ if ($_SESSION['roli'] == 'admin') {
 		break;
 	
 		default:
-			;
+			$topNavigation = array('Rezervo','Listat','Profit','Ndihmë');;
 		break;
 	}
 }
