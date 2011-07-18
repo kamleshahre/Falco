@@ -470,11 +470,11 @@ return $error.funksionet::filters_travelers().'
 static function profit() {
 	global $db;
 	$i = 1;
-	if (isset($_POST['paguaj'])) {
-	$username = $_POST['username'];
-	$paid = $_POST['statusi'];
-	$db->query("INSERT INTO agent_payments (agent, paid) VALUES ('$username','$paid')");
-	}
+if (isset($_POST['paguaj'])) {
+				$username = $_POST['username'];
+				$paid = $_POST['statusi'];		$month = $_POST['month'];		$year = $_POST['year'];
+				$db->query("INSERT INTO agent_payments (agent, paid, month, year) VALUES ('$username','$paid', '$month', '$year')");
+}
 	//here we make the years for filters
 	$SelectYears	= '<option>Zgjidhe vitin:</option>';
 	for ($vite = 2011; $vite <= 2050; $vite++) {
@@ -486,6 +486,9 @@ static function profit() {
 	$GjithsejProfit='';
 	$GjithsejProvis='';
 	$GjithsejPAProvis='';
+	
+
+					
 	while ($rows = mysql_fetch_array($usersQuery)) {
 			$users = $rows['username'];
 			
@@ -495,13 +498,26 @@ static function profit() {
 								$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
 													FROM orders
 													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
-							} else {
+							
+							}elseif(isset($_POST['paguaj'])){
+							
+//				$username = $_POST['username'];
+//				$paid = $_POST['statusi'];		$month = $_POST['month'];		$year = $_POST['year'];
+//				$db->query("INSERT INTO agent_payments (agent, paid, month, year) VALUES ('$username','$paid', '$month', '$year')");
+				$viti = $_POST['year'];
+				$muaj = $_POST['month'];
+				$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
+													FROM orders
+													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
+							
+							} elseif(!isset($_POST['ZgjedhMuaj']) && !isset($_POST['paguaj'])) {
 								 $viti = date('Y');
 								 $muaj = date('m');
 								 $query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
 													FROM orders
 													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
 							}
+							
 
 			while($row = mysql_fetch_array($query)) {
 				if (empty($row['rezervues'])) {
@@ -524,12 +540,16 @@ static function profit() {
 		  		  $GjithsejProvis += $row['provs'];
 		  		  $GjithsejPAProvis = $GjithsejProfit - $GjithsejProvis;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// HERE WE CHECK IF THE AGENT HAS PAID OR NOT HIS MONTHLY PROFIT		  		  
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $check_agent_if_paid = mysql_fetch_array($db->query("SELECT * FROM agent_payments WHERE agent='$users';"));
-if($check_agent_if_paid['paid'] == 'Y') {
-	$yes_or_no = 'E paguar';
+if($check_agent_if_paid['paid'] == 'Y' && $check_agent_if_paid['month'] == $muaj && $check_agent_if_paid['year'] == $viti ) {
+	$yes_or_no = 'E Paguar';
 }else {
 	$yes_or_no = '<form method="POST" action="">
 				 		<input type="hidden" value="'.$users.'" name="username">
+				 		<input type="hidden" value="'.$muaj.'" name="month">
+				 		<input type="hidden" value="'.$viti.'" name="year">
 						<input type="hidden" value="Y" name="statusi">
 						<input type="submit" value="Paguaj" name="paguaj">
 				</form>';
@@ -540,9 +560,9 @@ if($check_agent_if_paid['paid'] == 'Y') {
 		  		  $lista .= '
 					<tr class="'.$rowColor.'">
 						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
-						<td>'.$users.'</td>
-							<td>
-'.$yes_or_no.'
+						<td >'.$users.'</td>
+							<td style="text-align:center;">
+							'.$yes_or_no.'
 							</td>
 						<td style="text-align:right;">'.$provizioni.'  &euro;</td>
 						<td style="text-align:right;">'.$sumaTotale.' &euro;</td>
@@ -553,7 +573,7 @@ if($check_agent_if_paid['paid'] == 'Y') {
 	}
 			
 	
-	return '
+	return $muaj.'.'.$viti.'
 		<form action="" method="POST">
 			
 		<table cellspacing="1" cellpadding="5" border="0" style="margin: 10px 10px 0pt;">			
@@ -587,7 +607,7 @@ if($check_agent_if_paid['paid'] == 'Y') {
 				<tr class="bgC3" style="font-weight:bold;">
 					<td width="20"></td>
 					<td>Agjenti</td>
-					<td>Statusi</td>
+					<td width="80">Statusi</td>
 					<td width="80">Provision</td>
 					<td width="80">Profit</td>
 				</tr>
