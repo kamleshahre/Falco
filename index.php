@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=ISO-8859-1');
 //error_reporting (E_ALL ^ E_NOTICE);
 //ini_set('error_log','error_history.log'); //here we set the file where the errors should be loged
 $page = $_GET['menu'];
