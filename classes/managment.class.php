@@ -10,13 +10,22 @@ $error='';
 		$newCITY	= $_POST['new_city'];
 		$cost = $_POST['cost'];
 		$return_cost = $_POST['return_cost'];
-			$results = mysql_fetch_array($db->query("SELECT * FROM costs WHERE prej='$postedNAME' AND deri='$newCITY';"));
+		$results = mysql_fetch_array($db->query("SELECT * FROM costs WHERE prej='$postedNAME' AND deri='$newCITY';"));
 				if ($results['prej'] == $postedNAME && $results['deri'] == $newCITY) {
 					$error = funksionet::show_error("Destinacioni prej $postedNAME deri $newCITY egziston!");
 				}else{
 					$db->query("INSERT INTO costs (prej,deri,cost,return_cost,date) VALUES ('$postedNAME', '$newCITY','$cost','$return_cost',NOW());");	
 					$db->query("INSERT INTO costs (deri,prej,cost,return_cost,date) VALUES ('$postedNAME', '$newCITY','$cost','$return_cost',NOW());");			
+					$error = funksionet::show_error("U shtua destinacioni prej $postedNAME deri $newCITY");
 				}
+	}
+	
+	if(isset($_POST['delete_destination'])) {
+		$postedPrej = $_POST['prej'];
+		$postedDeri = $_POST['deri'];
+		$error = funksionet::show_error("Destinacioni prej $postedPrej deri $postedDeri u fshij me sukses");
+		$db->query("DELETE FROM costs WHERE prej='$postedPrej' AND deri='$postedDeri';");
+		$db->query("DELETE FROM costs WHERE prej='$postedDeri' AND deri='$postedPrej';");
 	}
 		
 	
@@ -30,6 +39,7 @@ $error='';
 				<tr class="bgC3" style="font-weight:bold">
 					<td width="20"></td>
 					<td>Deri</td>
+					<td width="20">Opsionet</td>
 					<td width="90">Një drejtim</td>
 					<td width="90">Kthyese</td>
 					'.managment::cmimet_e_caktuara($name).'
@@ -65,12 +75,20 @@ static function cmimet_e_caktuara($name='') {
 				  $rowColor = "bgC1";
 				else # An even row
 		  		  $rowColor = "bgC2";
-			$deri = $row['deri'];
+			$prej = $row['prej'];
+		  	$deri = $row['deri'];
 			$cost = $row['cost'];
 			$return_cost = $row['return_cost'];
 			$list .= '<tr class="'.$rowColor.'">
 							<td style="font-weight:bold;text-align:center;">'.$i.'</td>
 							<td>'.$deri.'</td>
+								<td style="text-align:center;">
+								<form action="" method="post">
+								<input type="hidden" value="'.$prej.'" name="prej" >
+								<input type="hidden" value="'.$deri.'" name="deri" >
+								<input type="submit" value="Fshij" name="delete_destination">
+								</form>
+								</td>
 							<td style="font-weight:bold;text-align:right;">'.$cost.' &euro;</td>
 							<td style="font-weight:bold;text-align:right;">'.$return_cost.' &euro;</td>
 					</tr>';
@@ -81,6 +99,9 @@ static function cmimet_e_caktuara($name='') {
 
 static function stacionet() {
 global $db;
+
+$error='';
+
 	if (isset($_POST['delete_city'])) {
 		$prejORderi = $_POST['prej_or_deri'];
 		$city = $_POST['city'];
@@ -93,15 +114,14 @@ global $db;
 		$qyteti = $_POST['new_city'];
 		$direk = $_POST['direction'];
 		$db->query("INSERT INTO destinations (name,direction) VALUES ('$qyteti','$direk');");
-		return funksionet::show_error('U shtua destinacioni me emrin <u>'.$qyteti.'</u>.');
-	}else{ 
+		$error = funksionet::show_error('U shtua destinacioni me emrin <u>'.$qyteti.'</u>.');
+	} 
 	
 	$numri1 = $db->query("SELECT * FROM destinations WHERE direction='1';");
 	$numri2 = $db->query("SELECT * FROM destinations WHERE direction='2';");
 		$i = 1;
 		$direction1='';
 		$direction2='';
-		$error='';
 		while ($row = mysql_fetch_array($numri1)) {
 			if ($i % 2 != "0") # An odd row
 			  $rowColor = "bgC1";
@@ -183,7 +203,7 @@ global $db;
 		
 		return $error.$table1.$table2;
 		
-	}	
+		
 }
 
 static function udhetimet() {

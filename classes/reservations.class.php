@@ -470,11 +470,12 @@ return $error.funksionet::filters_travelers().'
 static function profit() {
 	global $db;
 	$i = 1;
-if (isset($_POST['paguaj'])) {
-				$username = $_POST['username'];
-				$paid = $_POST['statusi'];		$month = $_POST['month'];		$year = $_POST['year'];
-				$db->query("INSERT INTO agent_payments (agent, paid, month, year) VALUES ('$username','$paid', '$month', '$year')");
-}
+	//here we check if the PAY button is clicked (this is checked 2 times, here and below where we make the table query)
+	if (isset($_POST['paguaj'])) {
+		$username = $_POST['username'];
+		$paid = $_POST['statusi'];		$month = $_POST['month'];		$year = $_POST['year'];
+		$db->query("INSERT INTO agent_payments (agent, paid, month, year, paid_date) VALUES ('$username','$paid', '$month', '$year', NOW())");
+	}
 	//here we make the years for filters
 	$SelectYears	= '<option>Zgjidhe vitin:</option>';
 	for ($vite = 2011; $vite <= 2050; $vite++) {
@@ -500,13 +501,9 @@ if (isset($_POST['paguaj'])) {
 													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
 							
 							}elseif(isset($_POST['paguaj'])){
-							
-//				$username = $_POST['username'];
-//				$paid = $_POST['statusi'];		$month = $_POST['month'];		$year = $_POST['year'];
-//				$db->query("INSERT INTO agent_payments (agent, paid, month, year) VALUES ('$username','$paid', '$month', '$year')");
-				$viti = $_POST['year'];
-				$muaj = $_POST['month'];
-				$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
+								$viti = $_POST['year'];
+								$muaj = $_POST['month'];
+								$query = $db->query("SELECT rezervues, SUM(cost) AS sumaTotale, date, SUM(provision) AS provs
 													FROM orders
 													WHERE rezervues='$users' AND (EXTRACT(MONTH FROM date)='$muaj' AND EXTRACT(YEAR FROM date)='$viti');");
 							
@@ -555,8 +552,6 @@ if($check_agent_if_paid['paid'] == 'Y' && $check_agent_if_paid['month'] == $muaj
 				</form>';
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  		  
-
-		  		  
 		  		  $lista .= '
 					<tr class="'.$rowColor.'">
 						<td style="text-align:center;font-weight:bold;">'.$i.'</td>
@@ -571,9 +566,8 @@ if($check_agent_if_paid['paid'] == 'Y' && $check_agent_if_paid['month'] == $muaj
 				$i++;
 			}
 	}
-			
 	
-	return $muaj.'.'.$viti.'
+	return '
 		<form action="" method="POST">
 			
 		<table cellspacing="1" cellpadding="5" border="0" style="margin: 10px 10px 0pt;">			
