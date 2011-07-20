@@ -24,10 +24,27 @@ if(isset($_POST['edit'])) $edit = $_POST['edit'];
 		$db->query("DELETE FROM users WHERE user_id = '$id'");
 		$error = funksionet::show_error("Përdoruesi që keni zgjedhur është fshir nga sistemi me sukses!");
 	}elseif(isset($edit)) {
-	
-		
+		$statusi = $_POST['roli'];
 		$id = $_POST['id'];
 		$row = mysql_fetch_array($db->query("SELECT * FROM users WHERE user_id='$id'"));
+		
+		if ($statusi == 'admin') {
+			$change_status = '<select style="width:150px;" name="roli">
+									<option value="admin">Administrator</option>
+									<option value="agent">Agent</option>
+								</select>';
+			$show_or_not_the_provis = '';
+		}else{
+			$change_status = '<select style="width:150px;" name="roli">
+									<option value="agent">Agent</option>
+									<option value="admin">Administrator</option>
+								</select>';
+			$show_or_not_the_provis = '<tr >
+										<td style="text-align:right;">Provisioni:</td>
+										<td style="text-align:left;"><input type="text" name="selected_provis" maxlength="2" size="3" value="'.str_replace("0.", "", $row['selected_provis']).'"> %</td>
+									   </tr>';
+		}
+		
 		return '
 		<div id="Formulari">
 		<form action="" method="post">
@@ -52,18 +69,11 @@ if(isset($_POST['edit'])) $edit = $_POST['edit'];
 			<td style="text-align:right;">Adresa:</td>
 			<td><input type="text" name="adresa"  value="'.$row['address'].'"></td>
 		</tr>
-		<tr >
-			<td style="text-align:right;">Provisioni:</td>
-			<td style="text-align:left;"><input type="text" name="selected_provis" maxlength="2" size="3" value="'.str_replace("0.", "", $row['selected_provis']).'"> %</td>
-		</tr>
+			'.$show_or_not_the_provis.'
 		<tr>
 			<td style="text-align:right;">Roli:</td>
 			<td>
-				<select style="width:150px;" name="roli">
-					<option value="">Zgjidhe rolin:</option>
-					<option value="admin">Administrator</option>
-					<option value="agent">Agent</option>
-				</select>
+				'.$change_status.'
 			</td>
 		</tr>
 		</table>
@@ -109,6 +119,7 @@ if(isset($_POST['edit'])) $edit = $_POST['edit'];
 					</form>
 					<form action="" method="post" style="float:left;">
 					<input type="hidden" name="id" value="'.$row['user_id'].'">
+					<input type="hidden" name="roli" value="'.$roli.'">
 					<input type="submit" name="edit" value="Edito">
 					</form>
 				</td>
@@ -122,7 +133,7 @@ if (isset($_POST['new_user'])) {
 	$username = $_POST['pseudonimi'];					$password = md5($_POST['fjalkalimi']);
 	$name	  = ucfirst($_POST['emri']);				$surname  = ucfirst($_POST['mbiemri']);
 	$roli 	  = $_POST['tipi_i_rolit'];					$adress	  = ucfirst($_POST['adresa']);
-	$provis   = '0.'.$_POST['provis'];
+	$provis   = funksionet::add_zero('0.'.$_POST['provis']);
 	$db->query("INSERT INTO users (firstname,lastname,address,username,password,status,selected_provis)
 				VALUES ('$name','$surname','$adress','$username','$password','$roli','$provis')");
 }

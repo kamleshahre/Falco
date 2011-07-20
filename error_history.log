@@ -1,5 +1,43 @@
-[03-Jul-2011 23:19:42] PHP Strict Standards:  Non-static method reservations::profit() should not be called statically, assuming $this from incompatible context in D:\xampp\htdocs\falco\classes\controller.php on line 40
-[03-Jul-2011 23:19:42] PHP Notice:  Undefined variable: GjithsejProfit in D:\xampp\htdocs\falco\classes\reservations.class.php on line 508
-[03-Jul-2011 23:19:42] PHP Notice:  Undefined variable: GjithsejProvis in D:\xampp\htdocs\falco\classes\reservations.class.php on line 509
-[03-Jul-2011 23:19:42] PHP Notice:  Undefined variable: lista in D:\xampp\htdocs\falco\classes\reservations.class.php on line 518
-[03-Jul-2011 23:19:42] PHP Strict Standards:  Non-static method funksionet::dateFROMintTOstr() should not be called statically, assuming $this from incompatible context in D:\xampp\htdocs\falco\classes\reservations.class.php on line 568
+ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>9</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '07.20.11 [20:37:48]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>42</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\classes\functions.php.</strong> /<p>
+<p> Undefined variable: topNavigation </p>
+<p>Koha: '07.20.11 [20:37:48]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (2) ndodhi ne linjen 
+<strong>42</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\classes\functions.php.</strong> /<p>
+<p> Invalid argument supplied for foreach() </p>
+<p>Koha: '07.20.11 [20:37:48]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>8</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '07.20.11 [20:38:01]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>9</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '07.20.11 [20:38:01]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>42</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\classes\functions.php.</strong> /<p>
+<p> Undefined variable: topNavigation </p>
+<p>Koha: '07.20.11 [20:38:01]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (2) ndodhi ne linjen 
+<strong>42</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\classes\functions.php.</strong> /<p>
+<p> Invalid argument supplied for foreach() </p>
+<p>Koha: '07.20.11 [20:38:01]'</p>
+------------------------------------------------------------------------------------------------------------------
