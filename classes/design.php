@@ -103,7 +103,7 @@ function getXMLHTTP() { //fuction to return the xml http object
 	<div class="BigLogo"></div>
 		<div class="logoWrapper">
 			<img class="logo" src="css/images/logo.png" alt="Falco System" />
-			<p class="slogan">Administrimi i rezervimeve ...</p>
+			<p class="slogan">Administrimi i rezervimeve</p>
 		</div>
 		<div class="RightSettingsWrapper">
 			<p class="Welcome">Mirësevini <strong>'.ucfirst($_SESSION['username']).'</strong></p>

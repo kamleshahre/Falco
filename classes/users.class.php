@@ -15,7 +15,7 @@ if(isset($_POST['edit'])) $edit = $_POST['edit'];
 		$emri		=	$_POST['emri'];				$mbiemri	=	$_POST['mbiemri'];
 		$pseudonimi	=	$_POST['pseudonimi'];		$fjalkalmi	=	md5($_POST['fjalkalimi']);
 		$adresa		=	$_POST['adresa'];			$roli		=	$_POST['roli'];
-		$id 		=	$_POST['id'];				$sel_provis =	'0.'.$_POST['selected_provis'];
+		$id 		=	$_POST['id'];				$sel_provis =	funksionet::add_zero('0.'.$_POST['selected_provis']);
 		$db->query("UPDATE users 
 					SET firstname='$emri', lastname='$mbiemri', username='$pseudonimi', password='$fjalkalmi', address='$adresa',selected_provis='$sel_provis' , status='$roli' WHERE user_id='$id' ") or die(mysql_error());
 	
@@ -54,7 +54,7 @@ if(isset($_POST['edit'])) $edit = $_POST['edit'];
 		</tr>
 		<tr >
 			<td style="text-align:right;">Provisioni:</td>
-			<td style="text-align:left;"><input type="text" name="selected_provis" size="3" value="'.str_replace("0.", "", $row['selected_provis']).'"> %</td>
+			<td style="text-align:left;"><input type="text" name="selected_provis" maxlength="2" size="3" value="'.str_replace("0.", "", $row['selected_provis']).'"> %</td>
 		</tr>
 		<tr>
 			<td style="text-align:right;">Roli:</td>

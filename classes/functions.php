@@ -182,12 +182,27 @@ return preg_replace($patterns, $replacements, $string);
  
 }
 
-//
+//here is the function that adds a 0 before the numbers from the number 1 until number 9
+static function add_zero($string) {
+($string == '0.1') ? $string = '0.01' : $string = $string ;
+($string == '0.2') ? $string = '0.02' : $string = $string ;
+($string == '0.3') ? $string = '0.03' : $string = $string ;
+($string == '0.4') ? $string = '0.04' : $string = $string ;
+($string == '0.5') ? $string = '0.05' : $string = $string ;
+($string == '0.6') ? $string = '0.06' : $string = $string ;
+($string == '0.7') ? $string = '0.07' : $string = $string ;
+($string == '0.8') ? $string = '0.08' : $string = $string ;
+($string == '0.9') ? $string = '0.09' : $string = $string ;
+($string == '0.0') ? $string = '0.00' : $string = $string ;
+($string == '0.00') ? $string = '0.00' : $string = $string ;
+ return $string;
+}
 
+//here is the html form that we use to add admin or agent with jquery
 static function formulari_new_user($tipi="",$roli="") {
  		($roli == 'agent') ? $agent_provis ='<tr>
 							<td style="text-align:right;">Provision:</td>
-							<td><input type="text" size="3" name="provis"> %</td>
+							<td><input type="text" size="3" name="provis" maxlength="2"> %</td>
 						</tr>' : $agent_provis = "";
 		return '
 		<div class="formulariNeLightBox">
