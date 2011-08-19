@@ -184,7 +184,7 @@ return preg_replace($patterns, $replacements, $string);
 
 //here is the function that adds a 0 before the numbers from the number 1 until number 9
 static function add_zero($string) {
-($string == '0.1') ? $string = '0.01' : $string = $string ;
+($string == '0.1' && $string != '0.10') ? $string = '0.01' : $string = $string ;
 ($string == '0.2') ? $string = '0.02' : $string = $string ;
 ($string == '0.3') ? $string = '0.03' : $string = $string ;
 ($string == '0.4') ? $string = '0.04' : $string = $string ;
