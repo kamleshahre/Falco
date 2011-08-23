@@ -128,7 +128,7 @@ return '
 <div id="rightside">
 '.$control->menu_switcher().'
 <div class="footeri">
-	<div class="RightFooter">Copyright '.date("Y").' © Falco System</div>
+	<div class="RightFooter">Copyright '.date("Y").' © Shpëtim Islami</div>
 </div>
 </div>
 ';	
