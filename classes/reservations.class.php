@@ -270,7 +270,7 @@ if (isset($_POST['rezervo'])) {
 </div>
 	
 	
-	<input style="float:right;margin:15px 49px 0 0;" type="submit" value="Rezervo" name="rezervo" />
+	<input style="float:right;margin:15px 49px 0 0;" type="submit" value="'.trans('Rezervo').'" name="rezervo" />
 	
 
 </form><!-- end of the reservation form-->
@@ -539,11 +539,11 @@ static function profit() {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // HERE WE CHECK IF THE AGENT HAS PAID OR NOT HIS MONTHLY PROFIT		  		  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-$check_agent_if_paid = mysql_fetch_array($db->query("SELECT * FROM agent_payments WHERE agent='$users';"));
+$check_agent_if_paid = mysql_fetch_array($db->query("SELECT * FROM agent_payments WHERE agent='$users' AND (month='$muaj' AND year='$viti');"));
 if($check_agent_if_paid['paid'] == 'Y' && $check_agent_if_paid['month'] == $muaj && $check_agent_if_paid['year'] == $viti ) {
-	$yes_or_no = 'E Paguar';
+	$yes_or_no = $muaj.$viti.$check_agent_if_paid['paid'].'E Paguar';
 }else {
-	$yes_or_no = '<form method="POST" action="">
+	$yes_or_no = $muaj.$viti.$check_agent_if_paid['paid'].'<form method="POST" action="">
 				 		<input type="hidden" value="'.$users.'" name="username">
 				 		<input type="hidden" value="'.$muaj.'" name="month">
 				 		<input type="hidden" value="'.$viti.'" name="year">

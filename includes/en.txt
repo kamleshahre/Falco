@@ -8,5 +8,8 @@
 	    "Persona":"Persons",
 	    "Nj&euml; drejtim":"One way",
 	    "Kthyese":"Returning",
-	    "Rezervo":"Book"
+	    "Rezervo":"Book",
+	    "Listat":"Lists",
+	    "Profit":"Profit",
+	    "Ndihm&euml;":"Help"
 }

@@ -27,29 +27,53 @@ global $page;
 function rezervimet_switcher() {
 require_once 'reservations.class.php';
 global $subpage;
-	switch ($subpage) {
-		case 'rezervo':
-		return reservations::rezervo();
-		break;
-		
-		case 'listat':
-		return ($_SESSION['roli']=='admin') ? reservations::lista() : reservations::lista_per_agent();
-		break;
-		
-		case 'profit':
-		return ($_SESSION['roli']=='admin') ? reservations::profit() :  reservations::profit_per_agent();
-		break;
-		
-	
-		case 'ndihme':
-		return  Help_modules::reservation_help();
-		break;
-		
-		default:
+	if (LANG == 'sq') {
+		switch ($subpage) {
+			case 'rezervo':
 			return reservations::rezervo();
-		break;
-	}
-	
+			break;
+			
+			case 'listat':
+			return ($_SESSION['roli']=='admin') ? reservations::lista() : reservations::lista_per_agent();
+			break;
+			
+			case 'profit':
+			return ($_SESSION['roli']=='admin') ? reservations::profit() :  reservations::profit_per_agent();
+			break;
+			
+		
+			case 'ndihme':
+			return  Help_modules::reservation_help();
+			break;
+			
+			default:
+				return reservations::rezervo();
+			break;
+		}
+	} elseif (LANG == 'en') {
+		switch ($subpage) {
+			case 'book':
+			return reservations::rezervo();
+			break;
+			
+			case 'lists':
+			return ($_SESSION['roli']=='admin') ? reservations::lista() : reservations::lista_per_agent();
+			break;
+			
+			case 'profit':
+			return ($_SESSION['roli']=='admin') ? reservations::profit() :  reservations::profit_per_agent();
+			break;
+			
+		
+			case 'help':
+			return  Help_modules::reservation_help();
+			break;
+			
+			default:
+				return reservations::rezervo();
+			break;
+		}
+	}	
 }
 
 function perdoruesit_switcher() {
