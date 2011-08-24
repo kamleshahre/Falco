@@ -1,4 +1,5 @@
 {
+		"T&euml; gjitha t&euml; drejtat e rezervuara":"All Rights Reserved",
 	    "Emri":"Firstname",
 	    "Mbiemri":"Lastname",
 	    "Prej":"From",

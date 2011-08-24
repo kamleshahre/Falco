@@ -265,7 +265,7 @@ if (isset($_POST['rezervo'])) {
 		<label for="1drejtim">'.trans('Nj&euml; drejtim').'</label>
 		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
 <br/>
-		<label for="1drejtim">Kthyese</label>
+		<label for="1drejtim">'.trans(Kthyese).'</label>
 		<input type="radio" id="kthyese" name="drejtimi" checked="checked" value="kthyese"  onclick="toggleVisibility(\'hideThis\',1)">
 </div>
 	
@@ -541,9 +541,9 @@ static function profit() {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $check_agent_if_paid = mysql_fetch_array($db->query("SELECT * FROM agent_payments WHERE agent='$users' AND (month='$muaj' AND year='$viti');"));
 if($check_agent_if_paid['paid'] == 'Y' && $check_agent_if_paid['month'] == $muaj && $check_agent_if_paid['year'] == $viti ) {
-	$yes_or_no = $muaj.$viti.$check_agent_if_paid['paid'].'E Paguar';
+	$yes_or_no = 'E Paguar';
 }else {
-	$yes_or_no = $muaj.$viti.$check_agent_if_paid['paid'].'<form method="POST" action="">
+	$yes_or_no = '<form method="POST" action="">
 				 		<input type="hidden" value="'.$users.'" name="username">
 				 		<input type="hidden" value="'.$muaj.'" name="month">
 				 		<input type="hidden" value="'.$viti.'" name="year">
