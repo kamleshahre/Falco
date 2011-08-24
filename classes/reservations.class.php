@@ -148,21 +148,21 @@ if (isset($_POST['rezervo'])) {
 <div class="WraperForForm">	
 <form action="" method="post">
 <div class="elementsLabelBox">
-		Emri:
+		'.trans('Emri').':
 </div>
 <div class="elementsBox">
 		<input type="text" id="emri" name="emri">
 </div>
 
 <div class="elementsLabelBox">
-		Mbiemri:
+		'.trans('Mbiemri').':
 </div>
 <div class="elementsBox">
 		<input type="text" id="mbiemri" name="mbiemri">
 </div>
 
 <div class="elementsLabelBox">
-		Prej:
+		'.trans('Prej').':
 	</div>
 <div class="elementsBox">
 		<select class="selectDest" name="Prej" onChange="getState(this.value)">
@@ -172,7 +172,7 @@ if (isset($_POST['rezervo'])) {
 </div>
 	
 <div class="elementsLabelBox">
-		Deri:
+		'.trans('Deri').':
 </div>
 <div class="elementsBox">
 		<div id="statediv"><select class="selectDest" name="deri">
@@ -181,7 +181,7 @@ if (isset($_POST['rezervo'])) {
 </div>
 <div class="elementsLabelBox">
 	
-			<label for="data1drejtim">Data e nisjes:</label>
+			<label for="data1drejtim">'.trans('Data e nisjes').':</label>
 </div>
 <div class="elementsBox">
 			<input type="text" id="data1drejtim" name="data1drejtim">
@@ -208,7 +208,7 @@ if (isset($_POST['rezervo'])) {
 <!-- ___________________ RETURN DATE _____________________________________ -->
 <div id="hideThis">
 <div class="elementsLabelBox">
-		<label for="dataKthyese">Data kthyese:</label>
+		<label for="dataKthyese">'.trans('Data kthyese').':</label>
 </div>	
 
 <div class="elementsBox">			
@@ -239,7 +239,7 @@ if (isset($_POST['rezervo'])) {
 
 
 <div class="elementsLabelBox">
-	Persona:
+	'.trans('Persona').':
 </div>
 <div class="elementsBox">
 		<select name="persona">
@@ -262,7 +262,7 @@ if (isset($_POST['rezervo'])) {
 </div>
 
 <div class="elementsLabelBox">
-		<label for="1drejtim">Një drejtim</label>
+		<label for="1drejtim">'.trans('Nj&euml; drejtim').'</label>
 		<input type="radio" id="1drejtim" name="drejtimi"  value="një drejtim" onclick="toggleVisibility(\'hideThis\',0)">
 <br/>
 		<label for="1drejtim">Kthyese</label>

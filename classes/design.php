@@ -95,7 +95,7 @@ function getXMLHTTP() { //fuction to return the xml http object
 		}		
 	}
 </script>
-<title>'.WEB_NAME.' | Paneli administrues</title>
+<title>'.WEB_NAME.': Paneli administrues</title>
 </head>
 <body>
 <div id="wrapper">
@@ -106,7 +106,11 @@ function getXMLHTTP() { //fuction to return the xml http object
 			<p class="slogan">Administrimi i rezervimeve</p>
 		</div>
 		<div class="RightSettingsWrapper">
-			<p class="Welcome">Mirësevini <strong>'.ucfirst($_SESSION['username']).'</strong></p>
+			<p class="Welcome">Mirësevini <strong>'.ucfirst($_SESSION['username']).'</strong><br/>
+				<a href="index.php?menu=rezervimet&submenu=book&language=en">EN</a>
+				<a href="index.php?menu=rezervimet&submenu=rezervo&language=sq">SQ</a>
+				<a href="index.php?menu=rezervimet&submenu=rezervo&language=mk">MK</a>
+			</p>
 			<a class="shutdown" href="login.php?status=loggedout"><img style="border:0;" src="css/images/shutdown.png" /></a>
 		</div>
 		<div class="topNavigation">

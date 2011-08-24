@@ -1,4 +1,28 @@
 <?php
+
+//This function translates text
+function trans($phrase) {
+	    /* Static keyword is used to ensure the file is loaded only once */
+	    if (LANG == 'sq');
+		static $translations = NULL;
+	    /* If no instance of $translations has occured load the language file */
+	    if (is_null($translations)) {
+	        $lang_file = INCLUDE_PATH.'/'.LANG.'.txt';
+	        if (!file_exists($lang_file)) {
+	            echo 'ERORR'.$lang_file;
+	        }
+	        $lang_file_content = file_get_contents($lang_file);
+	        /* Load the language file as a JSON object and transform it into an associative array */
+	        $translations = json_decode($lang_file_content, true);
+	    }
+	    if (LANG == 'sq') {
+	    	return $phrase;
+	    }else {
+	    return $translations[$phrase];
+	    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 class funksionet {
 
 //here goes the navigation in the top	
@@ -9,7 +33,7 @@ if ($_SESSION['roli'] == 'admin') {
 	
 	switch ($page) {
 		case 'rezervimet':
-			$topNavigation = array('Rezervo','Listat','Profit','Ndihmë');
+			$topNavigation = array(trans('Rezervo'),'Listat','Profit','Ndihmë');
 		break;
 	
 		case 'perdoruesit':
@@ -279,5 +303,6 @@ return '<form action="" method="post">
 </form>';
 }
 
-	
+
 }//end of funksionet
+

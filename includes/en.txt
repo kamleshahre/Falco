@@ -1,0 +1,12 @@
+{
+	    "Emri":"Firstname",
+	    "Mbiemri":"Lastname",
+	    "Prej":"From",
+	    "Deri":"To",
+	    "Data e nisjes":"Date",
+	    "Data kthyese":"Returning date",
+	    "Persona":"Persons",
+	    "Nj&euml; drejtim":"One way",
+	    "Kthyese":"Returning",
+	    "Rezervo":"Book"
+}

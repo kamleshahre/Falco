@@ -17,3 +17,5 @@ define('DB_NAME', 'falco_db');
 // General WEB info
 define('WEB_NAME','Millennium');
 define('ADMIN_MAIL','draodakum@gmail.com');
+define('INCLUDE_PATH', 'includes');
+define('LANG', $_COOKIE["lang"]);

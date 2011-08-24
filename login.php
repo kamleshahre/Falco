@@ -21,7 +21,7 @@ if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Sistemi Administrues Falco</title>
+<title><?php echo WEB_NAME.':'; ?> Hyrja</title>
 <LINK REL="SHORTCUT ICON" HREF="favicon.png">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
