@@ -35,7 +35,7 @@ if ($_SESSION['roli'] == 'admin') {
 	
 	switch ($page) {
 		case 'rezervimet':
-			$topNavigation = array(trans('Rezervo'),trans('Listat'),trans('Profit'),trans('Ndihm&euml;'));
+			$topNavigation = array('Rezervo','Listat','Profit','Ndihmë');
 		break;
 	
 		case 'perdoruesit':

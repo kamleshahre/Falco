@@ -1,56 +1,49 @@
-
  
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
+<strong>8</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [12:01:49]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>9</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [12:01:49]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
 <p> Undefined index: language </p>
-<p>Koha: '08.24.11 [05:48:44]'</p>
+<p>Koha: '08.25.11 [12:01:49]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>26</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Use of undefined constant LANG - assumed 'LANG' </p>
+<p>Koha: '08.25.11 [12:01:49]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>28</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Use of undefined constant LANG - assumed 'LANG' </p>
+<p>Koha: '08.25.11 [12:01:49]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>21</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\includes\constants.php.</strong> /<p>
+<p> Undefined index: lang </p>
+<p>Koha: '08.25.11 [12:01:49]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>68</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined variable: topNavigation </p>
+<p>Koha: '08.25.11 [12:01:50]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (2) ndodhi ne linjen 
-<strong>542</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\classes\reservations.class.php.</strong> /<p>
-<p> mysql_fetch_array() expects parameter 1 to be resource, boolean given </p>
-<p>Koha: '08.24.11 [05:48:44]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.24.11 [05:49:19]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (2) ndodhi ne linjen 
-<strong>542</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\classes\reservations.class.php.</strong> /<p>
-<p> mysql_fetch_array() expects parameter 1 to be resource, boolean given </p>
-<p>Koha: '08.24.11 [05:49:19]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.24.11 [05:49:21]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (2) ndodhi ne linjen 
-<strong>542</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\classes\reservations.class.php.</strong> /<p>
-<p> mysql_fetch_array() expects parameter 1 to be resource, boolean given </p>
-<p>Koha: '08.24.11 [05:49:21]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.24.11 [05:49:57]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.24.11 [05:50:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: C:\xampp\htdocs\falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.24.11 [05:50:08]'</p>
+<strong>68</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Invalid argument supplied for foreach() </p>
+<p>Koha: '08.25.11 [12:01:50]'</p>
 ------------------------------------------------------------------------------------------------------------------

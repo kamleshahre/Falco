@@ -2,8 +2,8 @@
 header('Content-Type: text/html; charset=ISO-8859-1');
 //// Here below we its all about errors and how we handle them
 error_reporting (E_ALL ^E_NOTICE);
-require_once 'classes/errors_handler.php';
-set_error_handler('handle_errors');
+//require_once 'classes/errors_handler.php';
+//set_error_handler('handle_errors');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $page = $_GET['menu'];
 $subpage = $_GET['submenu'];
