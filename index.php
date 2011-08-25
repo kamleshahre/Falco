@@ -5,11 +5,12 @@ error_reporting (E_ALL ^E_NOTICE);
 //require_once 'classes/errors_handler.php';
 //set_error_handler('handle_errors');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-$page = $_GET['menu'];
-$subpage = $_GET['submenu'];
+(isset($_GET['menu'])) ? $page = $_GET['menu'] : $page = NULL;
+(isset($_GET['submenu'])) ? $subpage = $_GET['submenu'] : $subpage = NULL;
 $lang = stripslashes($_GET['language']); 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Here we check which langauge the user chosed
+	
 	if ($lang == 'sq') {
 		setcookie("lang","sq");
 	}
@@ -18,14 +19,17 @@ $lang = stripslashes($_GET['language']);
 	}
 	elseif ($lang == 'mk') {
 		setcookie("lang","mk");
+	}elseif (!isset($_COOKIE['lang'])) {
+		setcookie("lang","sq");
 	}
+//	define('LANG', $lang);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if(isset($_SESSION['username'])) $perdorues = $_SESSION['username'];
 //// Here we decide which sub page to be active the first time when we click on the page in the left 
-if(empty($page) && empty($subpage)){
-	if (LANG == 'sq') {
+if(empty($page) && empty($subpage)){ // HERE I HAVE TO FIX THIS BECAUSE WHEN USER LOGSIN FOR THE FIRST TIME THE FIRST CATEGORY IS NOT ACTIVATED
+	if ('LANG' == 'sq') {
 	header("Location: index.php?menu=rezervimet&submenu=rezervo");
-	} elseif (LANG == 'en') {
+	} elseif ('LANG' == 'en') {
 	header("Location: index.php?menu=rezervimet&submenu=book");	
 	}
 }elseif($page == 'perdoruesit' && empty($subpage)){

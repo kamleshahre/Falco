@@ -107,9 +107,9 @@ function getXMLHTTP() { //fuction to return the xml http object
 		</div>
 		<div class="RightSettingsWrapper">
 			<p class="Welcome">Mirësevini <strong>'.ucfirst($_SESSION['username']).'</strong><br/>
-				<a href="index.php?menu=rezervimet&submenu=book&language=en">EN</a>
-				<a href="index.php?menu=rezervimet&submenu=rezervo&language=sq">SQ</a>
-				<a href="index.php?menu=rezervimet&submenu=rezervo&language=mk">MK</a>
+				<a class="lang_style" href="index.php?menu=rezervimet&submenu=book&language=en">EN</a>
+				<a class="lang_style" href="index.php?menu=rezervimet&submenu=rezervo&language=sq">SQ</a>
+				<a class="lang_style" href="index.php?menu=rezervimet&submenu=rezerviraj&language=mk">MK</a>
 			</p>
 			<a class="shutdown" href="login.php?status=loggedout"><img style="border:0;" src="css/images/shutdown.png" /></a>
 		</div>
@@ -120,6 +120,7 @@ function getXMLHTTP() { //fuction to return the xml http object
 	
 ';
 }
+
 
 public function LeftSide() {
 return funksionet::left_menu();
@@ -132,7 +133,7 @@ return '
 <div id="rightside">
 '.$control->menu_switcher().'
 <div class="footeri">
-	<div class="RightFooter">Copyright '.date("Y").' © Shpëtim Islami</div>
+	<div class="RightFooter">'.trans('T&euml; gjitha t&euml; drejtat e rezervuara').' '.date("Y").' © Shpëtim Islami</div>
 </div>
 </div>
 ';	
