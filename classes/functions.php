@@ -3,14 +3,14 @@
 //This function translates text
 function trans($phrase) {
 		static $translations = NULL;
- 		if (LANG == 'sq') {
+ 		if ($_COOKIE['lang'] == 'sq') {
 	    	return $phrase;
  		}else {
 			if (is_null($translations)) {
-		        $lang_file = INCLUDE_PATH.'/'.LANG.'.txt';
+		        $lang_file = INCLUDE_PATH.'/'.$_COOKIE['lang'].'.txt';
 		        if (!file_exists($lang_file)) {
 		            echo 'ERORR'.$lang_file;
-		            echo '<br/>'.LANG;
+		            echo '<br/>'.$_COOKIE['lang'];
 		        }
 		        $lang_file_content = file_get_contents($lang_file);
 		        $translations = json_decode($lang_file_content, true);

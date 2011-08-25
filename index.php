@@ -10,19 +10,19 @@ set_error_handler('handle_errors');
 $lang = stripslashes($_GET['language']); 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Here we check which langauge the user chosed
-	
 	if ($lang == 'sq') {
 		setcookie("lang","sq");
+		header("Location: index.php");
 	}
 	elseif ($lang == 'en') {
 		setcookie("lang","en");
+		header("Location: index.php");
 	}
 	elseif ($lang == 'mk') {
 		setcookie("lang","mk");
 	}elseif (!isset($_COOKIE['lang'])) {
 		setcookie("lang","sq");
 	}
-//	define('LANG', $lang);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if(isset($_SESSION['username'])) $perdorues = $_SESSION['username'];
 //// Here we decide which sub page to be active the first time when we click on the page in the left 
@@ -45,7 +45,6 @@ require_once 'classes/Membership.php';
 $membership = New Membership();
 $membership->confirm_Member();
 
-//echo '<strong>'.$_SESSION['roli'].'</strong>'; //here I check if we are agent or admin
 require_once 'classes/design.php';
 $design = new HTML();
 require_once 'classes/functions.php';

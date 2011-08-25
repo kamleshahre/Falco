@@ -1,1169 +1,793 @@
-<<<<<<< HEAD
- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>8</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [12:01:49]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>9</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [12:01:49]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [12:01:49]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>26</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Use of undefined constant LANG - assumed 'LANG' </p>
-<p>Koha: '08.25.11 [12:01:49]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>28</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Use of undefined constant LANG - assumed 'LANG' </p>
-<p>Koha: '08.25.11 [12:01:49]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>21</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\includes\constants.php.</strong> /<p>
-<p> Undefined index: lang </p>
-<p>Koha: '08.25.11 [12:01:49]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>68</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined variable: topNavigation </p>
-<p>Koha: '08.25.11 [12:01:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (2) ndodhi ne linjen 
-<strong>68</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Invalid argument supplied for foreach() </p>
-<p>Koha: '08.25.11 [12:01:50]'</p>
-------------------------------------------------------------------------------------------------------------------
-=======
->>>>>>> 100de90d1337653b6819199fa05a0b9b2a197c22
  
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
 <p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:02:17]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:02:17]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:02:22]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:02:24]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:02:24]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:02:24]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:02:24]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:02:24]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:02:25]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:02:25]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:02:25]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:02:25]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:02:25]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:02:25]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:02:25]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:02:25]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:03:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:03:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:03:39]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:03:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:03:47]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:03:48]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:03:52]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>30</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Use of undefined constant LANG - assumed 'LANG' </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>32</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Use of undefined constant LANG - assumed 'LANG' </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:04:50]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:05:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:05:33]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>30</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Use of undefined constant LANG - assumed 'LANG' </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>32</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Use of undefined constant LANG - assumed 'LANG' </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:05:38]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:05:44]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:44]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:44]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:44]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:05:44]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:05:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:05:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:05:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:05:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:05:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>30</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Use of undefined constant LANG - assumed 'LANG' </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:08:08]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:30]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:43]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:45]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:48]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:09:53]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:53]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:53]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:53]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:09:53]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:53]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:09:53]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:09:53]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:10:01]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:10:02]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:10:05]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:10:06]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:11:15]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:11:15]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
-<p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:11:16]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:11:16]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:11:19]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:11:20]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:11:20]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:11:21]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>63</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Undefined variable: topNavigation </p>
-<p>Koha: '08.25.11 [13:12:25]'</p>
+<p>Koha: '08.25.11 [13:30:08]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (2) ndodhi ne linjen 
-<strong>63</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
-<p> Invalid argument supplied for foreach() </p>
-<p>Koha: '08.25.11 [13:12:25]'</p>
+<strong>542</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> mysql_fetch_array() expects parameter 1 to be resource, boolean given </p>
+<p>Koha: '08.25.11 [13:30:08]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
 <p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:12:37]'</p>
+<p>Koha: '08.25.11 [13:30:47]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
 <p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:12:39]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:12:40]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:12:42]'</p>
------------------------------------------------------------------------------------------------------------------- 
-------------------------------------------------------------------------------------------------------------------
-<p>Nje error (8) ndodhi ne linjen 
-<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
-<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:12:42]'</p>
+<p>Koha: '08.25.11 [13:30:48]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
 <p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:30:48]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (2) ndodhi ne linjen 
+<strong>542</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> mysql_fetch_array() expects parameter 1 to be resource, boolean given </p>
+<p>Koha: '08.25.11 [13:30:48]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:00]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:00]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:01]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:02]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:03]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:04]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:04]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:05]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:05]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:05]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:06]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:07]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
 <p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:32:07]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
 <p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:32:07]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
 <p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:32:07]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:07]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
 <p> Undefined index: submenu </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:08]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:09]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:09]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:10]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:10]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:11]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:11]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:11]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:11]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:11]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:32:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:32:16]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:32:16]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:21]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:22]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:23]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:23]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:24]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:24]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:25]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:25]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:26]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:27]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:27]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:33:39]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:11]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:12]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
 <p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
 <p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
 <p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
 <p> Undefined index: menu </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
 <p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
 <p> Undefined index: language </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
 ------------------------------------------------------------------------------------------------------------------ 
 ------------------------------------------------------------------------------------------------------------------
 <p>Nje error (8) ndodhi ne linjen 
 <strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
 <p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
-<p>Koha: '08.25.11 [13:12:46]'</p>
+<p>Koha: '08.25.11 [13:36:14]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:19]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:20]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:22]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:29]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:30]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:31]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:31]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>64</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: submenu </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>77</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>88</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\functions.php.</strong> /<p>
+<p> Undefined index: menu </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>10</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\index.php.</strong> /<p>
+<p> Undefined index: language </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
+------------------------------------------------------------------------------------------------------------------ 
+------------------------------------------------------------------------------------------------------------------
+<p>Nje error (8) ndodhi ne linjen 
+<strong>268</strong> ne <strong>dokumentin/file-in: D:\xampp\htdocs\Falco\classes\reservations.class.php.</strong> /<p>
+<p> Use of undefined constant Kthyese - assumed 'Kthyese' </p>
+<p>Koha: '08.25.11 [13:36:32]'</p>
 ------------------------------------------------------------------------------------------------------------------
