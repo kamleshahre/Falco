@@ -27,7 +27,7 @@ global $page;
 function rezervimet_switcher() {
 require_once 'reservations.class.php';
 global $subpage;
-	if (LANG == 'sq') {
+	if ($_COOKIE["lang"] == 'sq') {
 		switch ($subpage) {
 			case 'rezervo':
 			return reservations::rezervo();
@@ -50,7 +50,7 @@ global $subpage;
 				return reservations::rezervo();
 			break;
 		}
-	} elseif (LANG == 'en') {
+	} elseif ($_COOKIE["lang"] == 'en') {
 		switch ($subpage) {
 			case 'book':
 			return reservations::rezervo();

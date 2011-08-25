@@ -2,8 +2,8 @@
 header('Content-Type: text/html; charset=ISO-8859-1');
 //// Here below we its all about errors and how we handle them
 error_reporting (E_ALL ^E_NOTICE);
-//require_once 'classes/errors_handler.php';
-//set_error_handler('handle_errors');
+require_once 'classes/errors_handler.php';
+set_error_handler('handle_errors');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 (isset($_GET['menu'])) ? $page = $_GET['menu'] : $page = NULL;
 (isset($_GET['submenu'])) ? $subpage = $_GET['submenu'] : $subpage = NULL;
@@ -26,10 +26,10 @@ $lang = stripslashes($_GET['language']);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if(isset($_SESSION['username'])) $perdorues = $_SESSION['username'];
 //// Here we decide which sub page to be active the first time when we click on the page in the left 
-if(empty($page) && empty($subpage)){ // HERE I HAVE TO FIX THIS BECAUSE WHEN USER LOGSIN FOR THE FIRST TIME THE FIRST CATEGORY IS NOT ACTIVATED
-	if ('LANG' == 'sq') {
+if(empty($page) && empty($subpage)){ 
+	if ($_COOKIE['lang'] == 'sq') {
 	header("Location: index.php?menu=rezervimet&submenu=rezervo");
-	} elseif ('LANG' == 'en') {
+	} elseif ($_COOKIE['lang'] == 'en') {
 	header("Location: index.php?menu=rezervimet&submenu=book");	
 	}
 }elseif($page == 'perdoruesit' && empty($subpage)){
