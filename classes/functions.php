@@ -2,20 +2,19 @@
 
 //This function translates text
 function trans($phrase) {
-	    if (LANG == 'sq');
 		static $translations = NULL;
  		if (LANG == 'sq') {
 	    	return $phrase;
-	    }
-		else {
+ 		}else {
 			if (is_null($translations)) {
 		        $lang_file = INCLUDE_PATH.'/'.LANG.'.txt';
 		        if (!file_exists($lang_file)) {
 		            echo 'ERORR'.$lang_file;
+		            echo '<br/>'.LANG;
 		        }
 		        $lang_file_content = file_get_contents($lang_file);
 		        $translations = json_decode($lang_file_content, true);
-	    }
+	   		 }
 	    	return $translations[$phrase];
 	    }
 }

@@ -10,6 +10,7 @@ set_error_handler('handle_errors');
 $lang = stripslashes($_GET['language']); 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Here we check which langauge the user chosed
+	
 	if ($lang == 'sq') {
 		setcookie("lang","sq");
 	}
@@ -18,12 +19,14 @@ $lang = stripslashes($_GET['language']);
 	}
 	elseif ($lang == 'mk') {
 		setcookie("lang","mk");
+	}elseif (!isset($_COOKIE['lang'])) {
+		setcookie("lang","sq");
 	}
 //	define('LANG', $lang);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if(isset($_SESSION['username'])) $perdorues = $_SESSION['username'];
 //// Here we decide which sub page to be active the first time when we click on the page in the left 
-if(empty($page) && empty($subpage)){
+if(empty($page) && empty($subpage)){ // HERE I HAVE TO FIX THIS BECAUSE WHEN USER LOGSIN FOR THE FIRST TIME THE FIRST CATEGORY IS NOT ACTIVATED
 	if ('LANG' == 'sq') {
 	header("Location: index.php?menu=rezervimet&submenu=rezervo");
 	} elseif ('LANG' == 'en') {
