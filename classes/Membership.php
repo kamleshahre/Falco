@@ -16,6 +16,7 @@ class Membership {
 			$_SESSION['status'] = 'authorized';
 			$_SESSION['username'] = $un;
 			$_SESSION['roli'] = $roli['status'];
+			setcookie('lang','en');
 			header("location: index.php");
 		} else return "Ju lutem shënoni Pseudonim dhe fjalëkalim të saktë!";
 		
