@@ -174,10 +174,10 @@ $class = '';
 static function SpecialcharsCleaner($string) {
 
 $patterns = array();				$replacements = array();
-$patterns[0] = '/ë/';				$replacements[2] = 'e';
-$patterns[1] = '/ç/';				$replacements[1] = 'c';
-$patterns[2] = '/Ç/';				$replacements[0] = 'C';
-
+$patterns[0] = '/ë/';				$replacements[3] = 'e';
+$patterns[1] = '/ç/';				$replacements[2] = 'c';
+$patterns[2] = '/Ç/';				$replacements[1] = 'C';
+$patterns[3] = '/&euml;/';			$replacements[0] = 'e'; // &euml; this is the same as: ë
 return preg_replace($patterns, $replacements, $string);
  
 }
