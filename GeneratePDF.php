@@ -13,7 +13,7 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Falco System');
+$pdf->SetAuthor('Millennium');
 $pdf->SetTitle('Llogaria');
 $pdf->SetSubject('Llogaria');
 
@@ -54,7 +54,7 @@ $pdf->AddPage();
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 //set some language-dependent strings
 $pdf->setLanguageArray($l);
-$image = $pdf->Image("tcpdf/images/logo.png", 15, 20, 60, 15, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
+$image = $pdf->Image("tcpdf/images/logo.png", 15, 20, 27, 27, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
 if(isset($_GET['id'])) $id =  $_GET['id'];
 	//Here we check if there is any SQL injetion :)
 	if(isset($_GET['id']) && !ctype_digit($_GET['id']) && !empty($_GET['id'])) {
@@ -162,7 +162,7 @@ $html = <<<EOF
 <tr>
 	<td height="50" class="logo">$image</td>
 	<td class="Addressa">
-		Falco system<br/>
+		Millennium System<br/>
 		123 Rruga<br/>
 		Tetove, MKD<br/>
 		000 - 000 000<br/>
