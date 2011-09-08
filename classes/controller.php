@@ -73,6 +73,29 @@ global $subpage;
 				return reservations::rezervo();
 			break;
 		}
+	}elseif ($_COOKIE["lang"] == 'mk') {
+		switch ($subpage) {
+			case 'rezerviraj':
+			return reservations::rezervo();
+			break;
+			
+			case 'lista':
+			return ($_SESSION['roli']=='admin') ? reservations::lista() : reservations::lista_per_agent();
+			break;
+			
+			case 'profit':
+			return ($_SESSION['roli']=='admin') ? reservations::profit() :  reservations::profit_per_agent();
+			break;
+			
+		
+			case 'pomos':
+			return  Help_modules::reservation_help();
+			break;
+			
+			default:
+				return reservations::rezervo();
+			break;
+		}
 	}	
 }
 

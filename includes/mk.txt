@@ -1,0 +1,16 @@
+{
+		"T&euml; gjitha t&euml; drejtat e rezervuara":"Site Prava Zadrzani",
+	    "Emri":"Ime",
+	    "Mbiemri":"Prezime",
+	    "Prej":"Od",
+	    "Deri":"Do",
+	    "Data e nisjes":"Datum",
+	    "Data kthyese":"Datum na vraqanje",
+	    "Persona":"Persona",
+	    "Nj&euml; drejtim":"Eden pravec",
+	    "Kthyese":"Povratna",
+	    "Rezervo":"Rezerviraj",
+	    "Listat":"Lista",
+	    "Profit":"Profit",
+	    "Ndihm&euml;":"Pomos"
+}

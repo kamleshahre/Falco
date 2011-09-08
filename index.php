@@ -20,6 +20,7 @@ $lang = stripslashes($_GET['language']);
 	}
 	elseif ($lang == 'mk') {
 		setcookie("lang","mk");
+		header("Location: index.php");
 	}elseif (!isset($_COOKIE['lang'])) {
 		setcookie("lang","sq");
 	}
@@ -31,6 +32,8 @@ if(empty($page) && empty($subpage)){
 	header("Location: index.php?menu=rezervimet&submenu=rezervo");
 	} elseif ($_COOKIE['lang'] == 'en') {
 	header("Location: index.php?menu=rezervimet&submenu=book");	
+	} elseif ($_COOKIE['lang'] == 'mk') {
+	header("Location: index.php?menu=rezervimet&submenu=rezerviraj");	
 	}
 }elseif($page == 'perdoruesit' && empty($subpage)){
 	header("Location: index.php?menu=perdoruesit&submenu=agjentet");
