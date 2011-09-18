@@ -121,7 +121,7 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 	/**
 	 * header title
 	 */
-	define ('PDF_HEADER_TITLE', 'Falco System');
+	define ('PDF_HEADER_TITLE', 'Millennium');
 
 	/**
 	 * header description string

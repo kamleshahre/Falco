@@ -102,7 +102,7 @@ function getXMLHTTP() { //fuction to return the xml http object
 	<div id="header">
 	<div class="BigLogo"></div>
 		<div class="logoWrapper">
-			<img class="logo" src="css/images/logo.png" alt="Falco System" />
+			<img class="logo" src="css/images/logo.png" alt="Millennium" />
 			<p class="slogan">Administrimi i rezervimeve</p>
 		</div>
 		<div class="RightSettingsWrapper">
